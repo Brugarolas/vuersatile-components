@@ -1,0 +1,69 @@
+// -------- Semantic colors variables --------
+
+// We use these variables for interactions or states of a component.
+// We have five ranges of colors:
+// - Error colors: to highlight a failure in the interaction or a system error. This red is different from Bipi red.
+// - Success colors: to indicate a visual positive reinforcement of something done correctly.
+// - Warning colors: to highlight a caution or highlight an interaction in progress.
+// - Info colors: to highlight interactions that are not the main ones, but that should be highlighted compared to the already pre-established ones.
+// - Support colors: for cases not included in the four previous cases.
+
+// DON'T ADD MORE COLORS in this file without talking to UX.
+
+/* --------------How to use---------------- */
+//     color: $success-color-100;
+//     background-color: $success-color-5;
+//     border: 1px solid $success-color-140;
+/* ---------------------------------------- */
+
+// SEMANTIC COLORS
+
+// Error colors
+$error-color-5: #FFF2F2;  // Lighten-5
+$error-color-20: #FBC9CD;  // Lighten-20
+$error-color-30: #F6A2AC;  // Lighten-30
+$error-color-100: #D3003D;  // Main color
+$error-color-110: #B20023;  // Darken-110
+$error-color-130: #7B000D;  // Darken-130
+$error-color-140: #590006;  // Darken-140
+
+// Success colors
+$success-color-5: #F2FFF8;  // Lighten-5
+$success-color-20: #CBFAE4;  // Lighten-20
+$success-color-30: #A6F4D2;  // Lighten-30
+$success-color-100: #0BCE92;  // Main color
+$success-color-110: #087D59;  // Darken-110
+$success-color-130: #056245;  // Darken-130
+$success-color-140: #03402D;  // Darken-140
+
+// Warning colors
+$warning-color-5: #FFFAF2;  // Lighten-5
+$warning-color-20: #FFF2D8;  // Lighten-20
+$warning-color-30: #FFE4AD;  // Lighten-30
+$warning-color-100: #FF9E00;  // Main color
+$warning-color-110: #CF8600;  // Darken-110
+$warning-color-130: #8A5F00;  // Darken-130
+$warning-color-140: #604500;  // Darken-140
+
+// Info colors
+$info-color-5: #F2F9FF;  // Lighten-5
+$info-color-20: #DCF1FF;  // Lighten-20
+$info-color-30: #C7E8FF;  // Lighten-30
+$info-color-100: #42A5F5;  // Main color
+$info-color-110: #097EC9;  // Darken-110
+$info-color-130: #035D87;  // Darken-130
+$info-color-140: #01455F;  // Darken-140
+
+// Support colors
+$support-color-5: #FBF2FF;  // Lighten-5
+$support-color-20: #EFD8F8;  // Lighten-20
+$support-color-30: #E4C0F0;  // Lighten-30
+$support-color-100: #AE45C5;  // Main color
+$support-color-110: #9010A9;  // Darken-110
+$support-color-130: #690677;  // Darken-130
+$support-color-140: #4E0257;  // Darken-140
+
+// SOME GENERAL USE OF COLORS
+
+// Text colors
+$text-error-color: $error-color-100;  // Text error color

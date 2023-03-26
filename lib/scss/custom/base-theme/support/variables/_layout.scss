@@ -1,0 +1,37 @@
+// -------- Layout variables --------
+
+// ********** IMPORTANT!! **********
+// DON'T OVERWRITE THESE VARIABLES.
+// YOU DON'T NEED TO USE THEM, they are used
+// to generate our grid system.
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px
+);
+
+// Breakpoint widths
+$width-xs: 0;       // breakpoint for small smartphone devices (from 0px to 575px)
+$width-sm: 576px;   // breakpoint for big smartphone devices (from 576px to 767px)
+$width-md: 768px;   // breakpoint for tablet devices (from 768px to 1023px)
+$width-lg: 1024px;  // breakpoint for small screens (from 1024px to 1439px)
+$width-xl: 1440px;  // breakpoint for big screens (from 1440px onwards)
+
+// Container max widths
+$container-max-widths: (
+  xs: 100%,    // max-width for small smartphone devices (100%)
+  sm: 575px,   // max-width for big smartphone devices (from 100% to 575px)
+  md: 767px,   // max-width for tablet devices (from 576px to 767px)
+  lg: 1023px,  // max-width for small screens (from 768px to 1023px)
+  xl: 1200px,  // max-width for big screens (from 1024px to 1200px)
+);
+
+// Grid columns/gutter
+// Set the number of columns and specify the width of the gutters.
+$grid-columns: 12;
+$grid-gutter-width: 24px;
+$grid-gutter-width-mobile: 16px;

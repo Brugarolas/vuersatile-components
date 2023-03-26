@@ -1,0 +1,31 @@
+// -------- Functions --------
+
+// Rem function (transform px in rems)
+// We only use this function to define font-size or spacings (defined in variables file)
+// For the moment, YOU DON´T NEED TO USE IT IN YOUR CODE.
+
+/* --------------How to use---------------- */
+//    font-size: rem(12);
+/* ---------------------------------------- */
+
+@function rem($size) {
+  $remSize: calc($size / $base-size);
+  @return #{$remSize}rem;
+}
+
+
+// Spin-ac function (spin animation)
+
+/* --------------How to use---------------- */
+//    animation: spin-ac 2s linear infinite;
+/* ---------------------------------------- */
+
+@keyframes spin-ac {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}

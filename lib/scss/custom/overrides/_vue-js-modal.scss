@@ -1,0 +1,22 @@
+#modals-container {
+  .vm--container {
+    z-index: 1000;
+  }
+
+  .vm--modal {
+    left: unset !important;
+    top: 50% !important;
+    height: auto !important;
+    margin: 0 auto;
+    max-width: 90vw;
+    max-height: 90vh;
+    transform: translateY(-50%);
+    border-radius: $modal-border-radius;
+    box-shadow: 0 rem(20) rem(60) rem(-2) rgba($greyscale-color-90, 0.4);
+  }
+
+  .vm--container.scrollable .vm--modal {
+    overflow: visible;
+    box-shadow: $box-shadow-0;
+  }
+}

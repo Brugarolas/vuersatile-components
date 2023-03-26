@@ -1,0 +1,25 @@
+// -------- Icons --------
+
+// ********** IMPORTANT!! **********
+// YOU DON´T NEED TO USE THIS MIXIN IN ICONS,
+// it's included in Icon.vue component.
+
+/* --------------How to use---------------- */
+//    @include vuersatile-icons-font;
+/* ---------------------------------------- */
+
+@mixin vuersatile-icons-font {
+  color: inherit;
+  display: block;
+  font-family: 'vuersatile-icons';
+  font-size: $font-size-16;
+  font-style: normal;
+  font-weight: $fw-light;
+  font-variant: normal;
+  flex-shrink: 0;
+  line-height: $line-height-normal;
+  speak: never;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

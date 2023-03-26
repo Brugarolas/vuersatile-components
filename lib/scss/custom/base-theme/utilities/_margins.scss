@@ -1,0 +1,59 @@
+// -------- Margin classes--------
+
+// Responsive margin helpers.
+// Loop through the breakpoint values.
+// You can use different values for margin in each breackpoint.
+// You need to specify the breakpoint when you use theses classes
+// (eg: mt-xs-3)
+
+/* --------------How to use---------------- */
+//    .m-xs-3
+//    .mt-sm-3
+//    .mr-md-3
+//    .mb-lg-3
+//    .ml-xl-3
+//    .mt-sm-4.mt-lg-8
+/* ---------------------------------------- */
+
+@each $media-size in map-keys($grid-breakpoints) {
+  $breakpoint-width: map-get($grid-breakpoints, $media-size);
+
+  // Loop through the 'spaces' values (defined in variables/_spacing.scss)
+  @each $i, $size in $spaces {
+
+    @media (min-width: $breakpoint-width) {
+      .m-#{$media-size}-#{$i} { // Set margin #{$size} (in all sides)
+        margin: #{$size};
+      }
+
+      .mt-#{$media-size}-#{$i} { // Set margin-top #{$size}
+        margin-top: #{$size};
+      }
+
+      .mr-#{$media-size}-#{$i} { // Set margin-right #{$size}
+        margin-right: #{$size};
+      }
+
+      .mb-#{$media-size}-#{$i} { // Set margin-bottom #{$size}
+        margin-bottom: #{$size};
+      }
+
+      .ml-#{$media-size}-#{$i} { // Set margin-left #{$size}
+        margin-left: #{$size};
+      }
+    }
+  }
+}
+
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}

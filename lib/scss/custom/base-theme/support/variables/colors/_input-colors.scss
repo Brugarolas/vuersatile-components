@@ -1,0 +1,38 @@
+// -------- Input component color variables --------
+
+// Theses variables are ONLY USED in Input component.
+// DON'T USE THEM IN OTHER COMPONENTS OR VIEWS.
+
+/* --------------How to use---------------- */
+//     color: $input-text;
+/* ---------------------------------------- */
+
+// Input Default
+$input-text: $text-color;
+$input-placeholder: $greyscale-color-20;
+$input-background: $greyscale-color-0;
+$input-border: $greyscale-color-30;
+$input-icon: $greyscale-color-30;
+
+// Input Hover
+$input-background-hover: $primary-color-5;
+
+// Input Active
+$input-border-active: $primary-color-100;
+$input-background-active: $primary-color-100;
+$input-icon-active: $primary-color-100;
+$input-icon-negative-active: $greyscale-color-0;
+
+// Input Error
+$input-text-error: $error-color-100;
+$input-border-error: $error-color-100;
+$input-icon-error: $error-color-100;
+
+// Input Disabled
+$input-text-disabled: $disabled-dark-color;
+$input-label-disabled: $disabled-color;
+$input-placeholder-disabled: $disabled-dark-color;
+$input-background-disabled: $disabled-light-color;
+$input-background-active-disabled: $disabled-color;
+$input-border-disabled: $disabled-color;
+$input-icon-disabled: $disabled-color;

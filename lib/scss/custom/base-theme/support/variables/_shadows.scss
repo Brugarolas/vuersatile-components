@@ -1,0 +1,13 @@
+// -------- Shadows variables --------
+
+// We use this variables in every element that need a box-shadow.
+
+/* --------------How to use---------------- */
+//     box-shadow: $box-shadow-1;
+/* ---------------------------------------- */
+
+$box-shadow-0: 0 0 0 0;
+$box-shadow-1: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.1);
+$box-shadow-2: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.2);
+$box-shadow-3: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.3);
+$box-shadow-4: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.4);

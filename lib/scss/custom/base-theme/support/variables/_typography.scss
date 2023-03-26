@@ -1,0 +1,60 @@
+// -------- Typography variables --------
+// We use this variables in every element that need a
+// font-size, font-weight or line-height.
+
+$google-font: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap';
+
+// Typography base variables
+// DON'T USE THEM IN COMPONENTS OR VIEWS.
+// They are needed in resets.
+
+$base-size: 16;
+$font-size-base: 16px;
+
+// Font-family variables
+
+/* --------------How to use---------------- */
+//     font-family: $font-family-base;
+/* ---------------------------------------- */
+
+$font-family-base: "Open Sans", sans-serif;
+
+// Font-size variables
+
+/* --------------How to use---------------- */
+//     font-size: $font-size-14;
+/* ---------------------------------------- */
+
+$font-size-9: rem(9);   // 0.563rem - Legals font-size
+$font-size-10: rem(10); // 0.625rem - Caption font-size
+$font-size-12: rem(12); // 0.75rem  - Body smaller font-size (body-3) and Icons size XS
+$font-size-14: rem(14); // 0.875rem - Body default font-size (body-2)
+$font-size-16: rem(16); // 1rem     - Body bigger font-size (body-1), H6 font-size and Icons size S
+$font-size-18: rem(18); // 1.125rem - H5 font-size
+$font-size-20: rem(20); // 1.25rem  - H4 font-size
+$font-size-22: rem(22); // 1.375rem - H3 font-size
+$font-size-24: rem(24); // 1.5rem   - Icons size M
+$font-size-26: rem(26); // 1.625rem - H2 font-size
+$font-size-28: rem(28); // 1.75rem  - H1 font-size
+$font-size-32: rem(32); // 2rem     - Icons size L
+
+// Font-weight variables
+
+/* --------------How to use---------------- */
+//     font-weight: $fw-bold;
+/* ---------------------------------------- */
+
+$fw-light: 300;         // light font-weight
+$fw-regular: 400;       // regular font-weight
+$fw-semibold: 600;      // semibold font-weight
+$fw-bold: 700;          // bold font-weight
+
+// Line-height variables
+
+/* --------------How to use---------------- */
+//     line-height: $line-height-normal;
+/* ---------------------------------------- */
+
+$line-height-small: 1;    // Smallest line-height
+$line-height-normal: 1.2; // Base line-height
+$line-height-big: 1.5;    // Biggest line-height

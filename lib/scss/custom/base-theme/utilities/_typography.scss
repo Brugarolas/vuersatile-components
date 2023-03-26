@@ -1,0 +1,54 @@
+// -------- Typography classes --------
+
+// Font-weight
+
+/* --------------How to use---------------- */
+//     .fw-semibold
+/* ---------------------------------------- */
+.fw-light {
+  font-weight: $fw-light;
+}
+
+.fw-regular {
+  font-weight: $fw-regular;
+}
+
+.fw-semibold {
+  font-weight: $fw-semibold;
+}
+
+.fw-bold {
+  font-weight: $fw-bold;
+}
+
+// Text-align
+
+/* --------------How to use---------------- */
+//     .text-center
+/* ---------------------------------------- */
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Other text helpers
+
+/* --------------How to use---------------- */
+//     .white-space-nowrap
+//     .ellipsis
+/* ---------------------------------------- */
+.white-space-nowrap {
+  white-space: nowrap;
+}
+
+.ellipsis {
+  @include text-overflow-ellipsis;
+  display: block;
+}

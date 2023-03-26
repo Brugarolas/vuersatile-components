@@ -1,0 +1,49 @@
+// -------- Miscellaneous --------
+
+// Text-overflow-ellipsis
+
+/* --------------How to use---------------- */
+//    @include text-overflow-ellipsis;
+/* ---------------------------------------- */
+
+@mixin text-overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Transitions
+
+/* --------------How to use---------------- */
+//    @include transition-height;
+/* ---------------------------------------- */
+
+@mixin transition-height {
+  overflow: hidden;
+  position: relative;
+  transition: height .25s linear, opacity 0.25s ease;
+  // will-change: height, opacity; // animation optimization // it doesn't work in CollapsableBox component with outter elements (like InputSelect)
+}
+
+// Overrides
+
+/* --------------How to use---------------- */
+//    @include button-reset-browser-tap-styles;
+/* ---------------------------------------- */
+
+@mixin button-reset-browser-tap-styles {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+/* --------------How to use---------------- */
+//    @include button-reset-styles;
+/* ---------------------------------------- */
+
+@mixin button-reset-styles {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

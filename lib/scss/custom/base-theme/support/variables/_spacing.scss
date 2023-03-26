@@ -1,0 +1,50 @@
+// -------- Spacing variables --------
+// We use this variables in every element that need a MARGIN or PADDING.
+
+// ********** IMPORTANT!! **********
+// We only use this variables in paddings and margins,
+// not in widths, heights or borders.
+// We use REM function to define spacing sizes.
+// In borders, widths and heights we use PX always.
+
+/* --------------How to use---------------- */
+//     margin-top: $space-4;
+//     padding: $space-8;
+/* ---------------------------------------- */
+
+$space-1: rem($base-size * 0.25);  // 4px
+$space-2: rem($base-size * 0.5);   // 8px
+$space-3: rem($base-size * 0.75);  // 12px
+$space-4: rem($base-size * 1);     // 16px
+$space-5: rem($base-size * 1.25);  // 20px
+$space-6: rem($base-size * 1.5);   // 24px
+$space-7: rem($base-size * 1.75);  // 28px
+$space-8: rem($base-size * 2);     // 32px
+$space-9: rem($base-size * 2.25);  // 36px
+$space-10: rem($base-size * 2.5);  // 40px
+$space-12: rem($base-size * 3);    // 48px
+$space-14: rem($base-size * 3.5);  // 56px
+$space-15: rem($base-size * 3.75); // 60px
+$space-16: rem($base-size * 4);    // 64px
+$space-24: rem($base-size * 6);    // 96px
+$space-34: rem($base-size * 8.5);  // 136px
+
+$spaces: (
+  0: 0,
+  1: $space-1,
+  2: $space-2,
+  3: $space-3,
+  4: $space-4,
+  5: $space-5,
+  6: $space-6,
+  7: $space-7,
+  8: $space-8,
+  9: $space-9,
+  10: $space-10,
+  12: $space-12,
+  14: $space-14,
+  15: $space-15,
+  16: $space-16,
+  24: $space-24,
+  34: $space-34
+);

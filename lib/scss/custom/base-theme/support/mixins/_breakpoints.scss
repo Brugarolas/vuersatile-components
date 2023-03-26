@@ -1,0 +1,82 @@
+// -------- Breakpoint viewport sizes and media queries --------
+
+// ********** IMPORTANT!! **********
+// YOU DON´T NEED TO USE THESE FUNTIONS OR MIXINS.
+// They are used and included in `grid_template` file.
+
+// THE ONLY MIXIN YOU MUST USE IS @include media($media-size)
+// documented below.
+
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 1024px, xl: 1440px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  @if map-has-key($grid-breakpoints, $name) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+  } @else {
+    @error "Invalid breakpoint: #{$media-size}.";
+  }
+}
+
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+
+//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 1024px, xl: 1440px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 1024px, xl: 1440px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// ********** IMPORTANT!! **********
+// THIS IS THE MIXIN YOU MUST USE
+
+// Mixin for easy to use mediaqueries
+/* --------------How to use---------------- */
+//    You can use these media query:
+//      @include media(xs)
+//      @include media(sm)
+//      @include media(md)
+//      @include media(lg)
+//      @include media(xl)
+
+//    e.g:
+//      @include media(md) {
+//        property: value;
+//     }
+/* ---------------------------------------- */
+
+@mixin media($media-size) {
+  @if map-has-key($grid-breakpoints, $media-size) {
+    $breakpoint-width: map-get($grid-breakpoints, $media-size);
+    $breakpoint-index: index(map-keys($grid-breakpoints), $media-size);
+
+    @if ($breakpoint-index == 1) { // First - SCSS indexes starts at 1
+      $next-breakpoint-width: nth(map-values($grid-breakpoints), 2);
+      @media (max-width: #{$next-breakpoint-width - 1}) { @content; }
+    } @else {
+      @media (min-width: $breakpoint-width) { @content; }
+    }
+  } @else {
+    @error "Invalid breakpoint: #{$media-size}.";
+  }
+}
