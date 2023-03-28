@@ -4,6 +4,6 @@ import { Button } from '@/components/interactive'
 
 <template>
   <main>
-    <Button />
+    <Button :text="'Button'" />
   </main>
 </template>
