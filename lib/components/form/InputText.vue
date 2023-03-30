@@ -53,6 +53,10 @@ export default {
       type: String,
       default: null
     },
+    iconVariant: {
+      type: String,
+      default: 'fa-solid'
+    },
     customError: {
       type: String,
       default: null

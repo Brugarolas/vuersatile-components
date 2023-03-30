@@ -4,7 +4,7 @@
     :class="[statusClass, disabledClass, focusClass]")
     label.input-base__label(v-if="label", :for="fieldId") {{ label }}
 
-    .input-base__wrapper
+    .input-base__wrapper(:class="showFirstIcon ? 'input-base--first-icon' : 'input-base--second-icon'")
       Button.input-base__left-button(v-if="leftButtonProps", :disabled="leftButtonProps.disabled" :type="leftButtonProps.type", :size="leftButtonProps.size", :icon="leftButtonProps.icon", :variant="leftButtonProps.variant", :colorType="leftButtonProps.colorType" @click="_ => leftButtonProps.clickHandler()")
 
       textarea.input-base__input(
@@ -24,7 +24,8 @@
         v-on="listeners",
         v-bind="attributes"
       )
-      Icon.input-base__right-icon(v-if="icon", :icon="icon", :size="iconSize", @click="clickIconHandler")
+      Icon.input-base__right-icon.icon-base--first(v-if="icon", :icon="icon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
+      Icon.input-base__right-icon.icon-base--second(v-if="secondIcon", :icon="secondIcon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
 
       Button.input-base__right-button(v-if="rightButtonProps", :disabled="rightButtonProps.disabled" :type="rightButtonProps.type", :size="rightButtonProps.size", :icon="rightButtonProps.icon", :variant="rightButtonProps.variant", :colorType="rightButtonProps.colorType" @click="_ => rightButtonProps.clickHandler()")
 
@@ -69,6 +70,18 @@ export default {
     icon: {
       type: String,
       default: null
+    },
+    secondIcon: {
+      type: String,
+      default: null,
+    },
+    showFirstIcon: {
+      type: Boolean,
+      default: true
+    },
+    iconVariant: {
+      type: String,
+      default: 'fa-solid'
     },
     iconSize: {
       type: String,
@@ -229,6 +242,18 @@ export default {
     height: 100%;
     padding-right: $space-2;
     transition: all .3s ease;
+  }
+
+  .input-base--first-icon {
+    .icon-base--second {
+      display: none;
+    }
+  }
+
+  .input-base--second-icon {
+    .icon-base--first {
+      display: none;
+    }
   }
 
   &__input {

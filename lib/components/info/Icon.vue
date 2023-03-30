@@ -1,5 +1,5 @@
 <template lang="pug">
-i.v-icon(:class="[iconClass, colorClass, iconSize]", @click="$emit('click')")
+i.v-icon(:class="[iconClass, colorClass, iconSize]")
 </template>
 
 <script>

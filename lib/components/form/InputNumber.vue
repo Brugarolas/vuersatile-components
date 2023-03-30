@@ -1,19 +1,19 @@
 <template lang="pug">
 InputBase.input-number(
-    v-model="value",
-    type="number",
-    :name="name",
-    :label="label",
-    :icon="icon",
-    :error="shouldShowErrors ? errorMessage : null",
-    :placeholder="placeholder",
-    :step="step",
-    :min="min",
-    :max="max",
-    :disabled="disabled",
-    @input="input",
-    @change="change"
-  )
+  :initialValue="initialValue",
+  type="number",
+  :name="name",
+  :label="label",
+  :icon="icon",
+  :error="shouldShowErrors ? errorMessage : null",
+  :placeholder="placeholder",
+  :step="step",
+  :min="min",
+  :max="max",
+  :disabled="disabled",
+  @input="input",
+  @change="change"
+)
 </template>
 
 <script>
@@ -33,6 +33,10 @@ export default {
     icon: {
       type: String,
       default: null
+    },
+    iconVariant: {
+      type: String,
+      default: 'fa-solid'
     },
     placeholder: {
       type: String,
@@ -90,29 +94,33 @@ export default {
     },
 
     /* Own methods */
-    input () {
+    input (value) {
       this.dirty = true
 
-      this.convertInputToNumber()
+      this.convertInputToNumber(value)
 
       this.$emit('input', this.value)
 
       this.validate()
     },
-    change () {
-      this.convertInputToNumber()
+    change (value) {
+      this.convertInputToNumber(value)
 
       this.$emit('change', this.value)
     },
 
-    convertInputToNumber () {
+    convertInputToNumber (newValue) {
+      const value = newValue || this.value
+
       // If value is not valid or not a string, do nothing
-      if (!this.value || typeof this.value !== 'string') {
+      if (!value || typeof value !== 'string') {
+        this.value = value
+
         return
       }
 
       // Convert string value to number if possible
-      const numberValue = Number(this.value.replace(',', '.'))
+      const numberValue = Number(value.replace(',', '.'))
 
       if (!isNaN(numberValue)) {
         this.value = numberValue

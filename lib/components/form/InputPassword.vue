@@ -1,20 +1,22 @@
 <template lang="pug">
 InputBase.input-password(
-    {{showPassword}}
-    v-model="value",
-    :type="inputTypePassword",
-    :name="name",
-    :label="label",
-    :icon="iconPassword",
-    iconSize="xs",
-    :error="shouldShowErrors ? errorMessage : null",
-    :placeholder="placeholder",
-    :autocomplete="autocomplete",
-    :disabled="disabled",
-    @input="input",
-    @change="change",
-    @iconClick="showPassword=!showPassword"
-  )
+  :initialValue="initialValue",
+  :type="inputTypePassword",
+  :name="name",
+  :label="label",
+  icon="eye",
+  secondIcon="eye-slash",
+  :showFirstIcon="showPassword",
+  iconSize="s",
+  :error="shouldShowErrors ? errorMessage : null",
+  :placeholder="placeholder",
+  :autocomplete="autocomplete",
+  :disabled="disabled",
+  :class="[showPasswordClass]"
+  @input="input",
+  @change="change",
+  @iconClick="switchShowPassword"
+)
 </template>
 
 <script>
@@ -30,15 +32,17 @@ export default {
   },
   data () {
     return {
-      showPassword: false
+      showPassword: true
     }
   },
   computed: {
-    iconPassword () {
-      return this.showPassword ? 'eye-slash-solid' : 'eye-solid'
-    },
     inputTypePassword () {
       return this.showPassword ? 'text' : 'password'
+    }
+  },
+  methods: {
+    switchShowPassword () {
+      this.showPassword = !this.showPassword
     }
   }
 }
