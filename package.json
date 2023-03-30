@@ -18,11 +18,14 @@
     "@fortawesome/pro-light-svg-icons": "^6.3.0",
     "@fortawesome/pro-regular-svg-icons": "^6.3.0",
     "@fortawesome/pro-solid-svg-icons": "^6.3.0",
-    "vue": "^3.2.47"
+    "dayjs": "^1.11.7",
+    "vue": "^3.2.47",
+    "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/compat": "^3.2.47",
     "@vue/test-utils": "^2.3.0",
     "babel-loader": "^8.3.0",
     "cypress": "^12.7.0",

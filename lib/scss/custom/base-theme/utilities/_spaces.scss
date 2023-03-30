@@ -41,6 +41,26 @@
       .ml-#{$media-size}-#{$i} { // Set margin-left #{$size}
         margin-left: #{$size};
       }
+
+      .p-#{$media-size}-#{$i} { // Set padding #{$size} (in all sides)
+        padding: #{$size};
+      }
+
+      .pt-#{$media-size}-#{$i} { // Set padding-top #{$size}
+        padding-top: #{$size};
+      }
+
+      .pr-#{$media-size}-#{$i} { // Set padding-right #{$size}
+        padding-right: #{$size};
+      }
+
+      .pb-#{$media-size}-#{$i} { // Set padding-bottom #{$size}
+        padding-bottom: #{$size};
+      }
+
+      .pl-#{$media-size}-#{$i} { // Set padding-left #{$size}
+        padding-left: #{$size};
+      }
     }
   }
 }
@@ -49,11 +69,21 @@
   margin-right: auto;
   margin-left: auto;
 }
-
 .mr-auto {
   margin-right: auto;
 }
-
 .ml-auto {
   margin-left: auto;
 }
+
+.px-auto {
+  padding-right: auto;
+  padding-left: auto;
+}
+.pr-auto {
+  padding-right: auto;
+}
+.pl-auto {
+  padding-left: auto;
+}
+

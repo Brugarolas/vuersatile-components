@@ -12,10 +12,22 @@ export default defineConfig({
       }
     }
   },
-  plugins: [vue()],
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./lib', import.meta.url))
+      // vue: '@vue/compat',
+      // Vue: '@vue/compat'
     }
-  }
+  },
+
+  plugins: [vue(/*{
+    template: {
+      compilerOptions: {
+        compatConfig: {
+          MODE: 2
+        }
+      }
+    }
+  }*/)],
 })

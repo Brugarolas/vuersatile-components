@@ -1,0 +1,132 @@
+<template lang="pug">
+InputBase.input-textarea(
+    v-model="value",
+    type="textarea",
+    :class="{ 'input-textarea--no-resize': !allowResize, 'input-textarea--autoresize': autoResize }",
+    :name="name",
+    :label="label",
+    :icon="icon",
+    :error="shouldShowErrors ? errorMessage : null",
+    :placeholder="placeholder",
+    :rows="currentRows",
+    :disabled="disabled",
+    @input="input",
+    @change="change",
+    @input-native="doAutoResize"
+  )
+</template>
+
+<script>
+import { InputBase } from './_internal'
+import InputText from './InputText.vue'
+
+export default {
+  components: {
+    InputBase
+  },
+  mixins: [InputText],
+
+  props: {
+    allowResize: {
+      type: Boolean,
+      default: false
+    },
+    autoResize: {
+      type: Boolean,
+      default: true
+    },
+    rows: {
+      type: Number,
+      default: 2
+    }
+  },
+
+  data () {
+    return {
+      hasFocus: false,
+      currentRows: 2
+    }
+  },
+
+  created () {
+    if (this.rows) {
+      this.currentRows = this.rows
+    }
+  },
+
+  async mounted () {
+    if (this.autoResize) {
+      await this.$nextTick()
+
+      this._doAutoResize(this.$el.querySelector('.input-base__input'))
+    }
+  },
+
+  methods: {
+    doAutoResize (event) {
+      if (!this.autoResize) {
+        return
+      }
+
+      this._doAutoResize(event.target)
+    },
+
+    _doAutoResize (element) {
+      if (!element) {
+        return
+      }
+
+      const computedStyles = this._getComputedStyles(element)
+      const neededRows = Math.round((element.scrollHeight - computedStyles.paddingVertical) / computedStyles.lineHeight)
+
+      this.currentRows = Math.max(this.rows, neededRows)
+    },
+
+    _getComputedStyles (element) {
+      if (!element.computedStyles) {
+        const computedStyles = window.getComputedStyle(element)
+
+        element.computedStyles = {
+          lineHeight: Number(computedStyles['line-height'].replace('px', '')),
+          paddingVertical: Number(computedStyles['padding-top'].replace('px', '')) + Number(computedStyles['padding-bottom'].replace('px', ''))
+        }
+      }
+
+      return element.computedStyles
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.input-textarea {
+  &--no-resize {
+    .input-base__input {
+      resize: none;
+    }
+  }
+
+  &--autoresize {
+    .input-base__input {
+      overflow: hidden;
+      resize: none;
+    }
+  }
+
+  &.input-base {
+    .input-base__wrapper {
+      display: block;
+      height: auto;
+      overflow: auto;
+    }
+
+    .input-base__input {
+      display: flex;
+      min-height: 128px;
+      padding: $space-2;
+      resize: vertical;
+      white-space: normal;
+    }
+  }
+}
+</style>

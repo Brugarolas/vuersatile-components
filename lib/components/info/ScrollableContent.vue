@@ -1,6 +1,6 @@
 <template lang="pug">
-    .scrollable-content
-        slot
+.scrollable-content
+  slot
 </template>
 
 <style lang="scss">
