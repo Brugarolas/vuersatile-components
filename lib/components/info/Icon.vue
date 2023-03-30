@@ -52,10 +52,6 @@ export default {
     color: $primary-color-100;
   }
 
-  &--brand {
-    color: $brand-color-100;
-  }
-
   &--negative {
     color: $greyscale-color-0;
   }
