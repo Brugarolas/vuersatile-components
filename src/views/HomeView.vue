@@ -10,7 +10,8 @@ import {
   Checkbox,
   InputTextarea,
   RadioButtonGroup,
-  InputSelect
+  InputSelect,
+  InputMultiSelect
 } from '@/components/form';
 
 const minAge = 18
@@ -31,6 +32,16 @@ const selectOptions = [
   { value: { id: 2, text: 'FREELANCE' }, text: 'I\'m a freelance' },
   { value: { id: 3, text: 'COMPANY' }, text: 'I\'m a company' },
   { value: { id: 4, text: 'OTHER' }, text: 'None of the above' }
+]
+
+const multiselectOptions = [
+  { value: { id: 1, text: 'VUE' }, text: 'Vue.js' },
+  { value: { id: 2, text: 'REACT' }, text: 'React' },
+  { value: { id: 3, text: 'ANGULAR' }, text: 'Angular' },
+  { value: { id: 4, text: 'EMBER' }, text: 'Ember' },
+  { value: { id: 5, text: 'SVELTE' }, text: 'Svelte' },
+  { value: { id: 6, text: 'AURELIA' }, text: 'Aurelia' },
+  { value: { id: 7, text: 'LIT' }, text: 'Lit/Polymer' }
 ]
 
 const log = (formData) => {
@@ -79,8 +90,19 @@ main.pr-xs-6.pl-xs-6
           InputTextarea(name="comments", label="CV summary", placeholder="Write here the summary of your employment history", :validations="['not-empty']")
       
       .row
-        .col-12.mb-xs-4
+        .col-5.mb-xs-4
           InputSelect.mb-xs-2(name="select", label="Select an option", placeholder="Select a job...", :required="true", :allowClear="true", :mountOptionsOutside="true", :options="selectOptions")
+
+        .col-7.mb-xs-4
+          InputMultiSelect(
+            name="multi",
+            label="Select one or multiple options",
+            placeholder="Favourite JavaScript framework",
+            :required="true",
+            :allowClear="true",
+            :options="multiselectOptions",
+            :initialValue="[multiselectOptions[0].value]"
+          )
 
       .row
         .col-6.mb-xs-4

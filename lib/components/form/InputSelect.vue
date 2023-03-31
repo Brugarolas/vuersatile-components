@@ -31,7 +31,7 @@
         InputBase.input-select__search-bar(
           v-model="search",
           :name="'Search'",
-          :icon="'magnifying-glass-regular'",
+          :icon="'magnifying-glass'",
           :placeholder="$t('Search')"
           @click.stop
         )
