@@ -10,10 +10,10 @@
       li.segmented-control__option-item(
         v-for="(option, index) in selectableOptions",
         :key="option.key",
-        :class="{ 'segmented-control__option-item--selected': option === optionSelected }",
+        :class="{ 'segmented-control__option-item--selected': option.key === optionSelected?.key }",
         :data-item="`${name}-${index}`"
       )
-        button.segmented-control__option-button(type="button", @click.prevent="select(option.value)")
+        button.segmented-control__option-button(type="button", @click="select(option.value)")
           span.segmented-control__option-text {{ option.label }}
 
     TransitionHeight
@@ -78,7 +78,7 @@ export default {
         return true
       }
 
-      return (!this.required || this.allowEmpty) || this.hasSelected
+      return (!this.required || this.allowUnselected) || this.hasSelected
     },
 
     /* Own computed properties */
@@ -106,7 +106,7 @@ export default {
         return this.allowUnselected || !this.hasSelectableOptions ? null : this.selectableOptions[0]
       }
 
-      return this.selectableOptions.find(option => option.value === this.value)
+      return this.selectableOptions.find(option => option.value.id === this.value.id)
     }
   },
 

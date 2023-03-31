@@ -12,7 +12,6 @@ InputBase.input-password(
   :placeholder="placeholder",
   :autocomplete="autocomplete",
   :disabled="disabled",
-  :class="[showPasswordClass]"
   @input="input",
   @change="change",
   @iconClick="switchShowPassword"

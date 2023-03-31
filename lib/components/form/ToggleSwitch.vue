@@ -63,6 +63,10 @@ export default {
   }
 
   &__label {
+    @include text-overflow-ellipsis;
+    color: $input-text;
+    display: block;
+    font-weight: $fw-semibold;
     margin-bottom: $space-2;
     transition: color 0.3s ease;
   }
