@@ -11,7 +11,7 @@
     v-bind="attributes"
   )
   span.checkbox-base__check
-    Icon.checkbox-base__icon(icon="check-solid", size="xs")
+    Icon.checkbox-base__icon(icon="check", size="xs")
   label.checkbox-base__label(v-if="label", :for="fieldId") {{ label }}
 </template>
 
@@ -54,11 +54,14 @@ export default {
 
     listeners () {
       return {
-        ...this.$listeners,
-
         input: (event) => {
           this.$emit('input', event.target.checked)
           this.$emit('input-native', event)
+        },
+
+        change: (event) => {
+          this.$emit('change', event.target.value)
+          this.$emit('change-native', event)
         },
 
         click: (event) => {

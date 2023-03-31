@@ -1,7 +1,7 @@
 <template lang="pug">
 .input-base(
     :data-field-name="fieldName",
-    :class="[statusClass, disabledClass, focusClass]")
+    :class="[statusClass, disabledClass, focusClass, ...classes]")
     label.input-base__label(v-if="label", :for="fieldId") {{ label }}
 
     .input-base__wrapper(:class="showFirstIcon ? 'input-base--first-icon' : 'input-base--second-icon'")
@@ -51,6 +51,11 @@ export default {
   inheritAttrs: false,
 
   props: {
+    classes: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
     initialValue: {
       type: [Object, String, Number, Boolean],
       required: false
@@ -159,6 +164,10 @@ export default {
           this.$emit('keydown', event.target.value)
           this.$emit('keydown-native', event)
         },
+
+        resize: (event) => {
+          this.$emit('resize', event);
+        }
       }
     },
 

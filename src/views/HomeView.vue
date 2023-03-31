@@ -1,6 +1,6 @@
 <script setup>
 import { Card } from '@/components/info'
-import { Form, InputText, InputNumber, InputPassword, ToggleSwitch, SegmentedControl } from '@/components/form';
+import { Form, InputText, InputNumber, InputPassword, ToggleSwitch, SegmentedControl, Checkbox, InputTextarea } from '@/components/form';
 
 const minAge = 18
 
@@ -45,9 +45,16 @@ main.pr-xs-6.pl-xs-6
         .col-6.col-lg-4.col-xl-2.mb-xs-4
           ToggleSwitch(name="newsletter", label="Send me weekly")
         
+        .col-6.col-lg-4.col-xl-2.mb-xs-4.mt-xs-4
+          Checkbox(name="conditions", label="I accept all the terms and conditions", :required="true")
+        
       .row
         .col-12.col-lg-8.col-xl-4.mb-xs-4
           SegmentedControl(name="periodicity", :options="segmentedControlDateOptions")
+
+      .row
+        .col-12.col-lg-8.col-xl-4.mb-xs-4
+          InputTextarea(name="comments", label="CV summary", placeholder="Write here the summary of your employment history", :validations="['not-empty']")
 
       .row
         .col-6.col-lg-4.col-xl-2.mb-xs-4
