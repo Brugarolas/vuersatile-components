@@ -80,7 +80,6 @@ export default {
 
         change: (event) => {
           this.$emit('change', event.target.checked)
-          this.$emit('change-native', event)
         },
 
         click: (event) => {
@@ -93,6 +92,13 @@ export default {
       const { name, disabled } = this.$attrs
 
       return { name, disabled }
+    }
+  },
+
+  methods: {
+    uncheck () {
+      console.log('2')
+      this.checked = false
     }
   }
 }

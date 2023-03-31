@@ -40,21 +40,22 @@
             InputBase.input-multi-select__search-bar(
               v-model="search",
               :name="'Search'",
-              :icon="'magnifying-glass'",
+              icon="magnifying-glass",
               :placeholder="$t('Search')"
             )
           li.input-multi-select__option-item(
             v-for="(option, index) in filteredOptions",
             :key="option.key",
             :data-item="`${name}-${index}`"
+            :data-item-key="option.key"
           )
             Checkbox.input-multi-select__checkbox(
               :initialValue="selected[option.key]",
               :name="`${name}-${index}`",
               :label="option.label",
               :useForm="false",
-              :ref="option.key",
-              :disabled="option.disabled"
+              :disabled="option.disabled",
+              :ref="saveRef(option.key)",
               @click="stopPropagation($event, false)",
               @change="toggleSelect($event, option)"
             )
@@ -100,6 +101,10 @@ export default {
       type: String,
       default: null
     },
+    optionIdKey: {
+      type: String,
+      default: 'id'
+    },
     optionValueKey: {
       type: String,
       default: 'value'
@@ -128,7 +133,8 @@ export default {
       emptyValue: [],
       isOpen: false,
       selected: {},
-      search: null
+      search: null,
+      algo: {}
     }
   },
 
@@ -176,9 +182,10 @@ export default {
         const value = option[this.optionValueKey]
         const label = option[this.optionLabelKey]
         const disabled = option[this.optionDisabledKey]
+        const id = option[this.optionIdKey]
         const key = this.getKeyFromValue(value)
 
-        selectableOptions.push({ value, label, key, disabled })
+        selectableOptions.push({ value, label, id, key, disabled })
       }
 
       // To show dynamic filter if the options were selected but not listing
@@ -246,6 +253,16 @@ export default {
   },
 
   methods: {
+    saveRef (key) {
+      return function ($el, $refs) {
+        if (!$refs.checkboxes) {
+          $refs.checkboxes = {}
+        }
+
+        $refs.checkboxes[key] = $el
+      }
+    },
+
     /* Input mixin overrided methods */
     shouldSetInitialValue () {
       return false
@@ -254,7 +271,7 @@ export default {
     /* Own methods */
     _selectOptions (options) {
       options.forEach(option => {
-        const checkbox = this.$refs[option.key] && this.$refs[option.key][0]
+        const checkbox = this.$refs.checkboxes[option.key]
 
         if (checkbox && !checkbox.value) {
           checkbox.value = true
@@ -298,7 +315,7 @@ export default {
       this.dirty = true
 
       this.selectableOptions.forEach(option => {
-        const checkbox = this.$refs[option.key] && this.$refs[option.key][0]
+        const checkbox = this.$refs.checkboxes[option.key]
 
         if (checkbox && checkbox.value) {
           checkbox.value = false
@@ -350,7 +367,7 @@ export default {
       if (isSelected) {
         this.value.push(option.value)
       } else {
-        this.value = this.value.filter(value => value !== option.value)
+        this.value = this.value.filter(value => value.id !== option.value.id)
       }
 
       this.change()
@@ -374,12 +391,14 @@ export default {
       this.dirty = true
 
       this.selected[option.key] = false
-      this.value = this.value.filter(value => value !== option.value)
+      this.value = this.value.filter(value => value.id !== option.value.id)
 
-      const checkbox = this.$refs[option.key] && this.$refs[option.key][0]
+      const checkbox = this.$refs.checkboxes[option.key]
+
+      console.log('CHECKBOX', checkbox, checkbox.value)
 
       if (checkbox) {
-        checkbox.value = false
+        checkbox.uncheck()
       }
 
       this.change()
@@ -390,7 +409,7 @@ export default {
       this.formIsDirty = false
 
       this.value.forEach(optionName => {
-        const checkbox = this.$refs[optionName] && this.$refs[optionName][0]
+        const checkbox = this.$refs.checkboxes[option.key]
 
         if (checkbox) {
           checkbox.value = false

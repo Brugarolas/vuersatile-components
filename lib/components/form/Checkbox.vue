@@ -5,8 +5,8 @@ CheckboxBase.checkbox(
   :name="name",
   :disabled="disabled",
   :invalid="shouldShowErrors || forceError",
-  @click="input",
-  @change="change"
+  ref="checkboxBase",
+  @click="input"
 )
 </template>
 
@@ -22,7 +22,7 @@ export default {
   props: {
     initialValue: {
       type: Boolean,
-      default: true
+      default: false
     },
     required: {
       type: Boolean,
@@ -41,18 +41,17 @@ export default {
   },
 
   methods: {
-    input (newValue) {
+    input (event) {
       this.dirty = true
-      this.value = newValue
-      console.log('input', newValue)
-      this.$emit('input', newValue)
+      this.value = event.target.checked
+      this.$emit('input', event.target.checked)
     },
 
-    change (newValue) {
-      this.dirty = true
-      this.value = newValue
-      console.log('change', newValue)
-      this.$emit('change', newValue)
+    uncheck () {
+      console.log('1')
+      this.value = false
+      console.log(this.value)
+      this.$refs.checkboxBase.uncheck();
     }
   }
 }
