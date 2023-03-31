@@ -1,48 +1,32 @@
 <template lang="pug">
 .radiobutton(:class="{ 'radiobutton--error': error }")
   input.radiobutton__input(
-    type="radio"
-    :ref="`radio_${value}`"
-    :name="name"
-    :id="`${name}_id_${value}`"
-    :value="value"
-    :checked="checked"
-    :disabled="disabled"
-    @click="radioClicked"
+    type="radio",
+    :ref="`radio_${value}`",
+    :name="name",
+    :id="`radio_${internalId}`",
+    :value="value",
+    :checked="checked",
+    :disabled="disabled",
+    @click="radioClicked",
+    @input="radioInput",
     @change="radioChanged"
   )
   span.radiobutton__check
-  label.radiobutton__label(v-if="label" :for="`${name}_id_${value}`") {{ label }}
-  component(
-    v-if="inputForm"
-    :is="inputForm.inputType || 'InputText'"
-    :ref="`radioForm_${value}`"
-    :name="inputForm.name || `inpur-form-${value}`",
-    :placeholder="inputForm.placeholder || ''"
-    :disabled="!checked"
-    :initialValue="inputForm.initialValue || ''"
-    :validations="[...inputForm.validations] || []"
-    @change="inputFormChanged"
-  )
+  label.radiobutton__label(v-if="label" :for="`radio_${internalId}`") {{ label }}
 </template>
 
 <script>
-import InputText from './InputText.vue'
-import InputNumber from './InputNumber.vue'
+import { nanoid } from 'nanoid/non-secure'
 
 export default {
   name: 'RadioButton',
-  components: {
-    InputText,
-    InputNumber
-  },
+
+  inheritAttrs: false,
+
   props: {
     label: {
       type: String,
-      default: null
-    },
-    inputForm: {
-      type: Object,
       default: null
     },
     value: {
@@ -72,30 +56,25 @@ export default {
       default: false
     }
   },
-  mounted () {
-    if (this.inputForm?.change && this.checked) {
-      this.inputForm.change(this.inputForm.initialValue)
+
+  data () {
+    return {
+      internalId: nanoid()
     }
   },
+
   methods: {
     radioChanged ({ target }) {
-      if (this.inputForm?.change) {
-        this.inputForm.change(this.$refs[`radioForm_${this.value}`].value)
-      }
+      console.log('radioChanged', target);
       this.$emit('change', target.value)
     },
-    radioClicked ({ target }) {
-      if (this.enableEmpty && this.value === target.value) {
-        if (this.inputForm.change) {
-          this.inputForm.change('')
-        }
-        this.$emit('change', '')
-      }
+    radioInput ({ target }) {
+      console.log('radioInput', target);
+      this.$emit('input', target.value)
     },
-    inputFormChanged (event) {
-      if (this.inputForm?.change) {
-        this.inputForm.change(event)
-      }
+    radioClicked (event) {
+      console.log('radioClicked', event);
+      this.$emit('click', event)
     }
   }
 }
@@ -163,16 +142,16 @@ export default {
     transition: all .3s ease;
     width: 16px;
 
-    &:before {
+    &::before {
       background-color: $input-background;
       border-radius: 16px;
       content: "";
-      height: calc(100% - 3px);
+      height: calc(100% - 7px);
       left: 50%;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: calc(100% - 3px);
+      width: calc(100% - 7px);
     }
   }
 

@@ -1,11 +1,11 @@
 <template lang="pug">
 .toggle-switch(:data-field-name="name", :class="{ 'toggle-switch--invalid': shouldShowErrors, 'toggle-switch--empty-label': !label }")
-    .toggle-switch__label(v-if="label") {{ label }}
-    .toggle-switch__wrapper
-      .toggle-switch__text-off(v-if="showYesNo") {{ $t('GENERIC.NO') }}
-      input.toggle-switch__input(:id="fieldId", type="checkbox", v-model="value", @change="onChange")
-      label.toggle-switch__toggle(:for="fieldId")
-      .toggle-switch__text-on(v-if="showYesNo") {{ $t('GENERIC.YES') }}
+  .toggle-switch__label(v-if="label") {{ label }}
+  .toggle-switch__wrapper
+    .toggle-switch__text-off(v-if="showYesNo") {{ $t('GENERIC.NO') }}
+    input.toggle-switch__input(:id="fieldId", type="checkbox", v-model="value", @change="onChange")
+    label.toggle-switch__toggle(:for="fieldId")
+    .toggle-switch__text-on(v-if="showYesNo") {{ $t('GENERIC.YES') }}
 </template>
 
 <script>

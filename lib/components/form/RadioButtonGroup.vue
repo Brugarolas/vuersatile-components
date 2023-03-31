@@ -1,17 +1,20 @@
 <template lang="pug">
 .radiobutton-group(:data-field-name="name")
+  .radiobutton-group__label(v-if="label") {{ label }}
+
   ul.radiobutton-group__list
     li.radiobutton-group__list-item(v-for="(radioButton, index) in inputValues", :key="index" :class="{ 'radiobutton-group__list-item--horizontal': horizontal }")
       RadioButton(
-        :label="radioButton.label"
-        :inputForm="radioButton.inputForm"
-        :value="radioButton.value"
-        :name="name"
-        :checked="radioButton.value === radioButtonValue"
-        :data-item="`${name}-${index}`"
-        :disabled="radioButton.disabled"
-        :error="error"
-        :enableEmpty="enableEmpty"
+        :label="radioButton.label",
+        :inputForm="radioButton.inputForm",
+        :value="radioButton.value",
+        :name="name",
+        :checked="radioButton.value === value",
+        :data-item="`${name}-${index}`",
+        :disabled="radioButton.disabled",
+        :error="error",
+        :enableEmpty="enableEmpty",
+        @input="input",
         @change="change"
       )
 
@@ -21,9 +24,8 @@
 </template>
 
 <script>
-import { RequiredInputMixin } from './_internal'
+import { RadioButton, RequiredInputMixin } from './_internal'
 import { TransitionHeight } from '@/components/transition'
-import RadioButton from './RadioButton.vue'
 
 export default {
   components: {
@@ -64,20 +66,21 @@ export default {
   },
   data () {
     return {
-      radioButtonValue: this.initialValue || ''
+      value: this.initialValue || ''
     }
   },
   methods: {
-    change (event) {
+    change (value) {
+      console.log('change', value)
       this.dirty = true
-      this.radioButtonValue = event
-      this.$emit('change', this.radioButtonValue)
+      this.value = value
+      this.$emit('change', this.value)
     },
-    changeInput (event, item) {
-      this.emit('changeInput', {
-        value: event,
-        item
-      })
+    input (value) {
+      console.log('input', value)
+      this.dirty = true
+      this.value = value
+      this.$emit('input', this.value)
     }
   }
 }
@@ -85,6 +88,15 @@ export default {
 
 <style lang="scss">
 .radiobutton-group {
+  &__label {
+    @include text-overflow-ellipsis;
+    color: $input-text;
+    display: block;
+    font-weight: $fw-semibold;
+    margin-bottom: $space-2;
+    transition: color 0.3s ease;
+  }
+
   &__list-item {
     & + & {
       margin-top: $space-2;

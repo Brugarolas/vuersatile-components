@@ -1,15 +1,29 @@
 <script setup>
 import { Card } from '@/components/info'
-import { Form, InputText, InputNumber, InputPassword, ToggleSwitch, SegmentedControl, Checkbox, InputTextarea } from '@/components/form';
+import {
+  Form,
+  InputText,
+  InputNumber,
+  InputPassword,
+  ToggleSwitch,
+  SegmentedControl,
+  Checkbox,
+  InputTextarea,
+  RadioButtonGroup
+} from '@/components/form';
 
 const minAge = 18
 
 const segmentedControlDateOptions = [
   { value: { id: 1, text: 'DAILY' }, text: 'Daily' },
   { value: { id: 2, text: 'WEEKLY' }, text: 'Weekly' },
-  { value: { id: 3, text: 'MONTHLY' }, text: 'Monthly' },
-  { value: { id: 4, text: 'YEARLY' }, text: 'Yearly' }
+  { value: { id: 3, text: 'MONTHLY' }, text: 'Monthly' }
 ];
+
+const radioOptions = [
+  { name: 'email', value: 'EMAIL', label: 'E-mail' },
+  { name: 'phone', value: 'PHONE', label: 'Phone' }
+]
 
 const log = (formData) => {
   console.log(formData);
@@ -57,6 +71,9 @@ main.pr-xs-6.pl-xs-6
           InputTextarea(name="comments", label="CV summary", placeholder="Write here the summary of your employment history", :validations="['not-empty']")
 
       .row
+        .col-6.mb-xs-4
+          RadioButtonGroup(name="contact", label="Select preferred way of contact", :inputValues="radioOptions")
+
         .col-6.mb-xs-4
             InputNumber(
               name="age",
