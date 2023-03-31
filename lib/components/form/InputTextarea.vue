@@ -1,8 +1,7 @@
 <template lang="pug">
-InputBase(
+TextareaBase.input-textarea(
   :initialValue="initialValue",
-  type="textarea",
-  :classes="['input-textarea', allowResizeClass, autoResizeClass]",
+  :class="[allowResizeClass, autoResizeClass]",
   :name="name",
   :label="label",
   :icon="icon",
@@ -17,12 +16,12 @@ InputBase(
 </template>
 
 <script>
-import { InputBase } from './_internal'
+import { TextareaBase } from './_internal'
 import InputText from './InputText.vue'
 
 export default {
   components: {
-    InputBase
+    TextareaBase
   },
   mixins: [InputText],
 
@@ -37,14 +36,14 @@ export default {
     },
     rows: {
       type: Number,
-      default: 4
+      default: 2
     }
   },
 
   data () {
     return {
       hasFocus: false,
-      currentRows: 4
+      currentRows: 2
     }
   },
 
@@ -62,25 +61,12 @@ export default {
 
       this._doAutoResize(textareaElement)
 
-      let skipNext = false
       const resizeObserver = new ResizeObserver(entries => {
-        if (skipNext) {
-          skipNext = false
-          return
-        }
-
         for (let entry of entries) {
           const contentRect = entry.contentRect;
           const parent = entry.target.parentElement;
 
-          console.log('Element:', entry.target);
-          console.log(`Element size: ${contentRect.width}px x ${contentRect.height}px`);
-          console.log(`Element padding: ${contentRect.top}px ; ${contentRect.bottom}px`);
-          console.log(`Element padding: ${contentRect.right}px ; ${contentRect.left}px`);
-
-          // parent.style.width = `${Math.floor(contentRect.width) + 2}px`;
           parent.style.height = `${Math.floor(contentRect.height) + 2}px`;
-          skipNext = true
         }
       })
 
@@ -100,10 +86,6 @@ export default {
 
   methods: {
     doAutoResize (event) {
-      console.log(this.autoResize)
-      console.log(event.target)
-      console.log(event.target.parent)
-
       if (!this.autoResize) {
         return
       }
@@ -112,10 +94,6 @@ export default {
     },
 
     _doAutoResize (element) {
-      console.log(this.autoResize)
-      console.log(element)
-      console.log(element.parent)
-
       if (!element) {
         return
       }
@@ -146,7 +124,6 @@ export default {
 .input-textarea {
   .input-base__input {
     resize: vertical;
-    padding: $space-2;
   }
 
   &--no-resize {

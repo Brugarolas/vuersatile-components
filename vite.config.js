@@ -16,8 +16,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./lib', import.meta.url))
-      // vue: '@vue/compat',
-      // Vue: '@vue/compat'
+      // vue: '@vue/compat'
     }
   },
 

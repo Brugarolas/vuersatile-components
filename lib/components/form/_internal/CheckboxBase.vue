@@ -24,9 +24,12 @@ export default {
     Icon
   },
 
-  inheritAttrs: false,
-
   props: {
+    classes: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
     label: {
       type: String,
       default: null
@@ -50,6 +53,10 @@ export default {
 
     fieldId () {
       return `${this.fieldName || 'checkbox'}_${this.internalId}`
+    },
+
+    invalidClass () {
+
     },
 
     listeners () {

@@ -7,16 +7,7 @@
     .input-base__wrapper(:class="showFirstIcon ? 'input-base--first-icon' : 'input-base--second-icon'")
       Button.input-base__left-button(v-if="leftButtonProps", :disabled="leftButtonProps.disabled" :type="leftButtonProps.type", :size="leftButtonProps.size", :icon="leftButtonProps.icon", :variant="leftButtonProps.variant", :colorType="leftButtonProps.colorType" @click="_ => leftButtonProps.clickHandler()")
 
-      textarea.input-base__input(
-        v-if="isTextarea",
-        ref="input",
-        :id="label && fieldId",
-        v-model="_value",
-        v-on="listeners",
-        v-bind="attributes"
-      )
       input.input-base__input(
-        v-else,
         ref="input",
         :readonly="allowReadOnly ? 'readonly' : null"
         :id="label && fieldId",
@@ -127,9 +118,6 @@ export default {
     fieldId () {
       return `${this.fieldName || 'input'}_${this.internalId}`
     },
-    isTextarea () {
-      return this.$attrs.type === 'textarea'
-    },
     hasErrorMessage () {
       return this.error && typeof this.error === 'string'
     },
@@ -173,12 +161,6 @@ export default {
 
     attributes () {
       const { type, name, placeholder, disabled, autocomplete, pattern, step, min, max } = this.$attrs
-
-      if (type === 'textarea') {
-        const { cols, rows, maxlength } = this.$attrs
-
-        return { name, placeholder, disabled, cols, rows, maxlength }
-      }
 
       return { type, name, placeholder, disabled, autocomplete, pattern, step, min, max }
     },
