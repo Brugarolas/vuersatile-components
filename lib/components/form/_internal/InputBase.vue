@@ -1,19 +1,19 @@
 <template lang="pug">
 .input-base(
     :data-field-name="fieldName",
-    :class="[statusClass, disabledClass, focusClass, ...classes]")
+    :class="[statusClass, disabledClass, focusClass, classes]")
     label.input-base__label(v-if="label", :for="fieldId") {{ label }}
 
     .input-base__wrapper(:class="showFirstIcon ? 'input-base--first-icon' : 'input-base--second-icon'")
       Button.input-base__left-button(v-if="leftButtonProps", :disabled="leftButtonProps.disabled" :type="leftButtonProps.type", :size="leftButtonProps.size", :icon="leftButtonProps.icon", :variant="leftButtonProps.variant", :colorType="leftButtonProps.colorType" @click="_ => leftButtonProps.clickHandler()")
 
       input.input-base__input(
+        v-model="_value",
+        v-bind="attributes",
         ref="input",
         :readonly="allowReadOnly ? 'readonly' : null"
         :id="label && fieldId",
-        v-model="_value",
-        v-on="listeners",
-        v-bind="attributes"
+        v-on="listeners"
       )
       Icon.input-base__right-icon.icon-base--first(v-if="icon", :icon="icon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
       Icon.input-base__right-icon.icon-base--second(v-if="secondIcon", :icon="secondIcon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
@@ -42,11 +42,6 @@ export default {
   inheritAttrs: false,
 
   props: {
-    classes: {
-      type: Array,
-      required: false,
-      default: () => []
-    },
     initialValue: {
       type: [Object, String, Number, Boolean],
       required: false
@@ -128,6 +123,9 @@ export default {
 
     fieldName () {
       return this.$attrs.name
+    },
+    classes () {
+      return this.$attrs.class
     },
     fieldId () {
       return `${this.fieldName || 'input'}_${this.internalId}`

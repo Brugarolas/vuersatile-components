@@ -5,9 +5,9 @@
   ul.radiobutton-group__list
     li.radiobutton-group__list-item(v-for="(radioButton, index) in inputValues", :key="index" :class="{ 'radiobutton-group__list-item--horizontal': horizontal }")
       RadioButton(
+        :value="radioButton.value",
         :label="radioButton.label",
         :inputForm="radioButton.inputForm",
-        :value="radioButton.value",
         :name="name",
         :checked="radioButton.value === value",
         :data-item="`${name}-${index}`",
@@ -18,9 +18,8 @@
         @change="change"
       )
 
-  template
-    TransitionHeight
-      span.radiobutton-group__error(v-if="shouldShowErrors") {{ $t('generic.mandatoryLong') }}
+  TransitionHeight
+    span.radiobutton-group__error(v-if="shouldShowErrors") {{ $t('generic.mandatoryLong') }}
 </template>
 
 <script>

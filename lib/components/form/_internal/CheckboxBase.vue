@@ -1,15 +1,15 @@
 <template lang="pug">
 .checkbox-base(
-  :class="[invalidClass, ...classes]",
+  :class="[invalidClass, classes]",
   :data-field-name="fieldName"
 )
   input.checkbox-base__input(
     v-model="checked",
+    v-bind="attributes"
     type="checkbox",
     ref="checkbox",
     :id="label && fieldId",
-    v-on="listeners",
-    v-bind="attributes"
+    v-on="listeners"
   )
   span.checkbox-base__check
     Icon.checkbox-base__icon(icon="check", size="xs")
@@ -28,11 +28,6 @@ export default {
   inheritAttrs: false,
 
   props: {
-    classes: {
-      type: Array,
-      required: false,
-      default: () => []
-    },
     initialValue: {
       type: Boolean,
       required: false
@@ -59,6 +54,10 @@ export default {
   },
 
   computed: {
+    classes () {
+      return this.$attrs.class
+    },
+
     fieldName () {
       return this.$attrs.name
     },

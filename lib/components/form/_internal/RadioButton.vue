@@ -3,6 +3,7 @@
   input.radiobutton__input(
     type="radio",
     :ref="`radio_${value}`",
+    :class="[classes]",
     :name="name",
     :id="`radio_${internalId}`",
     :value="value",
@@ -60,6 +61,12 @@ export default {
   data () {
     return {
       internalId: nanoid()
+    }
+  },
+
+  computed: {
+    classes () {
+      return this.$attrs.class
     }
   },
 

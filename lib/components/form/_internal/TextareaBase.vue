@@ -1,17 +1,17 @@
 <template lang="pug">
 .input-base(
   :data-field-name="fieldName",
-  :class="[statusClass, disabledClass, focusClass]"
+  :class="[statusClass, disabledClass, focusClass, classes]"
 )
   label.input-base__label(v-if="label", :for="fieldId") {{ label }}
     
   .input-base__wrapper
     textarea.input-base__input(
+      v-model="_value",
+      v-bind="attributes",
       ref="input",
       :id="label && fieldId",
-      v-model="_value",
-      v-on="listeners",
-      v-bind="attributes"
+      v-on="listeners"
     )
 
   TransitionHeight
@@ -32,6 +32,8 @@ export default {
     Button,
     TransitionHeight
   },
+
+  inheritAttrs: false,
 
   props: {
     initialValue: {
@@ -71,6 +73,10 @@ export default {
   },
 
   computed: {
+    classes () {
+      console.log(this.$attrs)
+      return this.$attrs.class
+    },
     fieldName () {
       return this.$attrs.name
     },

@@ -1,20 +1,20 @@
 <template lang="pug">
 InputBase.input-text(
-    :initialValue="initialValue",
-    :name="name",
-    :label="label",
-    :icon="icon",
-    :error="realError",
-    :placeholder="placeholder",
-    :autocomplete="autocomplete",
-    :pattern="pattern",
-    :disabled="disabled",
-    :allow-read-only="readOnly",
-    :type="inputType",
-    @input="input",
-    @change="change",
-    @keydown="enterPressed"
-  )
+  :initialValue="initialValue",
+  :name="name",
+  :label="label",
+  :icon="icon",
+  :error="realError",
+  :placeholder="placeholder",
+  :autocomplete="autocomplete",
+  :pattern="pattern",
+  :disabled="disabled",
+  :allow-read-only="readOnly",
+  :type="inputType",
+  @input="input",
+  @change="change",
+  @keydown="enterPressed"
+)
 </template>
 
 <script>

@@ -1,6 +1,5 @@
 <template lang="pug">
-CheckboxBase(
-  :classes="['checkbox']",
+CheckboxBase.checkbox(
   :initialValue="initialValue",
   :label="label",
   :name="name",
