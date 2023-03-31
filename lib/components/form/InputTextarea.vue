@@ -5,7 +5,7 @@ TextareaBase.input-textarea(
   :name="name",
   :label="label",
   :icon="icon",
-  :error="shouldShowErrors ? errorMessage : null",
+  :error="realError",
   :placeholder="placeholder",
   :rows="currentRows",
   :disabled="disabled",
@@ -148,10 +148,14 @@ export default {
 
     .input-base__input {
       display: flex;
-      min-height: 128px;
-      padding: $space-2;
+      min-height: 64px;
+      padding: 0 $space-2;
       resize: vertical;
       white-space: normal;
+
+      &::placeholder {
+        margin-top: $space-2;
+      }
     }
   }
 }

@@ -1,13 +1,14 @@
 <template lang="pug">
-CheckboxBase.checkbox(
-    v-model="value",
-    :label="label",
-    :name="name",
-    :disabled="disabled",
-    :invalid="shouldShowErrors || forceError",
-    @click="$emit('click', $event)",
-    @change="change"
-  )
+CheckboxBase(
+  :classes="['checkbox']",
+  :initialValue="initialValue",
+  :label="label",
+  :name="name",
+  :disabled="disabled",
+  :invalid="shouldShowErrors || forceError",
+  @click="input",
+  @change="change"
+)
 </template>
 
 <script>
@@ -22,7 +23,7 @@ export default {
   props: {
     initialValue: {
       type: Boolean,
-      default: false
+      default: true
     },
     required: {
       type: Boolean,
@@ -40,17 +41,19 @@ export default {
     }
   },
 
-  watch: {
-    initialValue (value) {
-      this.value = value
-    }
-  },
-
   methods: {
-    change () {
+    input (newValue) {
       this.dirty = true
+      this.value = newValue
+      console.log('input', newValue)
+      this.$emit('input', newValue)
+    },
 
-      this.$emit('change', this.value)
+    change (newValue) {
+      this.dirty = true
+      this.value = newValue
+      console.log('change', newValue)
+      this.$emit('change', newValue)
     }
   }
 }

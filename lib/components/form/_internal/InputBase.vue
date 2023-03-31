@@ -1,27 +1,29 @@
 <template lang="pug">
 .input-base(
-    :data-field-name="fieldName",
-    :class="[statusClass, disabledClass, focusClass, ...classes]")
-    label.input-base__label(v-if="label", :for="fieldId") {{ label }}
+  :data-field-name="fieldName",
+  :class="[statusClass, disabledClass, focusClass, ...classes]"
+)
+  label.input-base__label(v-if="label", :for="fieldId") {{ label }}
 
-    .input-base__wrapper(:class="showFirstIcon ? 'input-base--first-icon' : 'input-base--second-icon'")
-      Button.input-base__left-button(v-if="leftButtonProps", :disabled="leftButtonProps.disabled" :type="leftButtonProps.type", :size="leftButtonProps.size", :icon="leftButtonProps.icon", :variant="leftButtonProps.variant", :colorType="leftButtonProps.colorType" @click="_ => leftButtonProps.clickHandler()")
+  .input-base__wrapper(:class="showFirstIcon ? 'input-base--first-icon' : 'input-base--second-icon'")
+    Button.input-base__left-button(v-if="leftButtonProps", :disabled="leftButtonProps.disabled" :type="leftButtonProps.type", :size="leftButtonProps.size", :icon="leftButtonProps.icon", :variant="leftButtonProps.variant", :colorType="leftButtonProps.colorType" @click="_ => leftButtonProps.clickHandler()")
 
-      input.input-base__input(
-        ref="input",
-        :readonly="allowReadOnly ? 'readonly' : null"
-        :id="label && fieldId",
-        v-model="_value",
-        v-on="listeners",
-        v-bind="attributes"
-      )
-      Icon.input-base__right-icon.icon-base--first(v-if="icon", :icon="icon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
-      Icon.input-base__right-icon.icon-base--second(v-if="secondIcon", :icon="secondIcon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
+    input.input-base__input(
+      ref="input",
+      :readonly="allowReadOnly ? 'readonly' : null"
+      :id="label && fieldId",
+      v-model="_value",
+      v-on="listeners",
+      v-bind="attributes"
+    )
 
-      Button.input-base__right-button(v-if="rightButtonProps", :disabled="rightButtonProps.disabled" :type="rightButtonProps.type", :size="rightButtonProps.size", :icon="rightButtonProps.icon", :variant="rightButtonProps.variant", :colorType="rightButtonProps.colorType" @click="_ => rightButtonProps.clickHandler()")
+    Icon.input-base__right-icon.icon-base--first(v-if="icon", :icon="icon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
+    Icon.input-base__right-icon.icon-base--second(v-if="secondIcon", :icon="secondIcon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
 
-    TransitionHeight
-      span.input-base__error-message(v-show="hasErrorMessage") {{ error }}
+    Button.input-base__right-button(v-if="rightButtonProps", :disabled="rightButtonProps.disabled" :type="rightButtonProps.type", :size="rightButtonProps.size", :icon="rightButtonProps.icon", :variant="rightButtonProps.variant", :colorType="rightButtonProps.colorType" @click="_ => rightButtonProps.clickHandler()")
+
+  TransitionHeight
+    span.input-base__error-message(v-show="hasErrorMessage") {{ error }}
 </template>
 
 <script>

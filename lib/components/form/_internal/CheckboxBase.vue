@@ -1,9 +1,10 @@
 <template lang="pug">
 .checkbox-base(
-  :class="{ 'checkbox-base--error': invalid }",
+  :class="[invalidClass, ...classes]",
   :data-field-name="fieldName"
 )
   input.checkbox-base__input(
+    v-model="checked",
     type="checkbox",
     ref="checkbox",
     :id="label && fieldId",
@@ -24,11 +25,17 @@ export default {
     Icon
   },
 
+  inheritAttrs: false,
+
   props: {
     classes: {
       type: Array,
       required: false,
       default: () => []
+    },
+    initialValue: {
+      type: Boolean,
+      required: false
     },
     label: {
       type: String,
@@ -42,8 +49,13 @@ export default {
 
   data () {
     return {
+      checked: false,
       internalId: nanoid()
     }
+  },
+
+  created () {
+    this.checked = this.initialValue
   },
 
   computed: {
@@ -56,18 +68,19 @@ export default {
     },
 
     invalidClass () {
-
+      return this.invalid ? 'checkbox-base--error' : ''
     },
 
     listeners () {
       return {
         input: (event) => {
+          this.checked = event.target.checked
           this.$emit('input', event.target.checked)
           this.$emit('input-native', event)
         },
 
         change: (event) => {
-          this.$emit('change', event.target.value)
+          this.$emit('change', event.target.checked)
           this.$emit('change-native', event)
         },
 
@@ -78,9 +91,9 @@ export default {
     },
 
     attributes () {
-      const { value, name, disabled } = this.$attrs
+      const { name, disabled } = this.$attrs
 
-      return { checked: value, name, disabled }
+      return { name, disabled }
     }
   }
 }
