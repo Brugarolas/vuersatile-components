@@ -9,7 +9,8 @@ import {
   SegmentedControl,
   Checkbox,
   InputTextarea,
-  RadioButtonGroup
+  RadioButtonGroup,
+  InputSelect
 } from '@/components/form';
 
 const minAge = 18
@@ -23,6 +24,13 @@ const segmentedControlDateOptions = [
 const radioOptions = [
   { name: 'email', value: 'EMAIL', label: 'E-mail' },
   { name: 'phone', value: 'PHONE', label: 'Phone' }
+]
+
+const selectOptions = [
+  { value: { id: 1, text: 'WORKER' }, text: 'I\'m a worker' },
+  { value: { id: 2, text: 'FREELANCE' }, text: 'I\'m a freelance' },
+  { value: { id: 3, text: 'COMPANY' }, text: 'I\'m a company' },
+  { value: { id: 4, text: 'OTHER' }, text: 'None of the above' }
 ]
 
 const log = (formData) => {
@@ -69,6 +77,10 @@ main.pr-xs-6.pl-xs-6
       .row
         .col-12.mb-xs-4
           InputTextarea(name="comments", label="CV summary", placeholder="Write here the summary of your employment history", :validations="['not-empty']")
+      
+      .row
+        .col-12.mb-xs-4
+          InputSelect.mb-xs-2(name="select", label="Select an option", placeholder="Select a job...", :required="true", :allowClear="true", :mountOptionsOutside="true", :options="selectOptions")
 
       .row
         .col-6.mb-xs-4
