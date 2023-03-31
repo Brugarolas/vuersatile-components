@@ -45,13 +45,6 @@ export default {
       this.dirty = true
       this.value = event.target.checked
       this.$emit('input', event.target.checked)
-    },
-
-    uncheck () {
-      console.log('1')
-      this.value = false
-      console.log(this.value)
-      this.$refs.checkboxBase.uncheck();
     }
   }
 }

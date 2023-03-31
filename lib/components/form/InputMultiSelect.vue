@@ -49,11 +49,10 @@
             :data-item="`${name}-${index}`"
             :data-item-key="option.key"
           )
-            Checkbox.input-multi-select__checkbox(
-              :initialValue="selected[option.key]",
+            CheckboxBasic.input-multi-select__checkbox(
+              :checked="selected[option.key]",
               :name="`${name}-${index}`",
               :label="option.label",
-              :useForm="false",
               :disabled="option.disabled",
               :ref="saveRef(option.key)",
               @click="stopPropagation($event, false)",
@@ -65,12 +64,11 @@
 </template>
 
 <script>
-import { InputBase, RequiredInputMixin } from './_internal'
+import { CheckboxBasic, InputBase, RequiredInputMixin } from './_internal'
 import { TransitionHeight } from '@/components/transition'
 import Icon from '@/components/info/Icon.vue'
 import Tag from '@/components/interactive/Tag.vue'
 import TransitionFadeSelect from '@/components/transition/TransitionFadeSelect.vue'
-import Checkbox from './Checkbox.vue'
 import { DropdownUtils } from '@/mixins'
 
 export default {
@@ -78,7 +76,7 @@ export default {
     TransitionHeight,
     Tag,
     TransitionFadeSelect,
-    Checkbox,
+    CheckboxBasic,
     InputBase,
     Icon
   },
@@ -359,8 +357,10 @@ export default {
       this.search = null
     },
 
-    toggleSelect (isSelected, option) {
+    toggleSelect (event, option) {
       this.dirty = true
+
+      const isSelected = event.target.checked
 
       this.selected[option.key] = isSelected
 
@@ -393,13 +393,13 @@ export default {
       this.selected[option.key] = false
       this.value = this.value.filter(value => value.id !== option.value.id)
 
-      const checkbox = this.$refs.checkboxes[option.key]
+      /* const checkbox = this.$refs.checkboxes[option.key]
 
       console.log('CHECKBOX', checkbox, checkbox.value)
 
       if (checkbox) {
         checkbox.uncheck()
-      }
+      } */
 
       this.change()
     },
