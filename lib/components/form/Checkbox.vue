@@ -4,7 +4,7 @@ CheckboxBase.checkbox(
   :label="label",
   :name="name",
   :disabled="disabled",
-  :invalid="shouldShowErrors || forceError",
+  :invalid="shouldShowErrors",
   ref="checkboxBase",
   @click="input"
 )
@@ -25,10 +25,6 @@ export default {
       default: false
     },
     required: {
-      type: Boolean,
-      default: false
-    },
-    forceError: {
       type: Boolean,
       default: false
     }

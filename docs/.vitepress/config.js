@@ -1,28 +1,87 @@
 import { defineConfig } from 'vitepress'
+import { fileURLToPath, URL } from 'node:url'
+
+// import appInit from '../../lib/lib.js'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Vuersatile Components",
   description: "A Vue 3 component library with a CSS framework integrated",
+
+  // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
+    /* enhanceApp (context) {
+      const { app } = context
+  
+      appInit(app)
+    }, */
+
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Getting started', link: '/getting-started' },
+      { text: 'Component library', link: '/component-library' },
+      { text: 'SCSS framework', link: '/scss-framework' }
     ],
 
     sidebar: [
       {
+        text: 'Components',
+        items: [
+          {
+            text: 'Form',
+            items: [
+              { text: 'Checkbox', link: '/components/form/checkbox' },
+              { text: 'Form', link: '/components/form/form' }
+            ]
+          },
+          {
+            text: 'Info',
+            items: [
+              { text: 'Card', link: '/components/info/card' }
+            ]
+          }
+        ]
+      },
+      {
+        text: 'Mixins',
+        items: [
+          {
+            text: 'Form',
+            items: [
+              { text: 'BasicInputMixin', link: '/components/form/basic-input-mixin' },
+              { text: 'RequiredInputMixin', link: '/components/form/required-input-mixin' },
+              { text: 'ValidationsInputMixin', link: '/components/form/validations-input-mixin' },
+            ]
+          }
+        ]
+      },
+      {
         text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Component library', link: '/component-library' },
+          { text: 'SCSS framework', link: '/scss-framework' }
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/Brugarolas/vuersatile-components' }
     ]
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/scss/main.scss";`
+        }
+      }
+    },
+    
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('../../lib', import.meta.url))
+      }
+    },
   }
 })
