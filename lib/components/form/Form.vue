@@ -19,6 +19,7 @@ form.form(:novalidate="!validate", @submit="submit")
 
 <script>
 import Button from '@/components/interactive/Button.vue'
+import { reactive, computed } from "vue";
 
 export default {
   components: {
@@ -222,15 +223,16 @@ export default {
       // Example: const formValidation = this.$refs.form.buildFormValidation()
       const component = this
 
-      return new Vue({
-        computed: {
-          isValid () {
-            return component.isValid
-          },
-          isDirty () {
-            return component.isDirty
-          }
-        }
+      return new reactive({
+        component,
+        element: component.$el,
+
+        isValid: computed(() => {
+          return component.isValid
+        }),
+        isDirty: computed(() => {
+          return component.isDirty
+        })
       })
     },
 
@@ -242,7 +244,7 @@ export default {
 
       this.dirty = true
 
-      // Tell all fields to show erros
+      // Tell all fields to show errors
       this.formFields.forEach((field) => {
         field.startShowingFieldErrors()
       })

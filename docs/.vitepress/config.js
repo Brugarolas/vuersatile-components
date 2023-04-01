@@ -1,21 +1,14 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
 
-// import appInit from '../../lib/lib.js'
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: "en",
   title: "Vuersatile Components",
   description: "A Vue 3 component library with a CSS framework integrated",
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
-    /* enhanceApp (context) {
-      const { app } = context
-  
-      appInit(app)
-    }, */
-
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting started', link: '/getting-started' },
@@ -82,6 +75,8 @@ export default defineConfig({
       alias: {
         '@': fileURLToPath(new URL('../../lib', import.meta.url))
       }
-    },
-  }
+    }
+  },
+
+  lastUpdated: true
 })

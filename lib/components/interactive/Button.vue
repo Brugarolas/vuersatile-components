@@ -48,14 +48,14 @@ export default {
     },
     variant: {
       type: String,
-      validator: (value) => !value || ['vuersatile', 'fa-solid', 'fa-regular', 'fa-light'].includes(value),
+      validator: (value) => !value || ['fa-solid', 'fa-regular', 'fa-light'].includes(value),
       required: false,
-      default: 'vuersatile'
+      default: 'fa-solid'
     }
   },
   computed: {
     buttonIcon () {
-      return this.loading ? 'spinner-third-solid' : this.icon
+      return this.loading ? 'spinner-third' : this.icon
     },
     typeClass () {
       return this.type ? `${COMPONENT_CLASS}--${this.type}` : ''

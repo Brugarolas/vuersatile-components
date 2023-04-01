@@ -1,8 +1,10 @@
-$fa-font-path: '../../../node_modules/@fortawesome/fontawesome-free/webfonts';
-@import '../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
-@import '../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
-@import '../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+$fa-font-path: '../../../node_modules/@fortawesome/fontawesome-pro/webfonts';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/fontawesome.scss';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/regular.scss';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/solid.scss';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/brands.scss';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/duotone.scss';
+@import '../../../node_modules/@fortawesome/fontawesome-pro/scss/light.scss';
 
 .fa, .fa-classic, .fa-sharp, .fas, .fa-solid, .far, .fa-regular, .fab, .fa-brands {
     display: inline-flex;
