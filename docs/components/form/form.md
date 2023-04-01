@@ -1,5 +1,5 @@
 <script setup>
-    import Checkbox from '../../../lib/components/form/Checkbox.vue'
+import Checkbox from '../../../lib/components/form/Checkbox.vue'
 import InputText from '../../../lib/components/form/InputText.vue'
 import InputPassword from '../../../lib/components/form/InputPassword.vue'
 import Form from '../../../lib/components/form/Form.vue'

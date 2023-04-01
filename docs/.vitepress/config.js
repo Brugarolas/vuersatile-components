@@ -49,6 +49,12 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Plugins',
+        items: [
+          { text: 'Validations', link: '/plugins/validations' },
+        ]
+      },
+      {
         text: 'Examples',
         items: [
           { text: 'Component library', link: '/component-library' },
