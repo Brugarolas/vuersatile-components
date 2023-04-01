@@ -4,9 +4,7 @@ InputBase.input-password(
   :type="inputTypePassword",
   :name="name",
   :label="label",
-  icon="eye",
-  secondIcon="eye-slash",
-  :showFirstIcon="showPassword",
+  :icon="iconShowPassword",
   iconSize="s",
   :error="shouldShowErrors ? errorMessage : null",
   :placeholder="placeholder",
@@ -35,6 +33,9 @@ export default {
     }
   },
   computed: {
+    iconShowPassword () {
+      return this.showPassword ? 'eye-slash' : 'eye'
+    },
     inputTypePassword () {
       return this.showPassword ? 'text' : 'password'
     }
@@ -46,12 +47,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-.input-password {
-  &.input-base--error {
-    .input-base__right-icon {
-      color: $input-icon;
-    }
-  }
-}
-</style>

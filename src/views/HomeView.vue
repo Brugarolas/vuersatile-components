@@ -14,7 +14,8 @@ import {
   InputMultiSelect
 } from '@/components/form';
 
-const minAge = 18
+const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
+const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]
 
 const segmentedControlDateOptions = [
   { value: { id: 1, text: 'DAILY' }, text: 'Daily' },
@@ -71,7 +72,7 @@ main.pr-xs-6.pl-xs-6
             name="password",
             label="Password",
             placeholder="Enter a secure password...",
-            :validations="['not-empty']"
+            :validations="passwordValidations"
           )
       
       .row
@@ -114,6 +115,6 @@ main.pr-xs-6.pl-xs-6
               label="Age",
               placeholder="You must be over 18...",
               icon="calendar-days",
-              :validations="['not-empty', { name: 'min-value', params: [minAge] }]"
+              :validations="numberValidations"
             )
 </template>

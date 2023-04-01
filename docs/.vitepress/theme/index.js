@@ -3,7 +3,7 @@ import appInit from '../../../lib/lib.js'
 
 export default {
     ...DefaultTheme,
-    enhanceApp(context) {
+    enhanceApp (context) {
         DefaultTheme.enhanceApp(context)
         const { app } = context
 
