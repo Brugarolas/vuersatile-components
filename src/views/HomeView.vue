@@ -1,5 +1,11 @@
 <script setup>
-import { Card } from '@/components/info'
+import {
+  Card,
+  Tooltip,
+  BooleanIcon,
+  LockedIcon,
+  TooltipInfo
+} from '@/components/info'
 import {
   Form,
   InputText,
@@ -53,7 +59,21 @@ const log = (formData) => {
 <template lang="pug">
 main.pr-xs-6.pl-xs-6
   Card.mt-xs-6(title="Work in progress!")
-    span Documentation will be here...
+    div Documentation will be here...
+
+    .mr-xs-4.ml-xs-4
+      Tooltip(text="Everything OK", position="top")
+        BooleanIcon(:value="true")
+
+    .mr-xs-4.ml-xs-4
+      Tooltip(text="Danger here!")
+        BooleanIcon(:value="false")
+
+    .mr-xs-4.ml-xs-4
+      LockedIcon(text="You can't do that here!")
+    
+    .mr-xs-4.ml-xs-4
+      TooltipInfo(text="What does that mean?", color="darkblue")
 
   Card.mt-xs-6(title="Contact form")
     Form(@submit="log")
@@ -80,7 +100,8 @@ main.pr-xs-6.pl-xs-6
           ToggleSwitch(name="newsletter", label="Send me weekly")
         
         .col-6.mb-xs-4.mt-xs-4
-          Checkbox(name="conditions", label="I accept all the terms and conditions", :required="true")
+          Tooltip(text="Required checkbox", position="top")
+            Checkbox(name="conditions", label="I accept all the terms and conditions", :required="true")
         
       .row
         .col-12.mb-xs-4
