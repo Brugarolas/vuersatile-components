@@ -241,19 +241,25 @@ export default {
     }
   },
   watch: {
-    disabled (newValue) {
-      if (newValue && this.clearWhenDisable) {
-        this.value = null
-      }
-    },
-    options (newValue) {
-      if (this.clearWhenOptionsChange) {
-        if (newValue?.last()?.[this.optionLabelKey] === this.search) {
-          this.value = this.search
-        } else {
+    disabled: {
+      handler (newValue) {
+        if (newValue && this.clearWhenDisable) {
           this.value = null
         }
       }
+    },
+
+    options: {
+      handler (newValue) {
+        if (this.clearWhenOptionsChange) {
+          if (newValue?.last()?.[this.optionLabelKey] === this.search) {
+            this.value = this.search
+          } else {
+            this.value = null
+          }
+        }
+      },
+      deep: true
     }
   },
   methods: {
@@ -297,6 +303,7 @@ export default {
     },
 
     toggle () {
+      console.log('toggle')
       if (!this.modificable) {
         return
       }

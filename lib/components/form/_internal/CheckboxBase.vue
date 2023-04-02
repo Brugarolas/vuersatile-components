@@ -4,8 +4,8 @@
   :data-field-name="fieldName"
 )
   input.checkbox-base__input(
-    v-model="checked",
     v-bind="attributes"
+    v-model="checked",
     type="checkbox",
     ref="checkbox",
     :id="label && fieldId",

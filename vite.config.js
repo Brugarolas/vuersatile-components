@@ -17,32 +17,41 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./lib', import.meta.url)),
+      '@': fileURLToPath(new URL('./lib', import.meta.url))
       // vue: '@vue/compat'
     }
   },
 
-  plugins: [vue(/*{
-    template: {
-      compilerOptions: {
-        compatConfig: {
-          MODE: 2
+  plugins: [
+    vue(/*{
+      template: {
+        compilerOptions: {
+          compatConfig: {
+            MODE: 2
+          }
         }
       }
-    }
-  }*/),
-  Unfonts({
-    google: {
-      families: [
-        {
-          name: 'Open Sans',
-          styles: 'wght@300;400;600;700'
-        },
-        {
-          name: 'Roboto Slab',
-          styles: 'wght@300;400;600;700'
-        }
-      ]
-    }
-  }),],
+    }*/),
+
+    Unfonts({
+      google: {
+        families: [
+          {
+            name: 'Open Sans',
+            styles: 'wght@300;400;600;700'
+          },
+          {
+            name: 'Roboto Slab',
+            styles: 'wght@300;400;600;700'
+          }
+        ]
+      }
+    })
+  ],
+
+  define: {
+    __VUE_I18N_FULL_INSTALL__: true,
+    __VUE_I18N_LEGACY_API__: false,
+    __INTLIFY_PROD_DEVTOOLS__: false,
+  }
 })

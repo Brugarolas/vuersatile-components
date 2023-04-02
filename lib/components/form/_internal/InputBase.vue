@@ -156,8 +156,8 @@ export default {
           this.$emit('keydown-native', event)
         },
 
-        resize: (event) => {
-          this.$emit('resize', event);
+        click: (event) => {
+          this.$emit('click', event);
         }
       }
     },
