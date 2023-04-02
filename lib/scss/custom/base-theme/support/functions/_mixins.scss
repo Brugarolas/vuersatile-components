@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /**
 Aux function for ::after and ::before
 */
@@ -43,8 +45,8 @@ your element and you're done
     $background-color: if(length($color) == 2, nth($color, 2), transparent);
 
     @if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
-        $width: $width / 2;
-        $height: if(length($size) > 1, $height, $height/2);
+        $width: math.div($width, 2);
+        $height: if(length($size) > 1, $height, math.div($height, 2));
 
         @if $direction == up {
             border-bottom: $height solid $foreground-color;

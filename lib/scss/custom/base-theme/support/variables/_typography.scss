@@ -2,7 +2,9 @@
 // We use this variables in every element that need a
 // font-size, font-weight or line-height.
 
-$google-font: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap';
+// We are using unplugin-font now
+// $google-font: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap';
+// @import url($google-font);
 
 // Typography base variables
 // DON'T USE THEM IN COMPONENTS OR VIEWS.
@@ -18,6 +20,7 @@ $font-size-base: 16px;
 /* ---------------------------------------- */
 
 $font-family-base: "Open Sans", sans-serif;
+$font-family-secondary: "Roboto Slab", sans-serif;
 
 // Font-size variables
 
@@ -58,3 +61,50 @@ $fw-bold: 700;          // bold font-weight
 $line-height-small: 1;    // Smallest line-height
 $line-height-normal: 1.2; // Base line-height
 $line-height-big: 1.5;    // Biggest line-height
+
+// Fonts mixins
+
+/* --------------How to use---------------- */
+//     @include
+/* ---------------------------------------- */
+
+// Variants
+$roboto-variants: (
+    light: 300,
+    regular: 400,
+    semibold: 600,
+    bold: 700
+);
+
+$open-sans-variants: (
+    light: 300,
+    regular: 400,
+    semibold: 600,
+    bold: 700
+);
+
+@mixin roboto-slab($variant, $size: 'inherit') {
+    @if map-has-key($roboto-variants, $variant) {
+        $weight: map-get($roboto-variants, $variant);
+
+        font-family: $roboto-slab-font;
+        font-weight: $weight;
+        font-style: normal;
+        font-size: $size;
+    } @else {
+        @warn 'Invalid Roboto variant: #{$variant}.';
+    }
+}
+
+@mixin open-sans($variant, $size: 'inherit') {
+    @if map-has-key($open-sans-variants, $variant) {
+        $weight: map-get($open-sans-variants, $variant);
+    
+        font-family: $open-sans-font;
+        font-weight: $weight;
+        font-style: normal;
+        font-size: $size;
+    } @else {
+        @warn 'Invalid Open Sans variant: #{$variant}.';
+    }
+}

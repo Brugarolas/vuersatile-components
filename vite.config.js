@@ -3,6 +3,8 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+import Unfonts from 'unplugin-fonts/vite'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   css: {
@@ -28,5 +30,19 @@ export default defineConfig({
         }
       }
     }
-  }*/)],
+  }*/),
+  Unfonts({
+    google: {
+      families: [
+        {
+          name: 'Open Sans',
+          styles: 'wght@300;400;600;700'
+        },
+        {
+          name: 'Roboto Slab',
+          styles: 'wght@300;400;600;700'
+        }
+      ]
+    }
+  }),],
 })

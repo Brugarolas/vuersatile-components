@@ -22,7 +22,8 @@
   overflow: hidden;
   position: relative;
   transition: height .25s linear, opacity 0.25s ease;
-  // will-change: height, opacity; // animation optimization // it doesn't work in CollapsableBox component with outter elements (like InputSelect)
+  @include hardware-acceleration;
+  will-change: height, opacity; // animation optimization // it doesn't work in CollapsableBox component with outer elements (like InputSelect)
 }
 
 // Overrides
@@ -46,4 +47,17 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+/* --------------How to use---------------- */
+//    @include disable-user-select;
+/* ---------------------------------------- */
+
+@mixin disable-user-select {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  /* -kthml-user-select: none; // Konkeror */
+  -moz-user-select: none;
+  -webkit-touch-callout: none; // Safair iOS
+  user-select: none;
 }

@@ -93,6 +93,8 @@ div {
 
 That would scale `font-size` from a minimum of 16px (at a 320px viewport) to a maximum of 24px (at a 1200px viewport).
 
+<div class="mb-xs-8" />
+
 - **Fluid properties**. This mixin is the same as the previous but it lets you increase any property, not just font-size.
 
 ```scss
@@ -102,3 +104,45 @@ That would scale `font-size` from a minimum of 16px (at a 320px viewport) to a m
 ```
 
 That would scale `padding-left` and `padding-right` from a minimum of 16px (at a 320px viewport) to a maximum of 24px (at a 1200px viewport).
+
+<div class="mb-xs-8" />
+
+- **Text overflow ellipsis**. Remember, you need to provide a `max-width`.
+
+```scss
+@include text-overflow-ellipsis;
+```
+
+<div class="mb-xs-8" />
+
+- **Transition height**. Makes a transition height and smooth it.
+
+```scss
+@include transition-height;
+```
+
+<div class="mb-xs-8" />
+
+- **Button reset browser tap styles on mobile**. Disables the blue tingling when clicking something on mobile.
+
+```scss
+@include button-reset-browser-tap-styles;
+```
+
+<div class="mb-xs-8" />
+
+- **Button reset styles**. Reset browser button styles.
+
+```scss
+@include button-reset-styles;
+```
+
+<div class="mb-xs-8" />
+
+- **Disable user select**. Disables text selection/highlighting of an element.
+
+```scss
+@include disable-user-select;
+```
+
+<div class="mb-xs-8" />

@@ -6,10 +6,16 @@ export default defineConfig({
   lang: "en",
   title: "Vuersatile Components",
   description: "A Vue 3 component library with a SCSS framework integrated",
-  tagline: "Simple, powerful, and fast. Meet the modern components librart and SCSS framework you've always wanted.",
+  tagline: "Simple, powerful, and fast. Meet the modern components library and SCSS framework you've always wanted.",
+
+  head: [
+    ['link', { rel: "shortcut icon", href: "/favicon.ico" }]
+  ],
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
+    logo: '/logo-with-shadow.png',
+
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting started', link: '/getting-started' },
