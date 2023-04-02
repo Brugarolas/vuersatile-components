@@ -38,10 +38,11 @@
         )
           li.input-multi-select__search-bar-wrapper(v-if="allowSearch")
             InputBase.input-multi-select__search-bar(
-              v-model="search",
-              :name="'Search'",
+              :value="search",
+              name="Search",
               icon="magnifying-glass",
-              :placeholder="$t('Search')"
+              :placeholder="$t('Search')",
+              @input="inputSearch"
             )
           li.input-multi-select__option-item(
             v-for="(option, index) in filteredOptions",
@@ -49,7 +50,7 @@
             :data-item="`${name}-${index}`"
             :data-item-key="option.key"
           )
-            CheckboxBasic.input-multi-select__checkbox(
+            CheckboxBase.input-multi-select__checkbox(
               :checked="selected[option.key]",
               :name="`${name}-${index}`",
               :label="option.label",
@@ -64,7 +65,7 @@
 </template>
 
 <script>
-import { CheckboxBasic, InputBase, RequiredInputMixin } from './_internal'
+import { CheckboxBase, InputBase, RequiredInputMixin } from './_internal'
 import { TransitionHeight } from '@/components/transition'
 import Icon from '@/components/info/Icon.vue'
 import Tag from '@/components/interactive/Tag.vue'
@@ -76,7 +77,7 @@ export default {
     TransitionHeight,
     Tag,
     TransitionFadeSelect,
-    CheckboxBasic,
+    CheckboxBase,
     InputBase,
     Icon
   },
@@ -98,10 +99,6 @@ export default {
     placeholder: {
       type: String,
       default: null
-    },
-    optionIdKey: {
-      type: String,
-      default: 'id'
     },
     optionValueKey: {
       type: String,
@@ -163,6 +160,9 @@ export default {
     searchFilter () {
       return this.search?.trim() || ''
     },
+    isSearchActive () {
+      return this.allowSearch && this.searchFilter
+    },
 
     errorMessage () {
       if (!this.shouldShowErrors) {
@@ -180,21 +180,10 @@ export default {
         const value = option[this.optionValueKey]
         const label = option[this.optionLabelKey]
         const disabled = option[this.optionDisabledKey]
-        const id = option[this.optionIdKey]
         const key = this.getKeyFromValue(value)
 
-        selectableOptions.push({ value, label, id, key, disabled })
+        selectableOptions.push({ value, label, key, disabled })
       }
-
-      // To show dynamic filter if the options were selected but not listing
-      Object.keys(this.selected).forEach((key) => {
-        if (this.selected[key]) {
-          const find = selectableOptions.find((item) => item.key === key)
-          if (!find) {
-            selectableOptions.push({ value: key, label: key, key })
-          }
-        }
-      })
 
       return selectableOptions
     },
@@ -209,7 +198,8 @@ export default {
       return this.selectableOptions.filter((option) => {
         const optionText = option.label.toLowerCase()
 
-        return optionText.includes(searchText)
+        // Or option is selected, or text matches
+        return this.selected[option.key] || optionText.includes(searchText)
       })
     },
 
@@ -259,6 +249,10 @@ export default {
 
         $refs.checkboxes[key] = $el
       }
+    },
+
+    inputSearch (event) {
+      this.search = event.target.value
     },
 
     /* Input mixin overrided methods */
@@ -393,28 +387,12 @@ export default {
       this.selected[option.key] = false
       this.value = this.value.filter(value => value.id !== option.value.id)
 
-      /* const checkbox = this.$refs.checkboxes[option.key]
-
-      console.log('CHECKBOX', checkbox, checkbox.value)
-
-      if (checkbox) {
-        checkbox.uncheck()
-      } */
-
       this.change()
     },
 
     reset () {
       this.dirty = false
       this.formIsDirty = false
-
-      this.value.forEach(optionName => {
-        const checkbox = this.$refs.checkboxes[option.key]
-
-        if (checkbox) {
-          checkbox.value = false
-        }
-      })
 
       this.value = []
       this.selected = {}
@@ -482,7 +460,7 @@ export default {
   &__clear-button {
     @include button-reset-browser-tap-styles;
     @include button-reset-styles;
-    color: $text-error-color;
+    color: $primary-color-100;
     margin-top: $space-1;
     text-align: left;
 
@@ -651,10 +629,6 @@ export default {
     margin: $space-2 $space-3;
 
     .input-base {
-      &__wrapper {
-        background-color: $greyscale-color-5;
-      }
-
       &__input {
         background-color: transparent;
       }

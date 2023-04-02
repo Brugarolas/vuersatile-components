@@ -69,16 +69,14 @@ export default {
     }
   },
   methods: {
-    change (value) {
-      console.log('change', value)
+    change (event) {
       this.dirty = true
-      this.value = value
+      this.value = event.target.value
       this.$emit('change', this.value)
     },
-    input (value) {
-      console.log('input', value)
+    input (event) {
       this.dirty = true
-      this.value = value
+      this.value = event.target.value
       this.$emit('input', this.value)
     }
   }

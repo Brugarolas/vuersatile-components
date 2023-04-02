@@ -159,4 +159,8 @@ Component `Form` includes everything you need to start building forms without a 
 
 <div class="mb-xs-8" />
 
+- `resetOnSubmit`: to reset or not all `Form` fields on submit. Type `Boolean`, default `false`.
+
+<div class="mb-xs-8" />
+
 - `skipUnmodifiedFields`: Skip fields that have not been modified when generating submit object. Type `Boolean`, default `false`.

@@ -1,15 +1,15 @@
 <template lang="pug">
 .input-base(
     :data-field-name="fieldName",
-    :class="[statusClass, disabledClass, focusClass, classes]")
+    :class="[statusClass, disabledClass, focusClass]")
     label.input-base__label(v-if="label", :for="fieldId") {{ label }}
 
     .input-base__wrapper
       Button.input-base__left-button(v-if="leftButtonProps", :disabled="leftButtonProps.disabled" :type="leftButtonProps.type", :size="leftButtonProps.size", :icon="leftButtonProps.icon", :variant="leftButtonProps.variant", :colorType="leftButtonProps.colorType" @click="_ => leftButtonProps.clickHandler()")
 
       input.input-base__input(
-        v-model="_value",
         v-bind="attributes",
+        :value="value",
         ref="input",
         :readonly="allowReadOnly ? 'readonly' : null"
         :id="label && fieldId",
@@ -38,16 +38,10 @@ export default {
     TransitionHeight
   },
 
-  inheritAttrs: false,
-
   props: {
-    initialValue: {
-      type: [Object, String, Number, Boolean],
-      required: false
-    },
-    outsideValue: {
-      type: [Object, String, Number, Boolean],
-      required: false
+    value: {
+      type: [String, Number],
+      default: null
     },
     label: {
       type: String,
@@ -89,34 +83,14 @@ export default {
 
   data () {
     return {
-      __value__: null,
       focus: false,
       internalId: nanoid()
     }
   },
 
-  created () {
-    if (this.initialValue) {
-      this.__value__ = this.initialValue
-    }
-  },
-
   computed: {
-    _value: {
-      get () {
-        return this.outsideValue || this.__value__
-      },
-
-      set (newValue) {
-        this.__value__ = newValue
-      }
-    },
-
     fieldName () {
       return this.$attrs.name
-    },
-    classes () {
-      return this.$attrs.class
     },
     fieldId () {
       return `${this.fieldName || 'input'}_${this.internalId}`
@@ -124,40 +98,15 @@ export default {
     hasErrorMessage () {
       return this.error && typeof this.error === 'string'
     },
+
     listeners () {
       return {
-        input: (event) => {
-          this.$emit('input', event.target.value)
-          this.$emit('input-native', event)
-        },
-
-        change: (event) => {
-          this.$emit('change', event.target.value)
-          this.$emit('change-native', event)
-        },
-
-        focusin: (event) => {
-          this.$emit('focusin', event)
+        focusin: () => {
           this.setFocus(true)
         },
 
-        focusout: (event) => {
-          this.$emit('focusout', event)
+        focusout: () => {
           this.setFocus(false)
-        },
-
-        keyup: (event) => {
-          this.$emit('keyup', event.target.value)
-          this.$emit('keyup-native', event)
-        },
-
-        keydown: (event) => {
-          this.$emit('keydown', event.target.value)
-          this.$emit('keydown-native', event)
-        },
-
-        click: (event) => {
-          this.$emit('click', event);
         }
       }
     },
@@ -190,9 +139,10 @@ export default {
 
       this.focus = focus
     },
-    clickIconHandler () {
+    clickIconHandler (event) {
       this.$refs.input.focus()
-      this.$emit('iconClick')
+
+      this.$emit('iconClick', event)
     }
   }
 }

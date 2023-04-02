@@ -4,12 +4,11 @@
   :data-field-name="fieldName"
 )
   input.checkbox-base__input(
+    :checked="checked",
     v-bind="attributes"
-    v-model="checked",
     type="checkbox",
     ref="checkbox",
-    :id="label && fieldId",
-    v-on="listeners"
+    :id="label && fieldId"
   )
   span.checkbox-base__check
     Icon.checkbox-base__icon(icon="check", size="xs")
@@ -25,12 +24,10 @@ export default {
     Icon
   },
 
-  inheritAttrs: false,
-
   props: {
-    initialValue: {
+    checked: {
       type: Boolean,
-      required: false
+      default: false
     },
     label: {
       type: String,
@@ -44,13 +41,8 @@ export default {
 
   data () {
     return {
-      checked: false,
       internalId: nanoid()
     }
-  },
-
-  created () {
-    this.checked = this.initialValue
   },
 
   computed: {
@@ -70,24 +62,6 @@ export default {
       return this.invalid ? 'checkbox-base--error' : ''
     },
 
-    listeners () {
-      return {
-        input: (event) => {
-          this.checked = event.target.checked
-          this.$emit('input', event.target.checked)
-          this.$emit('input-native', event)
-        },
-
-        change: (event) => {
-          this.$emit('change', event.target.checked)
-        },
-
-        click: (event) => {
-          this.$emit('click', event)
-        }
-      }
-    },
-
     attributes () {
       const { name, disabled } = this.$attrs
 
@@ -105,10 +79,6 @@ export default {
   &--error {
     .checkbox-base__check {
       border-color: $input-border-error;
-    }
-
-    .checkbox-base__label {
-      color: $input-text-error;
     }
   }
 

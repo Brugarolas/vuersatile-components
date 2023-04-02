@@ -76,7 +76,7 @@ main.pr-xs-6.pl-xs-6
       TooltipInfo(text="What does that mean?", color="darkblue")
 
   Card.mt-xs-6(title="Contact form")
-    Form(@submit="log")
+    Form(@submit="log", :resetOnSubmit="true")
       .row
         .col-6.mb-xs-4
           InputText(
@@ -113,7 +113,16 @@ main.pr-xs-6.pl-xs-6
       
       .row
         .col-5.mb-xs-4
-          InputSelect.mb-xs-2(name="select", label="Select an option", placeholder="Select a job...", :required="true", :allowClear="true", :mountOptionsOutside="true", :options="selectOptions")
+          InputSelect(
+            name="select",
+            label="Select an option",
+            placeholder="Select a job...",
+            :required="true",
+            :allowClear="true",
+            :allowSearch="true",
+            :mountOptionsOutside="true",
+            :options="selectOptions"
+          )
 
         .col-7.mb-xs-4
           InputMultiSelect(
@@ -122,6 +131,7 @@ main.pr-xs-6.pl-xs-6
             placeholder="Favourite JavaScript framework",
             :required="true",
             :allowClear="true",
+            :allowSearch="true",
             :options="multiselectOptions",
             :initialValue="[multiselectOptions[0].value]"
           )

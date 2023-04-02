@@ -1,6 +1,6 @@
 <template lang="pug">
 InputBase.input-number(
-  :initialValue="initialValue",
+  :value="value",
   type="number",
   :name="name",
   :label="label",
@@ -94,17 +94,17 @@ export default {
     },
 
     /* Own methods */
-    input (value) {
+    input (event) {
       this.dirty = true
 
-      this.convertInputToNumber(value)
+      this.convertInputToNumber(event.target.value)
 
-      this.$emit('input', this.value)
+      this.$emit('input', event.target.value)
 
       this.validate()
     },
-    change (value) {
-      this.convertInputToNumber(value)
+    change () {
+      this.dirty = true
 
       this.$emit('change', this.value)
     },

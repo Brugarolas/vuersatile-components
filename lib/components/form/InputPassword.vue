@@ -1,6 +1,6 @@
 <template lang="pug">
 InputBase.input-password(
-  :initialValue="initialValue",
+  :value="value",
   :type="inputTypePassword",
   :name="name",
   :label="label",

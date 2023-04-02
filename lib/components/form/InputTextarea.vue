@@ -1,6 +1,6 @@
 <template lang="pug">
 TextareaBase.input-textarea(
-  :initialValue="initialValue",
+  :value="value"
   :class="[allowResizeClass, autoResizeClass]",
   :name="name",
   :label="label",
@@ -85,6 +85,14 @@ export default {
   },
 
   methods: {
+    input (event) {
+      this.value = this.formatInput(event.target.value)
+
+      this.$emit('input', event.target.value)
+
+      this.validate()
+    },
+
     doAutoResize (event) {
       if (!this.autoResize) {
         return

@@ -1,6 +1,6 @@
 <template lang="pug">
 InputBase.input-text(
-  :initialValue="initialValue",
+  :value="value",
   :name="name",
   :label="label",
   :icon="icon",
@@ -97,8 +97,8 @@ export default {
   },
 
   methods: {
-    input (value) {
-      this.value = this.formatInput(value)
+    input (event) {
+      this.value = this.formatInput(event.target.value)
 
       this.$emit('input', this.value)
 

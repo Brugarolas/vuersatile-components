@@ -8,7 +8,7 @@
 
   InputBase.input-select__list-wrapper(
     v-click-outside="close",
-    :outsideValue="optionSelected.label",
+    :value="optionSelected.label",
     :name="`${name}-input`",
     icon="chevron-down",
     iconSize="s",
@@ -16,7 +16,7 @@
     :disabled="disabled",
     :allowReadOnly="true",
     @iconClick="toggle",
-    @click.prevent="toggle"
+    @click="toggle"
   )
 
   TransitionFadeSelect
@@ -29,10 +29,11 @@
       li.input-select__search-wrapper(v-if="allowSearch")
         //- TODO Replace input base with input search
         InputBase.input-select__search-bar(
-          v-model="search",
-          :name="'Search'",
-          :icon="'magnifying-glass'",
-          :placeholder="$t('Search')"
+          :value="search",
+          name="Search",
+          icon="magnifying-glass",
+          :placeholder="$t('Search')",
+          @input="inputSearch"
           @click.stop
         )
         .input-select__search-actions(v-if="allowAddOptions")
@@ -267,6 +268,9 @@ export default {
       this.isOpen = false
       this.search = null
     },
+    inputSearch (event) {
+      this.search = event.target.value
+    },
     formatOptions () {
       const formattedOptions = this.options.map(option => {
         const value = option[this.optionValueKey]
@@ -302,8 +306,10 @@ export default {
       return JSON.stringify(value)
     },
 
-    toggle () {
-      console.log('toggle')
+    toggle (event) {
+      event?.stopPropagation();
+      event?.preventDefault();
+
       if (!this.modificable) {
         return
       }
@@ -331,8 +337,6 @@ export default {
     },
 
     select (value) {
-      console.log('select', value)
-
       if (this.value === value) {
         this.close()
 

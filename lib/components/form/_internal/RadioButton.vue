@@ -3,15 +3,10 @@
   input.radiobutton__input(
     type="radio",
     :ref="`radio_${value}`",
-    :class="[classes]",
     :name="name",
     :id="`radio_${internalId}`",
     :value="value",
-    :checked="checked",
-    :disabled="disabled",
-    @click="radioClicked",
-    @input="radioInput",
-    @change="radioChanged"
+    :disabled="disabled"
   )
   span.radiobutton__check
   label.radiobutton__label(v-if="label" :for="`radio_${internalId}`") {{ label }}
@@ -22,8 +17,6 @@ import { nanoid } from 'nanoid/non-secure'
 
 export default {
   name: 'RadioButton',
-
-  inheritAttrs: false,
 
   props: {
     label: {
@@ -48,10 +41,6 @@ export default {
       type: Boolean,
       default: false
     },
-    checked: {
-      type: Boolean,
-      default: false
-    },
     enableEmpty: {
       type: Boolean,
       default: false
@@ -64,23 +53,14 @@ export default {
     }
   },
 
-  computed: {
-    classes () {
-      return this.$attrs.class
-    }
-  },
-
   methods: {
     radioChanged ({ target }) {
-      console.log('radioChanged', target);
       this.$emit('change', target.value)
     },
     radioInput ({ target }) {
-      console.log('radioInput', target);
       this.$emit('input', target.value)
     },
     radioClicked (event) {
-      console.log('radioClicked', event);
       this.$emit('click', event)
     }
   }

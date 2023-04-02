@@ -1,14 +1,14 @@
 <template lang="pug">
 .input-base(
   :data-field-name="fieldName",
-  :class="[statusClass, disabledClass, focusClass, classes]"
+  :class="[statusClass, disabledClass, focusClass]"
 )
   label.input-base__label(v-if="label", :for="fieldId") {{ label }}
     
   .input-base__wrapper
     textarea.input-base__input(
-      v-model="_value",
       v-bind="attributes",
+      :value="value",
       ref="input",
       :id="label && fieldId",
       v-on="listeners"
@@ -33,12 +33,10 @@ export default {
     TransitionHeight
   },
 
-  inheritAttrs: false,
-
   props: {
-    initialValue: {
-      type: [Object, String, Number, Boolean],
-      required: false
+    value: {
+      type: [String, Number],
+      required: true
     },
     label: {
       type: String,
@@ -60,23 +58,12 @@ export default {
 
   data () {
     return {
-      _value: null,
       focus: false,
       internalId: nanoid()
     }
   },
 
-  created () {
-    if (Boolean(this.initialValue)) {
-      this._value = this.initialValue
-    }
-  },
-
   computed: {
-    classes () {
-      console.log(this.$attrs)
-      return this.$attrs.class
-    },
     fieldName () {
       return this.$attrs.name
     },
@@ -91,38 +78,12 @@ export default {
     },
     listeners () {
       return {
-        input: (event) => {
-          this.$emit('input', event.target.value)
-          this.$emit('input-native', event)
-        },
-
-        change: (event) => {
-          this.$emit('change', event.target.value)
-          this.$emit('change-native', event)
-        },
-
-        focusin: (event) => {
-          this.$emit('focusin', event)
+        focusin: () => {
           this.setFocus(true)
         },
 
-        focusout: (event) => {
-          this.$emit('focusout', event)
+        focusout: () => {
           this.setFocus(false)
-        },
-
-        keyup: (event) => {
-          this.$emit('keyup', event.target.value)
-          this.$emit('keyup-native', event)
-        },
-
-        keydown: (event) => {
-          this.$emit('keydown', event.target.value)
-          this.$emit('keydown-native', event)
-        },
-
-        resize: (event) => {
-          this.$emit('resize', event);
         }
       }
     },
