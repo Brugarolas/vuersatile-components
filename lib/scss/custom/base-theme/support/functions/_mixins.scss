@@ -1,5 +1,5 @@
 /**
-Aux function for ::after and :::before
+Aux function for ::after and ::before
 */
 @mixin pseudo($display: block, $pos: absolute, $content: '') {
     content: $content;
@@ -116,16 +116,6 @@ Simple and effective for when you need to trigger hardware acceleration for some
         backface-visibility: hidden;
     }
     perspective: $perspective;
-}
-
-/**
-Truncates text overflow and add ellipses by default
-*/
-@mixin truncate($truncation-boundary, $overflow: ellipsis) {
-    max-width: $truncation-boundary;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: $overflow;
 }
 
 /**

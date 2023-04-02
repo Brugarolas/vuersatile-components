@@ -44,6 +44,18 @@
 //     .white-space-nowrap
 //     .ellipsis
 /* ---------------------------------------- */
+.line-height-small {
+  line-height: $line-height-small;
+}
+
+.line-height-normal {
+  line-height: $line-height-normal;
+}
+
+.line-height-big {
+  line-height: $line-height-big;
+}
+
 .white-space-nowrap {
   white-space: nowrap;
 }

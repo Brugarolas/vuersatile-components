@@ -13,11 +13,15 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Getting started', link: '/getting-started' },
-      { text: 'Component library', link: '/component-library' },
-      { text: 'SCSS framework', link: '/scss-framework' }
+      { text: 'Component library', link: '/components/form/checkbox' },
+      { text: 'SCSS framework', link: '/scss/breakpoints' }
     ],
 
     sidebar: [
+      {
+        text: 'Getting started',
+        link: '/getting-started'
+      },
       {
         text: 'Components',
         items: [
@@ -63,15 +67,7 @@ export default defineConfig({
           { text: 'Layout/Grid', link: '/scss/layout-grid' },
           { text: 'Miscellaneous', link: '/scss/miscellaneous' },
           { text: 'Mixins/Functions', link: '/scss/mixins-functions' },
-          { text: 'Spaces', link: '/scss/spaces' },
-          { text: 'Typography', link: '/scss/typography' }
-        ]
-      },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Component library', link: '/component-library' },
-          { text: 'SCSS framework', link: '/scss-framework' }
+          { text: 'Spaces', link: '/scss/spaces' }
         ]
       }
     ],

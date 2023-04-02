@@ -1,7 +1,13 @@
-<style>
+<style lang="scss">
 body {
     overflow-x: scroll !important;
     overflow-y: scroll !important;
+}
+
+.colored-cols [class*="col-"] {
+    border: 2px solid $orange-color-100;
+    background-color: $orange-color-30;
+    height: 50px;
 }
 </style>
 
@@ -24,6 +30,15 @@ We have the following max container widths for the following breakpoints:
 You can make rows and cols using `.row` class and columns classes (e.g. `.col-12` or `.col-lg-6`).
 
 It's important to mantain the rows and cols structure to avoid creating unnecessary spaces so you have to put the column classes inside the `.row` class.
+
+<div class="colored-cols row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+</div>
 
 ```html
 <div class="row">

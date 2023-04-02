@@ -12,6 +12,9 @@ $box-shadow-2: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.2);
 $box-shadow-3: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.3);
 $box-shadow-4: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.4);
 $box-shadow-5: 0 rem(2) rem(8) rgba($greyscale-color-90, 0.5);
+$box-shadow-6: 0 rem(4) rem(12) rgba($greyscale-color-90, 0.6);
+$box-shadow-7: 0 rem(4) rem(12) rgba($greyscale-color-90, 0.7);
+$box-shadow-8: 0 rem(6) rem(16) rgba($greyscale-color-90, 0.75);
 
 $box-shadows: (
     box-shadow-0: $box-shadow-0,
@@ -19,5 +22,8 @@ $box-shadows: (
     box-shadow-2: $box-shadow-2,
     box-shadow-3: $box-shadow-3,
     box-shadow-4: $box-shadow-4,
-    box-shadow-5: $box-shadow-5
+    box-shadow-5: $box-shadow-5,
+    box-shadow-6: $box-shadow-6,
+    box-shadow-7: $box-shadow-7,
+    box-shadow-8: $box-shadow-8
 ) !default;

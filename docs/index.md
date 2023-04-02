@@ -11,10 +11,10 @@ hero:
       link: /getting-started
     - theme: alt
       text: Component library
-      link: /component-library
+      link: /components/form/checkbox
     - theme: alt
       text: SCSS framework
-      link: /scss-framework
+      link: /scss/breakpoints
 
 features:
   - title: Complete component suite
