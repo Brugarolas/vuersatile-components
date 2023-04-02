@@ -61,6 +61,7 @@ export default defineConfig({
           { text: 'Responsive/Breakpoints', link: '/scss/breakpoints' },
           { text: 'Colors', link: '/scss/colors' },
           { text: 'Layout/Grid', link: '/scss/layout-grid' },
+          { text: 'Miscellaneous', link: '/scss/miscellaneous' },
           { text: 'Mixins/Functions', link: '/scss/mixins-functions' },
           { text: 'Spaces', link: '/scss/spaces' },
           { text: 'Typography', link: '/scss/typography' }
