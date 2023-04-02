@@ -5,7 +5,8 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   lang: "en",
   title: "Vuersatile Components",
-  description: "A Vue 3 component library with a CSS framework integrated",
+  description: "A Vue 3 component library with a SCSS framework integrated",
+  tagline: "Simple, powerful, and fast. Meet the modern components librart and SCSS framework you've always wanted.",
 
   // https://vitepress.dev/reference/default-theme-config
   themeConfig: {
@@ -52,6 +53,17 @@ export default defineConfig({
         text: 'Plugins',
         items: [
           { text: 'Validations', link: '/plugins/validations' },
+        ]
+      },
+      {
+        text: 'SCSS framework',
+        items: [
+          { text: 'Responsive/Breakpoints', link: '/scss/breakpoints' },
+          { text: 'Colors', link: '/scss/colors' },
+          { text: 'Layout/Grid', link: '/scss/layout-grid' },
+          { text: 'Mixins/Functions', link: '/scss/mixins-functions' },
+          { text: 'Spaces', link: '/scss/spaces' },
+          { text: 'Typography', link: '/scss/typography' }
         ]
       },
       {

@@ -15,9 +15,19 @@
 /* --------------How to use---------------- */
 //     .background-amber-color-100
 /* ---------------------------------------- */
-// Brackground-colors
-@each $i, $bgcolor in $colors{
+// Colors
+@each $i, $color in $colors {
+  .color-#{$i} {
+    color: #{$color};
+  }
+
   .background-#{$i} {
-    background-color: #{$bgcolor};
+    background-color: #{$color};
+  }
+}
+
+:root {
+  @each $i, $color in $colors {
+    --#{$i}: #{$color};
   }
 }

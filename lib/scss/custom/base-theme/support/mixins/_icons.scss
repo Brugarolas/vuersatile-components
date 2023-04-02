@@ -5,10 +5,10 @@
 // it's included in Icon.vue component.
 
 /* --------------How to use---------------- */
-//    @include vuersatile-icons-font;
+//    @include vuersatile-icons;
 /* ---------------------------------------- */
 
-@mixin vuersatile-icons-font {
+@mixin vuersatile-icons {
   color: inherit;
   display: block;
   font-size: $font-size-16;

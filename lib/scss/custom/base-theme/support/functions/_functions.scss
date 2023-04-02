@@ -13,6 +13,17 @@
   @return #{$remSize}rem;
 }
 
+/* --------------How to use---------------- */
+//    text-shadow: longshadow(#E13E06);
+/* ---------------------------------------- */
+
+@function longshadow($color) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 200 {
+      $val: #{$val}, #{$i}px #{$i}px #{$color};
+  }
+  @return $val;
+}
 
 // Spin-ac function (spin animation)
 
