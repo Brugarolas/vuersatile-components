@@ -8,17 +8,6 @@ Aux function for ::after and ::before
 }
 
 /**
-Aux function to eemove the unit of a length
-*/
-@function strip-unit($number) {
-    @if type-of($number) == 'number' and not unitless($number) {
-      @return $number / ($number * 0 + 1);
-    }
-
-    @return $number;
-}
-
-/**
 We use this for creating scalable elements (usually images / background images) that maintain a ratio. 
 
 div {
@@ -43,7 +32,6 @@ This mixin takes all the hassle out of creating that triangle you'll see coming 
 all without images, you just specify it's colour, how big you want it, the direction it's going to come out of
 your element and you're done
 **/
-// triangle mixin
 @mixin triangle ($size, $color, $direction) {
     height: 0;
     width: 0;

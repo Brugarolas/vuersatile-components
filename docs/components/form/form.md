@@ -67,7 +67,7 @@ Component `Form` includes everything you need to start building forms without a 
 </Card>
 ```
 
-<div class="mb-xs-84" />
+<div class="mb-xs-8" />
 
 ## Props
 

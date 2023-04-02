@@ -1,5 +1,15 @@
 // -------- Functions --------
 
+// Aux function to remove the unit of a length
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
 // Rem function (transform px in rems)
 // We only use this function to define font-size or spacings (defined in variables file)
 // For the moment, YOU DON´T NEED TO USE IT IN YOUR CODE.
@@ -9,12 +19,12 @@
 /* ---------------------------------------- */
 
 @function rem($size) {
-  $remSize: calc($size / $base-size);
+  $remSize: calc(strip-unit($size) / $base-size);
   @return #{$remSize}rem;
 }
 
 /* --------------How to use---------------- */
-//    text-shadow: longshadow(#E13E06);
+//    text-shadow: longshadow($orange-color-100);
 /* ---------------------------------------- */
 
 @function longshadow($color) {
