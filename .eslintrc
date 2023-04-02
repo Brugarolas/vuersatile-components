@@ -14,5 +14,12 @@
   "rules": {
     "vue/no-reserved-component-names": 0,
     "vue/multi-word-component-names": 0
+  },
+
+  "globals": {
+    "process": "readonly",
+    "module": "readonly",
+    "require": "readonly",
+    "__dirname": "readonly"
   }
 }

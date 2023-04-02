@@ -2,9 +2,8 @@
 // We use this variables in every element that need a
 // font-size, font-weight or line-height.
 
-// We are using unplugin-font now
-// $google-font: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap';
-// @import url($google-font);
+$google-font: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto+Slab:wght@300;400;600;700&display=swap';
+@import url($google-font);
 
 // Typography base variables
 // DON'T USE THEM IN COMPONENTS OR VIEWS.

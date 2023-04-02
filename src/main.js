@@ -1,4 +1,5 @@
-import appInit from '@/lib.js'
+import AppInit from '@/lib.js'
+// import AppInit from './vuersatile-components.js'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -8,7 +9,7 @@ import router from './router'
 
 const app = createApp(App)
 
-appInit(app);
+AppInit(app);
 
 app.use(createPinia())
 app.use(router)

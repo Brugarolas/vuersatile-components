@@ -3,10 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test:unit": "vitest",
+    "serve": "vue-cli-service serve --mode development",
+    "build": "vue-cli-service build --target lib --mode production",
     "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
@@ -20,13 +18,14 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^6.4.0",
+    "@juggle/resize-observer": "^3.4.0",
     "dayjs": "^1.11.7",
     "vue": "^3.2.47",
     "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@vue/cli-service": "^5.0.8",
     "@vue/compat": "^3.2.47",
     "@vue/test-utils": "^2.3.2",
     "babel-loader": "^9.1.2",
@@ -38,19 +37,29 @@
     "npm-check-updates": "^16.10.0",
     "pinia": "^2.0.33",
     "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
     "sass": "^1.60.0",
+    "sass-loader": "^13.2.2",
     "start-server-and-test": "^2.0.0",
     "stylelint": "^15.4.0",
     "stylelint-config-standard": "^32.0.0",
     "stylelint-config-standard-scss": "^7.0.1",
-    "unplugin-fonts": "^1.0.0",
-    "vite": "^4.2.1",
     "vitepress": "^1.0.0-alpha.64",
-    "vitest": "^0.29.8",
     "vue-loader": "^17.0.1",
     "vue-router": "^4.1.6"
   },
   "engines": {
-    "node": "16.x"
+    "node": "^16.x"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vuersatile-components.umd.cjs",
+  "module": "./dist/vuersatile-components.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vuersatile-components.js",
+      "require": "./dist/vuersatile-components.umd.cjs"
+    }
   }
 }

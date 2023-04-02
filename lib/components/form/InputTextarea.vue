@@ -18,6 +18,7 @@ TextareaBase.input-textarea(
 <script>
 import { TextareaBase } from './_internal'
 import InputText from './InputText.vue'
+import { ResizeObserver } from '@juggle/resize-observer';
 
 export default {
   components: {
