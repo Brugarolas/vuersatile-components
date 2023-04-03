@@ -1,8 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-
 import Unfonts from 'unplugin-fonts/vite'
 
 // https://vitejs.dev/config/
@@ -10,7 +9,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/scss/main.scss";`
+        additionalData: `@import "@/scss/custom/base-theme/support/index.scss";`
       }
     }
   },
@@ -48,6 +47,35 @@ export default defineConfig({
       }
     })
   ],
+
+  build: {
+    cssCodeSplit: true,
+    assetsInlineLimit: 0,
+
+    lib: {
+      // eslint-disable-next-line no-undef
+      entry: resolve(__dirname, 'lib/index.js'),
+      name: 'Vuersatile Components',
+      fileName: 'vuersatile-components',
+      emitAssets: true
+    },
+
+    commonjsOptions: {
+      strictRequires: [
+        new RegExp('@fortawesome/[.]*')
+      ]
+    }
+  },
+
+  rollupOptions: {
+    external: ['vue'],
+    output: {
+      globals: {
+        vue: 'Vue'
+      }
+    },
+    sourceMap: false
+  },
 
   define: {
     __VUE_I18N_FULL_INSTALL__: true,
