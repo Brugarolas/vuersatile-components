@@ -573,7 +573,6 @@ export default {
     @include button-reset-browser-tap-styles;
     @include button-reset-styles;
     color: $greyscale-color-30;
-    margin-right: $space-1;
     transition: color .3s ease, transform .3s ease;
     will-change: transform;
   }

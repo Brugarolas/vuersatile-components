@@ -375,6 +375,16 @@ export default {
 .input-select {
   position: relative;
 
+  .input-select__list-wrapper {
+      .input-base__right-icon {
+        @include button-reset-browser-tap-styles;
+        @include button-reset-styles;
+        color: $greyscale-color-30;
+        transition: color .3s ease, transform .3s ease;
+        will-change: transform;
+      }
+    }
+
   &--open {
     .input-select__list-wrapper {
       .input-base__wrapper {

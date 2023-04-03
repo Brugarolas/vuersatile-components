@@ -1,0 +1,15 @@
+{
+    "FORM.ERROR.EMAIL": "Invalid email",
+    "FORM.ERROR.MAX_VALUE": "You must enter a number least than indicated",
+    "FORM.ERROR.MIN_CURRENT_DATE": "You must enter a date greater than today",
+    "FORM.ERROR.MIN_VALUE": "You must enter a number greater than indicated",
+    "FORM.ERROR.NOT_DATE": "Field must be valid date",
+    "FORM.ERROR.NOT_EMPTY": "Field can't be empty",
+    "FORM.ERROR.NOT_EMPTY_NUMBER": "You must enter a number",
+    "FORM.ERROR.NOT_EQUAL": "This information does not match",
+    "FORM.ERROR.NOT_INT": "Field must be integer",
+    "FORM.ERROR.NOT_NUMBER": "Field must be number",
+    "FORM.ERROR.NOT_VALID_TIME": "Field is not a valid time",
+    "FORM.ERROR.PHONE": "Invalid phone number",
+    "GENERIC.CLEAR": "Clear"
+}

@@ -4,9 +4,7 @@ import {
   Tooltip,
   BooleanIcon,
   LockedIcon,
-  TooltipInfo
-} from '@/components/info'
-import {
+  TooltipInfo,
   Form,
   InputText,
   InputNumber,
@@ -18,7 +16,7 @@ import {
   RadioButtonGroup,
   InputSelect,
   InputMultiSelect
-} from '@/components/form';
+} from '../../dist/vuersatile-components.js';
 
 const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
 const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]

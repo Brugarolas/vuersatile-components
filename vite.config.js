@@ -17,20 +17,12 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./lib', import.meta.url))
-      // vue: '@vue/compat'
-    }
+    },
+    dedupe: ['vue']
   },
 
   plugins: [
-    vue(/*{
-      template: {
-        compilerOptions: {
-          compatConfig: {
-            MODE: 2
-          }
-        }
-      }
-    }*/),
+    vue(),
 
     Unfonts({
       google: {
@@ -51,30 +43,35 @@ export default defineConfig({
   build: {
     cssCodeSplit: true,
     assetsInlineLimit: 0,
+    minify: true,
 
     lib: {
       // eslint-disable-next-line no-undef
       entry: resolve(__dirname, 'lib/index.js'),
       name: 'Vuersatile Components',
       fileName: 'vuersatile-components',
+      formats: ['es'],
       emitAssets: true
     },
 
-    commonjsOptions: {
-      strictRequires: [
-        new RegExp('@fortawesome/[.]*')
-      ]
-    }
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'index.css') return 'vuersatile-components.css';
+          return assetInfo.name;
+        },
+
+        globals: {
+          vue: 'Vue'
+        }
+      },
+      sourceMap: false
+    },
   },
 
-  rollupOptions: {
-    external: ['vue'],
-    output: {
-      globals: {
-        vue: 'Vue'
-      }
-    },
-    sourceMap: false
+  optimizeDeps: {
+    exclude: ['vue'],
   },
 
   define: {

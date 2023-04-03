@@ -1,7 +1,7 @@
 {
   "name": "vuersatile-components",
-  "version": "0.0.1",
-  "private": true,
+  "descrption": "A Vue 3 component library with a CSS framework integrated",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,13 +19,12 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^6.4.0",
     "dayjs": "^1.11.7",
-    "vue": "^3.2.47",
     "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
+    "@fortawesome/fontawesome-pro": "^6.4.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/compat": "^3.2.47",
     "@vue/test-utils": "^2.3.2",
@@ -47,10 +46,22 @@
     "vite": "^4.2.1",
     "vitepress": "^1.0.0-alpha.64",
     "vitest": "^0.29.8",
+    "vue": "^3.2.47",
     "vue-loader": "^17.0.1",
     "vue-router": "^4.1.6"
   },
   "engines": {
-    "node": "16.x"
+    "node": "^16.x"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vuersatile-components.js",
+  "module": "./dist/vuersatile-components.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vuersatile-components.js"
+    }
   }
 }

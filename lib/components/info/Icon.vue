@@ -45,7 +45,6 @@ export default {
 <style lang="scss">
 .v-icon {
   @include vuersatile-icons;
-  display: inline-block;
 
   // Icon color
   &--primary {
