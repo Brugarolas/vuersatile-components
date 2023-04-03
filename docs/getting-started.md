@@ -1,135 +1,65 @@
----
-outline: deep
----
+# Getting started
 
-# Markdown Extension Examples
+## Installation
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+We can install `Vuersatile Components` with NPM:
 
-## Syntax Highlighting
+```bash
+npm install --save vuersatile-components
+```
 
-VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
 
-**Input**
+## Usage
 
-````
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
+First, we need to configure our library. `Vuersatile Components` comes with `vue-i18n` pre-bundled, so we have to pass its options as param to our library configurator. Here us one example of app configuration:
+
+```js{1-2,14-20}
+import 'vuersatile-components/index.css'
+import { AppInit } from 'vuersatile-components'
+
+import messages from './messages.json';
+
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+AppInit(app, {
+    locale: 'en', // set locale
+    fallbackLocale: 'en', // set fallback locale
+    en: {
+        messages // set locale messages
     }
-  }
-}
-```
-````
+});
 
-**Output**
+app.use(createPinia())
+app.use(router)
 
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
+app.mount('#app')
 ```
 
-## Custom Containers
+Now we can use our components wherever we want: 
 
-**Input**
-
-```md
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
+```js
+import {
+  Card,
+  Tooltip,
+  BooleanIcon,
+  LockedIcon,
+  TooltipInfo,
+  Form,
+  InputText,
+  InputNumber,
+  InputPassword,
+  ToggleSwitch,
+  SegmentedControl,
+  Checkbox,
+  InputTextarea,
+  RadioButtonGroup,
+  InputSelect,
+  InputMultiSelect
+} from 'vuersatile-components';
 ```
-
-**Output**
-
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
-
-## More
-
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
-
-# Runtime API Examples
-
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
-
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
-
-```md
-<script setup>
-import { useData } from 'vitepress'
-
-const { theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-```
-
-<script setup>
-import { useData } from 'vitepress'
-
-const { site, theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-
-## More
-
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
