@@ -87,7 +87,8 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@/scss/main.scss";`
+          // additionalData: `@import "@/scss/main.scss";`
+          additionalData: `@import "@/scss/custom/base-theme/support/index.scss"; @import "@/scss/custom/_icons.scss";`
         }
       }
     },
