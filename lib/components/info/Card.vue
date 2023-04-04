@@ -27,7 +27,7 @@ export default {
   },
   computed: {
     hasAction () {
-      return !!this.$slots.actions
+      return Boolean(this.$slots.actions)
     },
     hasHeader () {
       return this.hasAction || this.title || this.subtitle

@@ -19,7 +19,7 @@
       )
 
   TransitionHeight
-    span.radiobutton-group__error(v-if="shouldShowErrors") {{ $t('generic.mandatoryLong') }}
+    span.radiobutton-group__error(v-if="shouldShowErrors") {{ $t('FORM.ERROR.MANDATORY_LONG') }}
 </template>
 
 <script>

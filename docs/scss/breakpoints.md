@@ -7,6 +7,8 @@ body {
 
 # Breakpoints
 
+## Breakpoints sizes
+
 We have the following breakpoints:
 
 - `xs`: breakpoint for small smartphone devices (from 0px to 575px).

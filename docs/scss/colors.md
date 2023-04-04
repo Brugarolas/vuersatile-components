@@ -7,7 +7,7 @@ body {
 @import "@/scss/custom/base-theme/utilities/_colors.scss";
 @import "@/scss/custom/base-theme/utilities/_grid.scss";
 
-.row {
+.color-row {
     height: 295px;
 }
 .color-block {
@@ -31,7 +31,9 @@ body {
 
 # Framework colors
 
-<div class="row">
+## Colors
+
+<div class="row color-row">
     <div class="color-block col-4">
         <div class="color letter-black background-primary-color-5">primary-color-5</div>
         <div class="color letter-black background-primary-color-20">primary-color-20</div>
@@ -61,7 +63,7 @@ body {
     </div>
 </div>
 
-<div class="row">
+<div class="row color-row">
     <div class="color-block col-4">
         <div class="color letter-black background-success-color-5">success-color-5</div>
         <div class="color letter-black background-success-color-20">success-color-20</div>
@@ -91,7 +93,7 @@ body {
     </div>
 </div>
 
-<div class="row">
+<div class="row color-row">
     <div class="color-block col-4">
         <div class="color letter-black background-support-color-5">support-color-5</div>
         <div class="color letter-black background-support-color-20">support-color-20</div>
@@ -121,7 +123,7 @@ body {
     </div>
 </div>
 
-<div class="row">
+<div class="row color-row">
     <div class="color-block col-4">
         <div class="color letter-black background-red-color-5">red-color-5</div>
         <div class="color letter-black background-red-color-20">red-color-20</div>
@@ -151,7 +153,7 @@ body {
     </div>
 </div>
 
-<div class="row">
+<div class="row color-row">
     <div class="color-block col-4">
         <div class="color letter-black background-blue-color-5">blue-color-5</div>
         <div class="color letter-black background-blue-color-20">blue-color-20</div>
@@ -181,7 +183,7 @@ body {
     </div>
 </div>
 
-<div class="row" style="height: 375px;">
+<div class="row color-row" style="height: 375px;">
     <div class="color-block col-4">
         <div class="color letter-black background-lime-color-5">lime-color-5</div>
         <div class="color letter-black background-lime-color-20">lime-color-20</div>

@@ -1,5 +1,5 @@
-import '../dist/vuersatile-components.css'
-import { AppInit } from '../dist/vuersatile-components.js'
+import '../dist/index.css'
+import { VuersatileInit } from '../dist/vuersatile-components.js'
 
 import messages from './messages.json';
 
@@ -11,11 +11,10 @@ import router from './router'
 
 const app = createApp(App)
 
-AppInit(app, {
+VuersatileInit(app, {
     locale: 'en', // set locale
-    fallbackLocale: 'en', // set fallback locale
-    en: {
-        messages // set locale messages
+    messages: {
+        en: messages // set locale messages
     }
 });
 

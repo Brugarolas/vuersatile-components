@@ -1,5 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
-import appInit from '../../../lib/lib.js'
+import { VuersatileInit } from '../../../lib/index.js'
+
+import messages from './messages.json';
 
 export default {
     ...DefaultTheme,
@@ -7,6 +9,11 @@ export default {
         DefaultTheme.enhanceApp(context)
         const { app } = context
 
-        appInit(app)
+        VuersatileInit(app, {
+            locale: 'en', // set locale
+            messages: {
+                en: messages // set locale messages
+            }
+        })
     },
 }

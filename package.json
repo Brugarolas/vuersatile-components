@@ -63,5 +63,27 @@
     ".": {
       "import": "./dist/vuersatile-components.js"
     }
-  }
+  },
+  "keywords": [
+    "javascript",
+    "css",
+    "components",
+    "vuejs",
+    "validation",
+    "vue",
+    "scss",
+    "css-framework",
+    "vue-components",
+    "form-validation",
+    "styles",
+    "fields",
+    "scss-framework",
+    "vuejs-components",
+    "input-validation",
+    "validation-library",
+    "vue3",
+    "components-library",
+    "vitepress",
+    "vue3-components" 
+  ]
 }
