@@ -33,6 +33,7 @@
           name="Search",
           icon="magnifying-glass",
           :placeholder="$t('Search')",
+          :allowReadOnly="readOnly",
           @input="inputSearch"
           @click.stop
         )
@@ -40,7 +41,7 @@
           Button(
             type="secondary-transparent",
             :text="$t('GENERIC.ADD')",
-            :disabled="searchHasResults",
+            :disabled="!hasSearch",
             @click="addOption"
           )
       li.input-select__list-item(
@@ -50,7 +51,6 @@
         :class="{ 'input-select__list-item--selected': option.key === optionSelected.key }",
         @click.stop="select(option.value)",
         :data-item="`${name}-${index}`"
-        :data-cy="dataCyOption"
       )
         span {{ option.label }}
       li.input-select__list-item.input-select__list-item--no-result(v-show="!searchHasResults")
@@ -103,10 +103,6 @@ export default {
       type: Boolean,
       default: false
     },
-    resetValueOnOptionsChange: {
-      type: Boolean,
-      default: false
-    },
     allowSearch: {
       type: Boolean,
       default: false
@@ -126,17 +122,14 @@ export default {
     placeholder: {
       type: String,
       default: null
-    },
-    dataCyOption: {
-      type: String,
-      default: ''
     }
   },
   data () {
     return {
       isOpen: false,
       value: null,
-      search: null
+      search: null,
+      extraOption: null
     }
   },
 
@@ -152,6 +145,9 @@ export default {
     /* Own computed properties */
     hasSelected () {
       return Boolean(this.value) || this.value === 0
+    },
+    hasSearch () {
+      return Boolean(this.searchFilter)
     },
     placeholderMessage () {
       return (this.hasSelected || this.allowEmpty) ? null : this.placeholder
@@ -179,7 +175,7 @@ export default {
       return this.placeholder && this.allowEmpty
     },
     emptyOption () {
-      return { value: null, label: this.placeholder, key: `empty_${this.name}` }
+      return { [this.optionValueKey]: { id: null, text: null}, [this.optionLabelKey]: this.placeholder, key: `empty_${this.name}` }
     },
     searchFilter () {
       return this.search?.trim() || ''
@@ -190,6 +186,10 @@ export default {
 
       if (this.allowEmptySelection) {
         selectableOptions.unshift(this.emptyOption)
+      }
+
+      if (this.allowAddOptions && this.extraOption) {
+        selectableOptions.push(this.extraOption)
       }
 
       return selectableOptions
@@ -280,8 +280,6 @@ export default {
         return { value, label, key }
       })
 
-      if (this.resetValueOnOptionsChange) this.value = null
-
       return formattedOptions
     },
     /* Input mixin overrided methods */
@@ -363,6 +361,14 @@ export default {
 
     addOption () {
       if (this.allowSearch) {
+        this.extraOption = {
+            [this.optionValueKey]:{
+            id: `extra_${this.search}`,
+            text: this.search
+          },
+          [this.optionLabelKey]: this.search,
+          key: `extra_${this.search}`
+        }
         this.value = this.search
         this.$emit('click', this.search)
       }

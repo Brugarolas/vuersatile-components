@@ -102,6 +102,10 @@ export default {
     listeners () {
       return {
         focusin: () => {
+          if (this.allowReadOnly) {
+            return
+          }
+
           this.setFocus(true)
         },
 
