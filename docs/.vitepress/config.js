@@ -37,7 +37,7 @@ export default defineConfig({
               { text: 'Checkbox', link: '/components/form/checkbox' },
               { text: 'Form', link: '/components/form/form' },
               { text: 'InputSelect', link: '/components/form/input-select' },
-              { text: 'InputMultiSelect', link: '/components/form/input-multi-selevt' }
+              { text: 'InputMultiSelect', link: '/components/form/input-multi-select' }
             ]
           },
           {
