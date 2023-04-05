@@ -1,17 +1,10 @@
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # Validations plugins
 
-`Vuersatyle Components` has a validation plugin that is completely integrated widh [ValidationsInputMixin](/components/form/validations-input-mixin). In fact, it can"t exists each without other.
+`Vuersatyle Components` has a validation plugin that is completely integrated with [ValidationsInputMixin](/components/form/validations-input-mixin). In fact, it can"t exists each without other.
 
 ## Included validations
 
-We have included the following validations:
+We have included the following validations with their error messages:
 
 ```json
   "not-empty": { "errorMessage": "FORM.ERROR.NOT_EMPTY" },

@@ -4,13 +4,6 @@ import Form from '../../../lib/components/form/Form.vue'
 import Card from '../../../lib/components/info/Card.vue'
 </script>
 
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # Checkbox
 
 Component `Checkbox`. Simple and elegant.

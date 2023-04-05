@@ -5,13 +5,6 @@ import Form from '../../../lib/components/form/Form.vue'
 import Card from '../../../lib/components/info/Card.vue'
 </script>
 
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # ValidationsInputMixin
 
 `RequiredInputMixin` implements `BasicInputMixin` and extends it to add complex validations to complex formulary components. Check [`Validations Plugin`](/plugins/validations) to learn more about what types of validations are included and how to register new ones.

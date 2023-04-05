@@ -80,6 +80,10 @@ export default {
     .checkbox-base__check {
       border-color: $input-border-error;
     }
+
+    .checkbox-base__label {
+      color: $input-text-error;
+    }
   }
 
   &__input {

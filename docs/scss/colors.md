@@ -1,9 +1,4 @@
 <style lang="scss">
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-
 @import "@/scss/custom/base-theme/utilities/_colors.scss";
 @import "@/scss/custom/base-theme/utilities/_grid.scss";
 

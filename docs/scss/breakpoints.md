@@ -1,10 +1,3 @@
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # Breakpoints
 
 ## Breakpoints sizes

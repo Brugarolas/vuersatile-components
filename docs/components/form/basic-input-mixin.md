@@ -1,10 +1,3 @@
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # BasicInputMixin
 
 `BasicInputMixin` provides configurable properties, internal data properties, computed properties, methods and hooks to ease the burden of creating new input components.

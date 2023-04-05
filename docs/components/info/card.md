@@ -4,13 +4,6 @@ import Card from '../../../lib/components/info/Card.vue'
 import Button from '../../../lib/components/interactive/Button.vue'
 </script>
 
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # Card
 
 Component `Card`. Simple and elegant.

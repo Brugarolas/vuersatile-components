@@ -1,9 +1,4 @@
 <style lang="scss">
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-
 .colored-cols [class*="col-"] {
     border: 2px solid $orange-color-100;
     background-color: $orange-color-30;

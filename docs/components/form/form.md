@@ -6,13 +6,6 @@ import Form from '../../../lib/components/form/Form.vue'
 import Card from '../../../lib/components/info/Card.vue'
 </script>
 
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # Form
 
 Component `Form` includes everything you need to start building forms without a hustle. It contains a submit button, auto self-validation in each input component which will link to the `Form` they are contained, and finally it builds a submit object with all the names and values of its fields as properties.
@@ -78,14 +71,14 @@ Component `Form` includes everything you need to start building forms without a 
 - `submitText`: Custom text for submit button. Type `String`, default `null`.
 
 <Card>
-  <Form submitText="Continue">
+  <Form submitText="Submit">
     <Checkbox name="conditions" label="I accept all the terms and conditions" required />
   </Form>
 </Card>
 
 ```html
 <Card>
-  <Form submitText="Continue">
+  <Form submitText="Submit">
     <Checkbox name="conditions" label="I accept all the terms and conditions" required />
   </Form>
 </Card>
@@ -160,6 +153,66 @@ Component `Form` includes everything you need to start building forms without a 
 <div class="mb-xs-8" />
 
 - `resetOnSubmit`: to reset or not all `Form` fields on submit. Type `Boolean`, default `false`.
+
+<Card>
+    <Form resetOnSubmit>
+        <div class="row">
+            <div class="col-6 mb-xs-4">
+                <InputText
+                    name="email"
+                    label="E-mail"
+                    placeholder="Enter your e-mail..."
+                    icon="at"
+                    :validations="['not-empty', 'email']"
+                />
+            </div>
+            <div class="col-6 mb-xs-4">
+                <InputPassword
+                    name="password"
+                    label="Password"
+                    placeholder="Enter a secure password..."
+                    :validations="['not-empty', { name: 'min-length', params: [8] }]"
+                />
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <Checkbox name="conditions" label="I accept all the terms and conditions" required />
+          </div>
+        </div>
+    </Form>
+</Card>
+
+```html
+<Card>
+    <Form resetOnSubmit>
+        <div class="row">
+            <div class="col-6 mb-xs-4">
+                <InputText
+                    name="email"
+                    label="E-mail"
+                    placeholder="Enter your e-mail..."
+                    icon="at"
+                    :validations="['not-empty', 'email']"
+                />
+            </div>
+            <div class="col-6 mb-xs-4">
+                <InputPassword
+                    name="password"
+                    label="Password"
+                    placeholder="Enter a secure password..."
+                    :validations="['not-empty', { name: 'min-length', params: [8] }]"
+                />
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <Checkbox name="conditions" label="I accept all the terms and conditions" required />
+          </div>
+        </div>
+    </Form>
+</Card>
+```
 
 <div class="mb-xs-8" />
 

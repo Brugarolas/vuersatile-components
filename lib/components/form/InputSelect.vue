@@ -451,7 +451,6 @@ export default {
     max-height: 232px;
     overflow: hidden auto;
     position: absolute;
-    top: 100%;
     width: 100%;
     will-change: transform, opacity;
     z-index: 3;

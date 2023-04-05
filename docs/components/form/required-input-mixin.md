@@ -1,10 +1,3 @@
-<style>
-body {
-    overflow-x: scroll !important;
-    overflow-y: scroll !important;
-}
-</style>
-
 # RequiredInputMixin
 
 `RequiredInputMixin` implements `BasicInputMixin` and extends it to make that an input component can be required or not, providing some validation.
