@@ -25,7 +25,7 @@ export default {
   components: {
     InputBase
   },
-  mixins: [ValidationsInputMixin, DateUtils], // TODO
+  mixins: [ValidationsInputMixin, DateUtils],
 
   props: {
     initialValue: {
@@ -35,11 +35,6 @@ export default {
     placeholder: {
       type: String,
       default: null
-    },
-    size: {
-      type: String,
-      default: 'md',
-      validator: (value) => ['md'].includes(value)
     },
     autocomplete: {
       type: String,
@@ -70,10 +65,6 @@ export default {
       type: String,
       default: null
     },
-    customModel: {
-      type: String,
-      default: null
-    },
     readOnly: {
       type: Boolean,
       default: false
@@ -82,7 +73,7 @@ export default {
 
   data () {
     return {
-      value: this.customModel || ''
+      value: ''
     }
   },
 
