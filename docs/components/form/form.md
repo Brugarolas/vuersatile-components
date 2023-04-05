@@ -19,6 +19,7 @@ Component `Form` includes everything you need to start building forms without a 
                     label="E-mail"
                     placeholder="Enter your e-mail..."
                     icon="at"
+                    inputType="email"
                     :validations="['not-empty', 'email']"
                 />
             </div>
@@ -44,6 +45,7 @@ Component `Form` includes everything you need to start building forms without a 
                     label="E-mail"
                     placeholder="Enter your e-mail..."
                     icon="at"
+                    inputType="email"
                     :validations="['not-empty', 'email']"
                 />
             </div>
@@ -163,6 +165,7 @@ Component `Form` includes everything you need to start building forms without a 
                     label="E-mail"
                     placeholder="Enter your e-mail..."
                     icon="at"
+                    inputType="email"
                     :validations="['not-empty', 'email']"
                 />
             </div>
@@ -193,6 +196,7 @@ Component `Form` includes everything you need to start building forms without a 
                     label="E-mail"
                     placeholder="Enter your e-mail..."
                     icon="at"
+                    inputType="email"
                     :validations="['not-empty', 'email']"
                 />
             </div>

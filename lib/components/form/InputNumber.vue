@@ -1,27 +1,34 @@
 <template lang="pug">
-InputBase.input-number(
-  :value="value",
-  type="number",
-  :name="name",
-  :label="label",
-  :icon="icon",
-  :error="shouldShowErrors ? errorMessage : null",
-  :placeholder="placeholder",
-  :step="step",
-  :min="min",
-  :max="max",
-  :disabled="disabled",
-  @input="input",
-  @change="change"
-)
+.input-number
+  InputBase(
+    :value="value",
+    type="number",
+    :name="name",
+    :label="label",
+    :icon="icon",
+    :iconVariant="iconVariant",
+    iconSize="s",
+    :error="shouldShowErrors ? errorMessage : null",
+    :placeholder="placeholder",
+    :step="step",
+    :min="min",
+    :max="max",
+    :disabled="disabled",
+    @input="input",
+    @change="change"
+  )
+  Icon.input-number__icon.input-number__icon--left(v-if="showSumClasses", icon="minus", @click="minus")
+  Icon.input-number__icon.input-number__icon--right(v-if="showSumClasses", icon="plus", @click="plus")
 </template>
 
 <script>
 import { InputBase, ValidationsInputMixin } from './_internal'
+import Icon from '@/components/info/Icon.vue'
 
 export default {
   components: {
-    InputBase
+    InputBase,
+    Icon
   },
   mixins: [ValidationsInputMixin],
 
@@ -57,6 +64,16 @@ export default {
   },
 
   computed: {
+    showSumClasses () {
+      return !this.icon;
+    },
+    hasMin () {
+      return Boolean(this.min) || this.min === 0
+    },
+    hasMax () {
+      return Boolean(this.max) || this.max === 0
+    },
+
     /* Validations mixin overrided properties */
     realValidations () {
       if (!this.validations) {
@@ -88,6 +105,17 @@ export default {
   },
 
   methods: {
+    plus () {
+      const quantity = this.step === 'any' ? 1 : this.step;
+
+      this.value = this.hasMax ? Math.min(this.max, this.value + quantity) : this.value + quantity
+    },
+    minus () {
+      const quantity = this.step === 'any' ? 1 : this.step;
+
+      this.value = this.hasMin ? Math.max(this.min, this.value - quantity) : this.value - quantity
+    },
+
     /* Input mixin overrided methods */
     shouldSetInitialValue () {
       return Boolean(this.initialValue) || this.initialValue === 0
@@ -129,3 +157,33 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.input-number {
+  position: relative;
+
+  .input-base__input {
+    -moz-appearance: textfield;
+  }
+
+  .input-number__icon {
+    position: absolute;
+    top: 33px;
+    cursor: pointer;
+    transition: color .3 ease-in-out;
+    color: $greyscale-color-30;
+
+    &:hover {
+      color: $greyscale-color-90;
+    }
+
+    &--left {
+      right: 25px;
+    }
+
+    &--right {
+      right: 8px;
+    }
+  }
+}
+</style>

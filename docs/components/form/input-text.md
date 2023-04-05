@@ -1,5 +1,4 @@
 <script setup>
-import Checkbox from '../../../lib/components/form/Checkbox.vue'
 import InputText from '../../../lib/components/form/InputText.vue'
 import Form from '../../../lib/components/form/Form.vue'
 import Card from '../../../lib/components/info/Card.vue'

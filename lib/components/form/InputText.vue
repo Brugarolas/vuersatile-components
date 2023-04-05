@@ -4,6 +4,7 @@ InputBase.input-text(
   :name="name",
   :label="label",
   :icon="icon",
+  iconSize="s",
   :error="realError",
   :placeholder="placeholder",
   :autocomplete="autocomplete",
