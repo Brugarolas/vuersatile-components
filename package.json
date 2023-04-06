@@ -16,7 +16,8 @@
     "utils:upgrades": "ncu -u",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "docs:server": "http-server ./docs/.vitepress/dist --cors"
   },
   "dependencies": {
     "dayjs": "^1.11.7",
@@ -33,6 +34,7 @@
     "eslint": "^8.37.0",
     "eslint-plugin-cypress": "^2.13.2",
     "eslint-plugin-vue": "^9.10.0",
+    "http-server": "^14.1.1",
     "jsdom": "^21.1.1",
     "npm-check-updates": "^16.10.2",
     "pinia": "^2.0.33",
@@ -84,6 +86,6 @@
     "vue3",
     "components-library",
     "vitepress",
-    "vue3-components" 
+    "vue3-components"
   ]
 }

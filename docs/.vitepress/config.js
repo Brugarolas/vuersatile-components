@@ -102,8 +102,8 @@ export default defineConfig({
 
     build: {
       ssr: false,
-      cssCodeSplit: true,
-      assetsInlineLimit: 0,
+      cssCodeSplit: false,
+      assetsInlineLimit: 8096,
       minify: true,
     },
 
