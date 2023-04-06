@@ -1,0 +1,1 @@
+import{B as e}from"./basic-input.8a1c5aa8.js";const t={mixins:[e],props:{required:{type:Boolean,default:!0}},computed:{isValid(){return this.disabled?!0:!this.required||!!this.value}},methods:{shouldSetInitialValue(){return!!this.initialValue}}};export{t as R};

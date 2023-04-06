@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,N as l}from"./chunks/framework.c06bf224.js";const d=JSON.parse('{"title":"Spacings","description":"","frontmatter":{},"headers":[],"relativePath":"scss/spaces.md","lastUpdated":1680717716000}'),o={name:"scss/spaces.md"},p=l("",9),e=[p];function t(c,r,D,F,y,i){return a(),n("div",null,e)}const A=s(o,[["render",t]]);export{d as __pageData,A as default};
