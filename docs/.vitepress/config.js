@@ -42,6 +42,7 @@ export default defineConfig({
               { text: 'InputPassword', link: '/components/form/input-password' },
               { text: 'InputText', link: '/components/form/input-text' },
               { text: 'InputTextarea', link: '/components/form/input-textarea' },
+              { text: 'RadioButtonGroup', link: '/components/form/radio-button-group' }
             ]
           },
           {

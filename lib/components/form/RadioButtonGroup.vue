@@ -12,8 +12,8 @@
         :checked="radioButton.value === value",
         :data-item="`${name}-${index}`",
         :disabled="radioButton.disabled",
-        :error="error",
-        :enableEmpty="enableEmpty",
+        :error="shouldShowErrors",
+        :enableEmpty="!required",
         @input="input",
         @change="change"
       )
@@ -37,10 +37,6 @@ export default {
       type: [String, Boolean],
       default: null
     },
-    description: {
-      type: String,
-      default: null
-    },
     inputValues: {
       type: Array,
       required: true
@@ -51,14 +47,6 @@ export default {
       require: true
     },
     horizontal: {
-      type: Boolean,
-      default: false
-    },
-    error: {
-      type: Boolean,
-      default: false
-    },
-    enableEmpty: {
       type: Boolean,
       default: false
     }

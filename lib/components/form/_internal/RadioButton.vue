@@ -133,12 +133,12 @@ export default {
       background-color: $input-background;
       border-radius: 16px;
       content: "";
-      height: calc(100% - 7px);
+      height: calc(100% - 8px);
       left: 50%;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: calc(100% - 7px);
+      width: calc(100% - 8px);
     }
   }
 
