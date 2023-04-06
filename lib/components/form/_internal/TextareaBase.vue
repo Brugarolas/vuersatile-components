@@ -149,6 +149,7 @@ export default {
   &__input {
     @include text-overflow-ellipsis;
     color: $input-text;
+    background-color: $input-background;
     height: 100%;
     padding: 0 $space-2;
     transition: color .3s ease;

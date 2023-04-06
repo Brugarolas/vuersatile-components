@@ -52,6 +52,8 @@ Not so plain and not so simple input number.
 
 ## Props
 
+Implements mixins [`ValidationsInputMixin`](/components/form/validations-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 - `placeholder`: text shown when nothing is written.
 
 <div class="mb-xs-8" />

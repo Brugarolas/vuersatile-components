@@ -11,6 +11,8 @@ const radioOptions = [
 
 # RadioButtonGroup
 
+Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 We will be using the following options:
 
 ```js

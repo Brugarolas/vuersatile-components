@@ -57,6 +57,8 @@ const selectOptions = [
 
 ## Props
 
+Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 - `options`. Changes selectable options.
 
 <div class="mb-xs-8" />
