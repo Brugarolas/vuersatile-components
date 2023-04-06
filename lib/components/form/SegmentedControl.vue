@@ -165,7 +165,7 @@ export default {
   &__label-container {
     display: flex;
     flex-direction: column;
-    padding: 0 0 $space-2 0;
+    padding: 0;
 
     @include media(sm) {
       flex-direction: row;
@@ -182,7 +182,7 @@ export default {
   &__clear-button {
     @include button-reset-browser-tap-styles;
     @include button-reset-styles;
-    color: $text-error-color;
+    color: $button-primary-background;
     margin-top: $space-1;
     text-align: left;
 
