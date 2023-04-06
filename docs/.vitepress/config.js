@@ -7,6 +7,7 @@ export default defineConfig({
   title: "Vuersatile Components",
   description: "A Vue 3 component library with a SCSS framework integrated",
   tagline: "Simple, powerful, and fast. Meet the modern components library and SCSS framework you've always wanted.",
+  base: '/vuersatile-components/',
 
   head: [
     ['link', { rel: "shortcut icon", href: "/favicon.ico" }]
@@ -98,12 +99,27 @@ export default defineConfig({
         }
       }
     },
+
+    build: {
+      ssr: false,
+      cssCodeSplit: true,
+      assetsInlineLimit: 0,
+      minify: true,
+    },
+
+    optimizeDeps: {
+      force: true 
+    },
     
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('../../lib', import.meta.url))
       }
     }
+  },
+
+  build: {
+    cacheDir: './.vitepress/.vitepress-cache'
   },
 
   lastUpdated: true

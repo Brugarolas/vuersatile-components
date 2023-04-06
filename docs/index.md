@@ -23,7 +23,7 @@ features:
   - icon: 😎
     title: CSS framework included
     details: An utility-first pixel-perfect CSS framework packed with CSS classes and SCSS utilities that can be used to composed to build any design.
-  - icon: 📝
+  - icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill="#41b883" d="M24.4 3.925H30l-14 24.15L2 3.925h10.71l3.29 5.6 3.22-5.6Z"/><path fill="#41b883" d="m2 3.925 14 24.15 14-24.15h-5.6L16 18.415 7.53 3.925Z"/><path fill="#35495e" d="M7.53 3.925 16 18.485l8.4-14.56h-5.18L16 9.525l-3.29-5.6Z"/></svg>
     title: Top class components
     details: Fascinating component designs made by professional designers and crafted by Vue Experts with PUG & SCSS.
   - icon: ❤️
@@ -35,10 +35,10 @@ features:
   - icon: 📱
     title: Mobile first
     details: First class support for responsive design led by touch optimized elements.
-  - icon: 📄
+  - icon: 📝
     title: Great documentation
     details: All the details you deserve to start working properly. Every star-pilot needs a good manual.
-  - icon:  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill="#41b883" d="M24.4 3.925H30l-14 24.15L2 3.925h10.71l3.29 5.6 3.22-5.6Z"/><path fill="#41b883" d="m2 3.925 14 24.15 14-24.15h-5.6L16 18.415 7.53 3.925Z"/><path fill="#35495e" d="M7.53 3.925 16 18.485l8.4-14.56h-5.18L16 9.525l-3.29-5.6Z"/></svg>
+  - icon: ⚡️
     title: Open source
     details: The complete UI suite is free to based on the GNU v3 license and the source code is available at GitHub.
   - icon: 💻
