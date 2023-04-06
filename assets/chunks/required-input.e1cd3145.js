@@ -1,1 +1,0 @@
-import{a as e}from"./Button.b8c960d2.js";const t={mixins:[e],props:{required:{type:Boolean,default:!0}},computed:{isValid(){return this.disabled?!0:!this.required||!!this.value}},methods:{shouldSetInitialValue(){return!!this.initialValue}}};export{t as R};
