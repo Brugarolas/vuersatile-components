@@ -18,7 +18,7 @@ const segmentedControlDateOptions = [
 
 # SegmentedControl
 
-Similar to [InputSelect](/components/form/input-select), it manages a multiple states but with a different style.
+Similar to [`InputSelect`](/components/form/input-select), it manages a multiple states but with a different style.
 
 <Card>
     <Form>

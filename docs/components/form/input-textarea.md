@@ -8,7 +8,7 @@ import Card from '../../../lib/components/info/Card.vue'
 
 Not so plain and not so simple input textarea.
 
-Has the same API than [InputText](/components/form/input-text).
+Has the same API than [`InputText`](/components/form/input-text).
 
 <Card>
     <Form>
