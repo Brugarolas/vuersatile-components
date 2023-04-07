@@ -92,6 +92,7 @@ import {
         "ADD": "Add",
         "NO_RESULTS": "No results",
         "NO": "No",
+        "SEARCH": "Search",
         "YES": "Yes"
     }
 }

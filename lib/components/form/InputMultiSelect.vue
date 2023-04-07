@@ -41,7 +41,7 @@
               :value="search",
               name="Search",
               icon="magnifying-glass",
-              :placeholder="$t('Search')",
+              :placeholder="$t('GENERIC.SEARCH')",
               @input="inputSearch"
             )
           li.input-multi-select__option-item(

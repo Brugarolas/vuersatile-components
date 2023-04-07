@@ -32,7 +32,7 @@
           :value="search",
           name="Search",
           icon="magnifying-glass",
-          :placeholder="$t('Search')",
+          :placeholder="$t('GENERIC.SEARCH')",
           :allowReadOnly="readOnly",
           @input="inputSearch"
           @click.stop
