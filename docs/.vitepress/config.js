@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
+import { SearchPlugin } from "vitepress-plugin-search";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -117,7 +118,17 @@ export default defineConfig({
       alias: {
         '@': fileURLToPath(new URL('../../lib', import.meta.url))
       }
-    }
+    },
+
+    plugins: [
+      SearchPlugin({
+        previewLength: 62,
+        buttonLabel: "Search",
+        placeholder: "Search docs",
+        allow: [],
+        ignore: []
+      })
+    ]
   },
 
   build: {
