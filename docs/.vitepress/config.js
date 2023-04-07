@@ -38,6 +38,8 @@ export default defineConfig({
             items: [
               { text: 'Checkbox', link: '/components/form/checkbox' },
               { text: 'Form', link: '/components/form/form' },
+              { text: 'InputDate', link: '/components/form/input-date' },
+              { text: 'InputDateRange', link: '/components/form/input-date-range' },
               { text: 'InputSelect', link: '/components/form/input-select' },
               { text: 'InputMultiSelect', link: '/components/form/input-multi-select' },
               { text: 'InputNumber', link: '/components/form/input-number' },
