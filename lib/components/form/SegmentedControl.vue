@@ -174,8 +174,11 @@ export default {
   }
 
   &__label {
-    display: block;
     @include text-overflow-ellipsis;
+    color: $input-text;
+    display: block;
+    font-weight: $fw-semibold;
+    margin-bottom: $space-2;
     flex-shrink: 100;
   }
 

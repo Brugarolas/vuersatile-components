@@ -18,6 +18,9 @@ import {
   InputMultiSelect
 } from '../../dist/vuersatile-components.js';
 
+import InputDate from '@/components/form/InputDate.vue';
+import InputDateRange from '@/components/form/InputDateRange.vue';
+
 const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
 const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]
 
@@ -103,7 +106,7 @@ main.pr-xs-6.pl-xs-6
         
       .row
         .col-12.mb-xs-4
-          SegmentedControl(name="periodicity", :options="segmentedControlDateOptions")
+          SegmentedControl(name="periodicity", label="Payment periodicity", :options="segmentedControlDateOptions")
 
       .row
         .col-12.mb-xs-4
@@ -146,4 +149,11 @@ main.pr-xs-6.pl-xs-6
               icon="calendar-days",
               :validations="numberValidations"
             )
+
+      .row
+        .col-6.mb-xs-4
+          InputDate(name="date", label="Select a date", placeholder="Select date")
+
+        .col-6.mb-xs-4
+          InputDateRange(name="daterange", label="Select a date range", placeholder="Select date range")
 </template>
