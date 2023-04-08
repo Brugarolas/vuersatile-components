@@ -19,12 +19,16 @@
         }
     },
     "GENERIC": {
-        "CLEAR": "Clear",
-        "CONTINUE": "Continue",
-        "ADD": "Add",
-        "NO_RESULTS": "No results",
-        "NO": "No",
-        "SEARCH": "Search",
-        "YES": "Yes"
+        "GENERIC": {
+            "ADD": "Add",
+            "CLEAR": "Clear",
+            "CONTINUE": "Continue",
+            "FROM": "From",
+            "NO_RESULTS": "No results",
+            "NO": "No",
+            "SEARCH": "Search",
+            "TO": "To",
+            "YES": "Yes"
+        }
     }
 }

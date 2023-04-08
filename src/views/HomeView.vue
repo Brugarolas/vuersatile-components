@@ -19,6 +19,8 @@ import {
   InputDateRange
 } from '../../dist/vuersatile-components.js';
 
+import InputRange from '@/components/form/InputRange.vue'
+
 const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
 const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]
 
@@ -103,7 +105,7 @@ main.pr-xs-6.pl-xs-6
           InputTextarea(name="comments", label="CV summary", placeholder="Write here the summary of your employment history", :validations="['not-empty']")
       
       .row
-        .col-5.mb-xs-4
+        .col-6.mb-xs-4
           InputSelect(
             name="select",
             label="Select an option",
@@ -115,7 +117,7 @@ main.pr-xs-6.pl-xs-6
             :options="selectOptions"
           )
 
-        .col-7.mb-xs-4
+        .col-6.mb-xs-4
           InputMultiSelect(
             name="multi",
             label="Select one or multiple options",
@@ -128,10 +130,13 @@ main.pr-xs-6.pl-xs-6
           )
 
       .row
-        .col-6.mb-xs-4
+        .col-4.mb-xs-4
           RadioButtonGroup(name="contact", label="Select preferred way of contact", :inputValues="radioOptions")
 
-        .col-6.mb-xs-4
+        .col-4.mb-xs-4
+          InputRange(name="range", label="Select range")
+
+        .col-4.mb-xs-4
             InputNumber(
               name="age",
               label="Age",

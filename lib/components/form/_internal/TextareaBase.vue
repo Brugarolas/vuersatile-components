@@ -1,12 +1,12 @@
 <template lang="pug">
-.input-base(
+.input-textarea-base(
   :data-field-name="fieldName",
   :class="[statusClass, disabledClass, focusClass]"
 )
-  label.input-base__label(v-if="label", :for="fieldId") {{ label }}
+  label.input-textarea-base__label(v-if="label", :for="fieldId") {{ label }}
     
-  .input-base__wrapper
-    textarea.input-base__input(
+  .input-textarea-base__wrapper
+    textarea.input-textarea-base__input(
       v-bind="attributes",
       :value="value",
       ref="input",
@@ -15,7 +15,7 @@
     )
 
   TransitionHeight
-    span.input-base__error-message(v-show="hasErrorMessage") {{ error }}
+    span.input-textarea-base__error-message(v-show="hasErrorMessage") {{ error }}
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
   props: {
     value: {
       type: [String, Number],
-      required: true
+      default: null
     },
     label: {
       type: String,
@@ -125,7 +125,7 @@ export default {
 </script>
 
 <style lang="scss">
-.input-base {
+.input-textarea-base {
   &__label {
     @include text-overflow-ellipsis;
     color: $input-text;
@@ -170,39 +170,39 @@ export default {
 
   // Input Active
   &--active {
-    .input-base__wrapper {
+    .input-textarea-base__wrapper {
       border-color: $input-border-active;
     }
 
-    .input-base__right-icon {
+    .input-textarea-base__right-icon {
       color: $input-icon-active;
     }
   }
 
   // Input Error
   &--error {
-    .input-base__wrapper {
+    .input-textarea-base__wrapper {
       border-color: $input-border-error;
     }
 
-    .input-base__right-icon {
+    .input-textarea-base__right-icon {
       color: $input-icon-error;
     }
   }
 
   // Input Disabled
   &--disabled {
-    .input-base__wrapper {
+    .input-textarea-base__wrapper {
       background-color: $input-background-disabled;
       border-color: $input-border-disabled;
     }
 
-    .input-base__right-icon {
+    .input-textarea-base__right-icon {
       color: $input-icon-disabled;
       pointer-events: none;
     }
 
-    .input-base__input {
+    .input-textarea-base__input {
       background-color: $input-background-disabled;
       color: $input-text-disabled;
       pointer-events: none;

@@ -87,12 +87,14 @@ import {
         }
     },
     "GENERIC": {
+        "ADD": "Add",
         "CLEAR": "Clear",
         "CONTINUE": "Continue",
-        "ADD": "Add",
+        "FROM": "From",
         "NO_RESULTS": "No results",
         "NO": "No",
         "SEARCH": "Search",
+        "TO": "To",
         "YES": "Yes"
     }
 }

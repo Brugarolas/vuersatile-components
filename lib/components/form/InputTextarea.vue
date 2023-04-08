@@ -57,7 +57,7 @@ export default {
     if (this.autoResize) {
       await this.$nextTick()
 
-      const textareaElement = this.$el.querySelector('.input-base__input')
+      const textareaElement = this.$el.querySelector('.input-textarea-base__input')
 
       this._doAutoResize(textareaElement)
 
@@ -85,6 +85,10 @@ export default {
   },
 
   methods: {
+    resetValue () {
+      return ''
+    },
+
     input (event) {
       this.value = this.formatInput(event.target.value)
 
