@@ -1,4 +1,4 @@
-import '../dist/index.css'
+import '../dist/style.css'
 import { VuersatileInit } from '../dist/vuersatile-components.js'
 
 import messages from './messages.json';

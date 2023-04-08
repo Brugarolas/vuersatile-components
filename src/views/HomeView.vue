@@ -14,32 +14,10 @@ import {
   InputTextarea,
   RadioButtonGroup,
   InputSelect,
-  InputMultiSelect
+  InputMultiSelect,
+  InputDate,
+  InputDateRange
 } from '../../dist/vuersatile-components.js';
-
-/* import {
-  Card,
-  Tooltip,
-  LockedIcon,
-  TooltipInfo
-} from '@/components/info'
-
-import {
-  Form,
-  InputText,
-  InputNumber,
-  InputPassword,
-  ToggleSwitch,
-  SegmentedControl,
-  Checkbox,
-  InputTextarea,
-  RadioButtonGroup,
-  InputSelect,
-  InputMultiSelect
-} from '@/components/form' */
-
-// import InputDate from '@/components/form/InputDate.vue';
-// import InputDateRange from '@/components/form/InputDateRange.vue';
 
 const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
 const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]

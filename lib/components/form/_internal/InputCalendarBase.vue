@@ -14,13 +14,11 @@
 </template>
 
 <script>
-// https://edisdev.github.io/vue-datepicker-ui/using.html
-import 'vue3-datepicker-ui/lib/vuedatepickerui.css';
-import VueDatepickerUi from 'vue3-datepicker-ui';
+import Datepicker from './Datepicker.vue'
 
 export default {
     components: {
-        Datepicker: VueDatepickerUi
+        Datepicker
     },
 
     props: {

@@ -41,7 +41,7 @@ export default defineConfig({
   ],
 
   build: {
-    cssCodeSplit: true,
+    cssCodeSplit: undefined,
     assetsInlineLimit: 0,
     minify: true,
 
