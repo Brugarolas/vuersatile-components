@@ -14,7 +14,7 @@ npm install --save vuersatile-components
 First, we need to configure our library. `Vuersatile Components` comes with `vue-i18n` pre-bundled, so we have to pass its options as param to our library configurator. Here us one example of app configuration:
 
 ```js{1-2,14-19}
-import 'vuersatile-components/index.css'
+import '../node_modules/vuersatile-components/dist/style.css' // Vite fix
 import { AppInit } from 'vuersatile-components'
 
 import messages from './messages.json';
