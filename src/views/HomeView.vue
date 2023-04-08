@@ -2,7 +2,6 @@
 import {
   Card,
   Tooltip,
-  BooleanIcon,
   LockedIcon,
   TooltipInfo,
   Form,
@@ -18,8 +17,29 @@ import {
   InputMultiSelect
 } from '../../dist/vuersatile-components.js';
 
-import InputDate from '@/components/form/InputDate.vue';
-import InputDateRange from '@/components/form/InputDateRange.vue';
+/* import {
+  Card,
+  Tooltip,
+  LockedIcon,
+  TooltipInfo
+} from '@/components/info'
+
+import {
+  Form,
+  InputText,
+  InputNumber,
+  InputPassword,
+  ToggleSwitch,
+  SegmentedControl,
+  Checkbox,
+  InputTextarea,
+  RadioButtonGroup,
+  InputSelect,
+  InputMultiSelect
+} from '@/components/form' */
+
+// import InputDate from '@/components/form/InputDate.vue';
+// import InputDateRange from '@/components/form/InputDateRange.vue';
 
 const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
 const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]
@@ -61,14 +81,6 @@ const log = (formData) => {
 main.pr-xs-6.pl-xs-6
   Card.mt-xs-6(title="Work in progress!")
     div Documentation will be here...
-
-    .mr-xs-4.ml-xs-4
-      Tooltip(text="Everything OK", position="top")
-        BooleanIcon(:value="true")
-
-    .mr-xs-4.ml-xs-4
-      Tooltip(text="Danger here!")
-        BooleanIcon(:value="false")
 
     .mr-xs-4.ml-xs-4
       LockedIcon(text="You can't do that here!")

@@ -12,7 +12,7 @@ Input for selecting a date range.
     <Form>
         <div class="row">
             <div class="col-12 mb-xs-4">
-                <InputDateRange name="date" label="Select a date" placeholder="Select date" />
+                <InputDateRange name="date" label="Select a date range" placeholder="Select date range" />
             </div>
         </div>
     </Form>
@@ -23,7 +23,7 @@ Input for selecting a date range.
     <Form>
         <div class="row">
             <div class="col-12 mb-xs-4">
-                <InputDateRange name="date" label="Select a date" placeholder="Select date" />
+                <InputDateRange name="date" label="Select a date range" placeholder="Select date range" />
             </div>
         </div>
     </Form>
