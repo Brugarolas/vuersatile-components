@@ -1,7 +1,7 @@
 {
   "name": "vuersatile-components",
   "descrption": "A Vue 3 component library with a CSS framework integrated",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -33,15 +33,15 @@
     "@vue/test-utils": "^2.3.2",
     "babel-loader": "^9.1.2",
     "cypress": "^12.9.0",
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "eslint-plugin-cypress": "^2.13.2",
     "eslint-plugin-vue": "^9.10.0",
     "flexsearch": "^0.7.31",
     "http-server": "^14.1.1",
     "jsdom": "^21.1.1",
-    "npm-check-updates": "^16.10.2",
-    "pinia": "^2.0.33",
-    "sass": "^1.60.0",
+    "npm-check-updates": "^16.10.7",
+    "pinia": "^2.0.34",
+    "sass": "^1.61.0",
     "start-server-and-test": "^2.0.0",
     "stylelint": "^15.4.0",
     "stylelint-config-standard": "^32.0.0",
@@ -93,5 +93,14 @@
     "components-library",
     "vitepress",
     "vue3-components"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Brugarolas/vuersatile-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Brugarolas/vuersatile-components/issues"
+  },
+  "homepage": "https://www.andres-brugarolas.com/vuersatile-components/",
+  "license": "GNU v3"
 }
