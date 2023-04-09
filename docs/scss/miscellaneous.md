@@ -101,6 +101,22 @@ We have some classes to help us with displays:
     </div>
 </Card>
 
+```html
+<Card>
+    <div class="row" style="justify-content: center;">
+        <div class="col-3 box-shadow-0"></div>
+        <div class="col-3 box-shadow-1"></div>
+        <div class="col-3 box-shadow-2"></div>
+        <div class="col-3 box-shadow-3"></div>
+        <div class="col-3 box-shadow-4"></div>
+        <div class="col-3 box-shadow-5"></div>
+        <div class="col-3 box-shadow-6"></div>
+        <div class="col-3 box-shadow-7"></div>
+        <div class="col-3 box-shadow-8"></div>
+    </div>
+</Card>
+```
+
 ```css
 .box-shadox-0: 0 0 0 0;
 .box-shadow-1: 0 0.125rem 0.5rem rgba(#262626, 0.1);
@@ -108,9 +124,9 @@ We have some classes to help us with displays:
 .box-shadow-3: 0 0.125rem 0.5rem rgba(#262626, 0.3);
 .box-shadow-4: 0 0.125rem 0.5rem rgba(#262626, 0.4);
 .box-shadow-5: 0 0.125rem 0.5rem rgba(#262626, 0.5);
-.box-shadow: 0 0.25rem 0.75rem rgba(#262626, 0.6);
-.box-shadow: 0 0.25rem 0.75rem rgba(#262626, 0.7);
-.box-shadow: 0 0.375rem 1rem rgba(#262626, 0.76);
+.box-shadow-6: 0 0.25rem 0.75rem rgba(#262626, 0.6);
+.box-shadow-7: 0 0.25rem 0.75rem rgba(#262626, 0.7);
+.box-shadow-8: 0 0.375rem 1.0rem rgba(#262626, 0.75);
 ```
 
 ## Typography

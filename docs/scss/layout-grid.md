@@ -93,7 +93,7 @@ Of course, these classes are also responsive.
 
 ## Ordering the columns
 
-if you need to order your columns, you can use `.order-X` classes. Abd yes, you guessed right, these classes are also responsive.
+if you need to order your columns, you can use `.order-X` classes. And yes, you guessed right, these classes are also responsive.
 
 ```html
 <div class="row">
