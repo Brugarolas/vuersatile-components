@@ -101,7 +101,7 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@/scss/custom/base-theme/support/index.scss"; @import "@/scss/custom/_icons.scss"; @import "@/../docs/.vitepress/styles/index.scss";`
+          additionalData: `@import "@/scss/custom/base-theme/support/index.scss"; @import "@/../docs/.vitepress/styles/_icons.scss"; @import "@/../docs/.vitepress/styles/index.scss";`
         }
       }
     },
