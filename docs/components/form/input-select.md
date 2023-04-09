@@ -28,6 +28,8 @@ const selectOptions = [
 
 A plain an simple input select.
 
+Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 We will use the following options:
 
 ```js
@@ -56,8 +58,6 @@ const selectOptions = [
 <div class="mb-xs-8" />
 
 ## Props
-
-Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
 
 - `options`. Changes selectable options.
 

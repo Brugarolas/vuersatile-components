@@ -14,6 +14,8 @@ input[type="number"] {
 
 Not so plain and not so simple input number.
 
+Implements mixins [`ValidationsInputMixin`](/components/form/validations-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 <Card>
     <Form>
         <div class="row">
@@ -51,8 +53,6 @@ Not so plain and not so simple input number.
 <div class="mb-xs-8" />
 
 ## Props
-
-Implements mixins [`ValidationsInputMixin`](/components/form/validations-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
 
 - `placeholder`: text shown when nothing is written.
 

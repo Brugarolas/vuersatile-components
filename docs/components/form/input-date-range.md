@@ -8,6 +8,8 @@ import Card from '../../../lib/components/info/Card.vue'
 
 Input for selecting a date range.
 
+Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 <Card>
     <Form>
         <div class="row">

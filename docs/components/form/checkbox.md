@@ -8,6 +8,8 @@ import Card from '../../../lib/components/info/Card.vue'
 
 Component `Checkbox`. Simple and elegant.
 
+Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 <Card>
   <Checkbox name="conditions" label="I accept all the terms and conditions" />
 </Card>
@@ -21,8 +23,6 @@ Component `Checkbox`. Simple and elegant.
 <div class="mb-xs-8" />
 
 ## Props
-
-Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
 
 - `initialValue`: Initial value of the component. Type `Boolean`, default value `false`.
 

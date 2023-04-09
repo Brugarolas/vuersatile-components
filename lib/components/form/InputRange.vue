@@ -88,6 +88,10 @@ export default {
       type: Boolean,
       default: false
     },
+    allowZero: {
+      type: Boolean,
+      default: false
+    },
     tooltip: {
       type: String,
       default: 'always',
@@ -103,6 +107,23 @@ export default {
     }
   },
   computed: {
+    isValid () {
+      if (this.disabled) {
+        return true
+      }
+
+      if (!this.required || this.allowZero) {
+        return true
+      }
+
+      if (this.multiple) {
+        const [first, second] = this.value
+
+        return first !== 0 || first !== second
+      }
+
+      return this.value !== 0
+    },
     showPlaceholder () {
       if (this.valueModified || !this.placeholder) {
         return false
@@ -377,7 +398,7 @@ export default {
   &__clear-button {
     @include button-reset-browser-tap-styles;
     @include button-reset-styles;
-    color: $text-error-color;
+    color: $text-link-color;
     margin-top: $space-1;
     text-align: left;
 

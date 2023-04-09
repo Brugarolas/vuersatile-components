@@ -6,7 +6,9 @@ import Card from '../../../lib/components/info/Card.vue'
 
 # ToggleSwitch
 
-Component `ToggleSwitch`, similar to [Checkbox](/components/form/checkbox). It manages bonary states.
+Component `ToggleSwitch`, similar to [Checkbox](/components/form/checkbox). It manages binary states.
+
+Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
 
 <Card>
   <ToggleSwitch name="newsletter" label="Send me weekly" />
@@ -21,8 +23,6 @@ Component `ToggleSwitch`, similar to [Checkbox](/components/form/checkbox). It m
 <div class="mb-xs-8" />
 
 ## Props
-
-Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
 
 - `showYesNo` (default `false`): Show Yes and No labels next to toggle.
 

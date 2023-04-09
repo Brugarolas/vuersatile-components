@@ -31,6 +31,8 @@ const multiselectOptions = [
 
 A more complex input multi-select.
 
+Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
+
 We will use the following options:
 
 ```js
@@ -62,8 +64,6 @@ const multiselectOptions = [
 <div class="mb-xs-8" />
 
 ## Props
-
-Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) and [`BasicInputMixin`](/components/form/basic-input-mixin).
 
 - `options`. Changes selectable options.
 

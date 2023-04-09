@@ -44,6 +44,7 @@ export default defineConfig({
               { text: 'InputMultiSelect', link: '/components/form/input-multi-select' },
               { text: 'InputNumber', link: '/components/form/input-number' },
               { text: 'InputPassword', link: '/components/form/input-password' },
+              { text: 'InputRange', link: '/components/form/input-range' },
               { text: 'InputText', link: '/components/form/input-text' },
               { text: 'InputTextarea', link: '/components/form/input-textarea' },
               { text: 'RadioButtonGroup', link: '/components/form/radio-button-group' },
