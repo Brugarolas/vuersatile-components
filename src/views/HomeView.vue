@@ -16,10 +16,9 @@ import {
   InputSelect,
   InputMultiSelect,
   InputDate,
-  InputDateRange
+  InputDateRange,
+  InputRange
 } from '../../dist/vuersatile-components.js';
-
-import InputRange from '@/components/form/InputRange.vue'
 
 const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
 const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]
