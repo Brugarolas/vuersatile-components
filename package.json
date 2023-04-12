@@ -1,7 +1,7 @@
 {
   "name": "vuersatile-components",
   "descrption": "A Vue 3 component library with a CSS framework integrated",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -63,7 +63,9 @@
     "dist/vuersatile-components.js",
     "dist/style.css",
     "dist/fonts/fa-solid-900.woff2",
-    "dist/fonts/fa-solid-900.ttf"
+    "dist/fonts/fa-solid-900.ttf",
+    "README.md",
+    "LICENSE"
   ],
   "main": "./dist/vuersatile-components.js",
   "module": "./dist/vuersatile-components.js",
