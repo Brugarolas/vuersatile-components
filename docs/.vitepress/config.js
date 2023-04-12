@@ -55,7 +55,8 @@ export default defineConfig({
           {
             text: 'Info',
             items: [
-              { text: 'Card', link: '/components/info/card' }
+              { text: 'Card', link: '/components/info/card' },
+              { text: 'Icon', link: '/components/info/icon' }
             ]
           }
         ]

@@ -1,5 +1,5 @@
 <template lang="pug">
-i.v-icon(:class="[iconClass, colorClass, iconSize]")
+i.v-icon(:class="[iconClass, colorClass, iconAnimation, iconSize]")
 </template>
 
 <script>
@@ -15,6 +15,12 @@ export default {
       required: false,
       default: ''
     },
+    animation: {
+      type: String,
+      validator: (value) => !value || ['beat', 'beat-fade', 'bounce', 'fade', 'flip', 'shake', 'spin', 'spin-reverse', 'spin-pulse'].includes(value),
+      required: false,
+      default: ''
+    },
     size: {
       type: String,
       validator: (value) => !value || ['xs', 's', 'm', 'l'].includes(value),
@@ -23,17 +29,20 @@ export default {
     },
     variant: {
       type: String,
-      validator: (value) => !value || ['fa-solid', 'fa-regular', 'fa-light'].includes(value),
+      validator: (value) => !value || ['solid', 'regular', 'light', 'thin', 'duotone', 'brands'].includes(value),
       required: false,
-      default: 'fa-solid'
+      default: 'solid'
     }
   },
   computed: {
     iconClass () {
-      return `${this.variant} fa-${this.icon}`
+      return `fa-${this.variant} fa-${this.icon}`
     },
     colorClass () {
       return this.colorType ? `v-icon--${this.colorType}` : ''
+    },
+    iconAnimation () {
+      return this.animation ? `fa-${this.animation}` : ''
     },
     iconSize () {
       return this.size ? `v-icon--${this.size}` : ''
