@@ -84,7 +84,7 @@ Has the same API than [`InputText`](/components/form/input-text).
 
 <div class="mb-xs-8" />
 
-- `allowResize` (default `false`): if allow tto manually resize the input (vertically only). Needs `:autoResize: false` to work.
+- `allowResize` (default `false`): if allow to manually resize the input (vertically only). Needs `:autoResize="false"` to work.
 
 <Card>
     <Form>
