@@ -57,20 +57,23 @@ export default {
   },
 
   async mounted () {
+    await this.$nextTick()
+    const textareaElement = this.$el.querySelector('.input-textarea-base__input')
+
     if (this.autoResize) {
-      await this.$nextTick()
-
-      const textareaElement = this.$el.querySelector('.input-textarea-base__input')
-
       this._doInitialAutoResize(textareaElement)
+    }
 
+    console.log(this.allowResize)
+
+    if (this.allowResize) {
       const resizeObserver = new ResizeObserver(entries => {
         for (let entry of entries) {
           const contentRect = entry.contentRect;
           const parent = entry.target.parentElement;
 
           requestAnimationFrame(() => {
-            parent.style.height = `${Math.floor(contentRect.height) + 2}px`;
+            parent.style.height = `${Math.floor(contentRect.height) + BORDER_HEIGHT}px`;
           })
         }
       })
