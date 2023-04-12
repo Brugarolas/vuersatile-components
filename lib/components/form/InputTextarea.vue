@@ -122,8 +122,6 @@ export default {
       const parent = element.parentElement;
       const neededHeight = neededRows * HEIGHT_PER_ROW + BORDER_HEIGHT
 
-      console.log(neededRows, neededHeight)
-
       requestAnimationFrame(() => {
         this.currentRows = Math.max(this.rows, neededRows)
         parent.style.height = `${neededHeight}px`;
