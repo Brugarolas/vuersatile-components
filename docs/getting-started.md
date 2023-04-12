@@ -15,7 +15,7 @@ First, we need to configure our library. `Vuersatile Components` comes with `vue
 
 ```js{1-2,14-19}
 import '../node_modules/vuersatile-components/dist/style.css' // Vite fix
-import { AppInit } from 'vuersatile-components'
+import { VuersatileInit } from 'vuersatile-components'
 
 import messages from './messages.json';
 

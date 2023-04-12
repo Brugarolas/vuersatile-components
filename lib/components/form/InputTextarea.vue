@@ -19,6 +19,9 @@ TextareaBase.input-textarea(
 import { TextareaBase } from './_internal'
 import InputText from './InputText.vue'
 
+const HEIGHT_PER_ROW = 17
+const BORDER_HEIGHT = 2
+
 export default {
   components: {
     TextareaBase
@@ -59,14 +62,16 @@ export default {
 
       const textareaElement = this.$el.querySelector('.input-textarea-base__input')
 
-      this._doAutoResize(textareaElement)
+      this._doInitialAutoResize(textareaElement)
 
       const resizeObserver = new ResizeObserver(entries => {
         for (let entry of entries) {
           const contentRect = entry.contentRect;
           const parent = entry.target.parentElement;
 
-          parent.style.height = `${Math.floor(contentRect.height) + 2}px`;
+          requestAnimationFrame(() => {
+            parent.style.height = `${Math.floor(contentRect.height) + 2}px`;
+          })
         }
       })
 
@@ -95,6 +100,8 @@ export default {
       this.$emit('input', event.target.value)
 
       this.validate()
+
+      this.doAutoResize(event)
     },
 
     doAutoResize (event) {
@@ -112,8 +119,24 @@ export default {
 
       const computedStyles = this._getComputedStyles(element)
       const neededRows = Math.round((element.scrollHeight - computedStyles.paddingVertical) / computedStyles.lineHeight)
+      const parent = element.parentElement;
+      const neededHeight = neededRows * HEIGHT_PER_ROW + BORDER_HEIGHT
 
-      this.currentRows = Math.max(this.rows, neededRows)
+      console.log(neededRows, neededHeight)
+
+      requestAnimationFrame(() => {
+        this.currentRows = Math.max(this.rows, neededRows)
+        parent.style.height = `${neededHeight}px`;
+      })
+    },
+
+    _doInitialAutoResize (element) {
+      const parent = element.parentElement
+      const neededHeight = this.rows * HEIGHT_PER_ROW + BORDER_HEIGHT
+
+      requestAnimationFrame(() => {
+        parent.style.height = `${neededHeight}px`;
+      })
     },
 
     _getComputedStyles (element) {
@@ -134,31 +157,32 @@ export default {
 
 <style lang="scss">
 .input-textarea {
-  .input-base__input {
+  .input-textarea-base__input {
     resize: vertical;
+    white-space: pre-wrap;
   }
 
   &--no-resize {
-    .input-base__input {
+    .input-textarea-base__input {
       resize: none;
     }
   }
 
   &--autoresize {
-    .input-base__input {
+    .input-textarea-base__input {
       overflow: hidden;
       resize: none;
     }
   }
 
   &.input-base {
-    .input-base__wrapper {
+    .input-textarea-base__wrapper {
       display: block;
       height: auto;
       overflow: auto;
     }
 
-    .input-base__input {
+    .input-textarea-base__input {
       display: flex;
       min-height: 64px;
       padding: 0 $space-2;

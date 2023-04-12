@@ -24,7 +24,7 @@ import { Button } from '@/components/interactive'
 import Icon from '@/components/info/Icon.vue'
 import { TransitionHeight } from '@/components/transition'
 
-const COMPONENT_CLASS = 'input-base'
+const COMPONENT_CLASS = 'input-textarea-base'
 
 export default {
   components: {
