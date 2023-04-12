@@ -1,5 +1,5 @@
 <template lang="pug">
-i.v-icon(:class="[iconClass, colorClass, iconAnimation, iconSize]")
+i.v-icon(:class="[iconClass, colorClass, iconAnimation, iconRotation, iconSize]")
 </template>
 
 <script>
@@ -18,6 +18,12 @@ export default {
     animation: {
       type: String,
       validator: (value) => !value || ['beat', 'beat-fade', 'bounce', 'fade', 'flip', 'shake', 'spin', 'spin-reverse', 'spin-pulse'].includes(value),
+      required: false,
+      default: ''
+    },
+    rotation: {
+      type: String,
+      validator: (value) => !value || ['rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical', 'flip-both'].includes(value),
       required: false,
       default: ''
     },
@@ -43,6 +49,9 @@ export default {
     },
     iconAnimation () {
       return this.animation ? `fa-${this.animation}` : ''
+    },
+    iconRotation () {
+      return this.rotation ? `fa-${this.rotation}` : ''
     },
     iconSize () {
       return this.size ? `v-icon--${this.size}` : ''

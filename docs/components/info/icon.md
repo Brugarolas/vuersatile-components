@@ -3,7 +3,7 @@ import Icon from '../../../lib/components/info/Icon.vue'
 import Card from '../../../lib/components/info/Card.vue'
 </script>
 
-# Card
+# Icon
 
 Component `Icon` for `Font Awesome 6`. Plain and simple.
 
@@ -63,6 +63,20 @@ Component `Icon` for `Font Awesome 6`. Plain and simple.
 
 <div class="mb-xs-8" />
 
+- `rotation`: icon rotation (`null`, `rotate-90`, `rotate-180`, `rotate-270`, `flip-horizontal`, `flip-vertical`, `flip-both`).
+
+<Card>
+  <Icon icon="rocket-launch" rotation="flip-both" />
+</Card>
+
+```html
+<Card>
+  <Icon icon="rocket-launch" rotation="flip-both" />
+</Card>
+```
+
+<div class="mb-xs-8" />
+
 - `size`: icon size (default `s`), (`xs`, `s`, `m`, `l`).
 
 <Card>
@@ -78,5 +92,15 @@ Component `Icon` for `Font Awesome 6`. Plain and simple.
 <div class="mb-xs-8" />
 
 - `variant`: icon variant, in case you have included more `Font Awesome` variants. `Vuersaile Components` only comes with `solid` integrated. (Default `solid`), (`solid`, `regular`, `light`, `thin`, `duotone`, `brands`).
+
+<Card>
+  <Icon icon="rocket" variant="regular" size="l" />
+</Card>
+
+```html
+<Card>
+  <Icon icon="rocket" variant="regular" size="l" />
+</Card>
+```
 
 <div class="mb-xs-8" />
