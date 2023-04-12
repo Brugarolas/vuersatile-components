@@ -15,12 +15,12 @@ const multiselectOptions = [
 </script>
 
 <style>
-.vp-doc .input-select__list {
+.vp-doc .input-multi-select__option-list {
     padding-left: 0 !important;
     margin: 0 !important;
 }
 
-.vp-doc .input-select__error-message {
+.vp-doc .input-multi-select__error {
     height: auto !important;
     line-height: 1.2 !important;
     margin: 0 !important;

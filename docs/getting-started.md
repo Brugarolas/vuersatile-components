@@ -46,7 +46,6 @@ Now we can use our components wherever we want:
 import {
   Card,
   Tooltip,
-  BooleanIcon,
   LockedIcon,
   TooltipInfo,
   Form,
