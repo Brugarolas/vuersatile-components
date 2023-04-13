@@ -1,7 +1,7 @@
 {
   "name": "vuersatile-components",
   "descrption": "A Vue 3 component library with a CSS framework integrated",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
