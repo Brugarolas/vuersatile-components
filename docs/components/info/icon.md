@@ -91,7 +91,7 @@ Component `Icon` for `Font Awesome 6`. Plain and simple.
 
 <div class="mb-xs-8" />
 
-- `variant`: icon variant, in case you have included more `Font Awesome` variants. `Vuersaile Components` only comes with `solid` integrated. (Default `solid`), (`solid`, `regular`, `light`, `thin`, `duotone`, `brands`).
+- `variant`: icon variant, in case you have included more `Font Awesome` variants. `Vuersaile Components` only comes with `solid` bundled. (Default `solid`), (`solid`, `regular`, `light`, `thin`, `duotone`, `brands`).
 
 <Card>
   <Icon icon="rocket" variant="regular" size="l" />
