@@ -42,7 +42,8 @@ export default {
     },
     position: {
       default: 'top',
-      type: String
+      type: String,
+      validator: (value) => ['top', 'right', 'bottom', 'left'].includes(value)
     },
     delay: {
       default: '0s',

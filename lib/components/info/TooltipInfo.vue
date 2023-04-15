@@ -1,6 +1,6 @@
 <template lang="pug">
 .tooltip-info
-  Tooltip(:text="text")
+  Tooltip(:text="text", :position="position")
     Icon.tooltip-info__icon(icon="circle-info", :class="colorClass")
 </template>
 
@@ -24,7 +24,13 @@ export default {
     },
     color: {
       type: String,
-      default: null
+      default: null,
+      validator: (value) => !value || ['green', 'blue', 'white', 'black', 'red', 'gray', 'yellow', 'violet', 'darkblue', 'brown', 'silver-grey', 'orange'].includes(value)
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator: (value) => ['top', 'right', 'bottom', 'left'].includes(value)
     }
   },
 

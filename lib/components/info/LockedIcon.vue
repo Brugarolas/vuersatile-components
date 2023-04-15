@@ -25,7 +25,8 @@ export default {
     },
     position: {
       type: String,
-      default: 'top'
+      default: 'top',
+      validator: (value) => ['top', 'right', 'bottom', 'left'].includes(value)
     }
   }
 }

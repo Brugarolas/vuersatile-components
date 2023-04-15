@@ -59,6 +59,7 @@ export default defineConfig({
               { text: 'Icon', link: '/components/info/icon' },
               { text: 'Tooltip', link: '/components/info/tooltip' },
               { text: 'LockedIcon', link: '/components/info/locked-icon' },
+              { text: 'TooltipInfo', link: '/components/info/tooltip-info' },
             ]
           }
         ]
