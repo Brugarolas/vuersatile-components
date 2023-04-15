@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "lib/*"
       ],
       "~/*": [
         "./*"
@@ -34,9 +34,9 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
+    "lib/**/*.vue"
   ],
   "exclude": [
     "node_modules"

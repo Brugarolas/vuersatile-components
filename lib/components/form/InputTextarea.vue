@@ -64,8 +64,6 @@ export default {
       this._doInitialAutoResize(textareaElement)
     }
 
-    console.log(this.allowResize)
-
     if (this.allowResize) {
       const resizeObserver = new ResizeObserver(entries => {
         for (let entry of entries) {
