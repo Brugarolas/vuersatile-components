@@ -81,7 +81,7 @@ Component `Tooltip`.
 
 <div class="mb-xs-8" />
 
-- `position` (default `top`), (`left`, `top`, `right`, `bottom`)
+- `position` (default `top`), (`left`, `top`, `right`, `bottom`).
 
 <Card>
     <Tooltip text="Required checkbox" position="right">

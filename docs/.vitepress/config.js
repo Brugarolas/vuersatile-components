@@ -57,7 +57,8 @@ export default defineConfig({
             items: [
               { text: 'Card', link: '/components/info/card' },
               { text: 'Icon', link: '/components/info/icon' },
-              { text: 'Tooltip', link: '/components/info/tooltip' }
+              { text: 'Tooltip', link: '/components/info/tooltip' },
+              { text: 'LockedIcon', link: '/components/info/locked-icon' },
             ]
           }
         ]
