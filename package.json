@@ -1,7 +1,7 @@
 {
   "name": "vuersatile-components",
   "descrption": "A Vue 3 component library with a CSS framework integrated",
-  "version": "0.1.18",
+  "version": "0.1.17",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -22,6 +22,7 @@
   "dependencies": {
     "calendar-data-generate": "^1.0.3",
     "dayjs": "^1.11.7",
+    "pug": "^3.0.2",
     "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
@@ -40,7 +41,6 @@
     "jsdom": "^21.1.1",
     "npm-check-updates": "^16.10.8",
     "pinia": "^2.0.34",
-    "pug": "^3.0.2",
     "sass": "^1.62.0",
     "start-server-and-test": "^2.0.0",
     "stylelint": "^15.4.0",
