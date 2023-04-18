@@ -48,7 +48,7 @@
         v-for="(option, index) in filteredOptions",
         v-show="searchHasResults"
         :key="option.key",
-        :class="{ 'input-select__list-item--selected': option.key === optionSelected.key }",
+        :class="{'input-select__list-item--selected': option.key === optionSelected.key, 'input-select__list-item--empty': allowEmpty && index === 0 }",
         @click.stop="select(option.value)",
         :data-item="`${name}-${index}`"
       )
@@ -478,6 +478,10 @@ export default {
 
     &--selected {
       background-color: $input-background-hover;
+    }
+
+    &--empty {
+      min-height: 33px;
     }
 
     &--no-result {
