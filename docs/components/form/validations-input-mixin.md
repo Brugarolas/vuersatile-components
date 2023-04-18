@@ -18,7 +18,7 @@ import Card from '../../../lib/components/info/Card.vue'
 <Card>
     <Form>
         <div class="row">
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputText
                     name="email"
                     label="E-mail"
@@ -27,7 +27,7 @@ import Card from '../../../lib/components/info/Card.vue'
                     :validations="['not-empty', 'email']"
                 />
             </div>
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputPassword
                     name="password"
                     label="Password"
@@ -43,7 +43,7 @@ import Card from '../../../lib/components/info/Card.vue'
 <Card>
     <Form>
         <div class="row">
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputText
                     name="email"
                     label="E-mail"
@@ -52,7 +52,7 @@ import Card from '../../../lib/components/info/Card.vue'
                     :validations="['not-empty', 'email']"
                 />
             </div>
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputPassword
                     name="password"
                     label="Password"
@@ -65,4 +65,4 @@ import Card from '../../../lib/components/info/Card.vue'
 </Card>
 ```
 
-<div class="mb-xs-84" />
+<div class="mb-xs-8" />

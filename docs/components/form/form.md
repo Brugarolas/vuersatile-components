@@ -13,7 +13,7 @@ Component `Form` includes everything you need to start building forms without a 
 <Card>
     <Form>
         <div class="row">
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputText
                     name="email"
                     label="E-mail"
@@ -23,7 +23,7 @@ Component `Form` includes everything you need to start building forms without a 
                     :validations="['not-empty', 'email']"
                 />
             </div>
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputPassword
                     name="password"
                     label="Password"
@@ -39,7 +39,7 @@ Component `Form` includes everything you need to start building forms without a 
 <Card>
     <Form>
         <div class="row">
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputText
                     name="email"
                     label="E-mail"
@@ -49,7 +49,7 @@ Component `Form` includes everything you need to start building forms without a 
                     :validations="['not-empty', 'email']"
                 />
             </div>
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputPassword
                     name="password"
                     label="Password"
@@ -159,7 +159,7 @@ Component `Form` includes everything you need to start building forms without a 
 <Card>
     <Form resetOnSubmit>
         <div class="row">
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputText
                     name="email"
                     label="E-mail"
@@ -169,7 +169,7 @@ Component `Form` includes everything you need to start building forms without a 
                     :validations="['not-empty', 'email']"
                 />
             </div>
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputPassword
                     name="password"
                     label="Password"
@@ -190,7 +190,7 @@ Component `Form` includes everything you need to start building forms without a 
 <Card>
     <Form resetOnSubmit>
         <div class="row">
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputText
                     name="email"
                     label="E-mail"
@@ -200,7 +200,7 @@ Component `Form` includes everything you need to start building forms without a 
                     :validations="['not-empty', 'email']"
                 />
             </div>
-            <div class="col-6 mb-xs-4">
+            <div class="col-12 col-md-6 mb-xs-4">
                 <InputPassword
                     name="password"
                     label="Password"
