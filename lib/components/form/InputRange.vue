@@ -313,10 +313,13 @@ export default {
     left: 0;
     position: absolute;
     top: calc(100% + #{$space-2});
-    padding: $space-15 $space-8 $space-8 $space-8;
-    min-width: 384px;
+    padding: $space-12 $space-4 $space-4 $space-4;
     width: 100%;
     z-index: 2;
+
+    @include media(md) {
+      padding: $space-15 $space-8 $space-8 $space-8;
+    }
   }
 
   &__summary {
