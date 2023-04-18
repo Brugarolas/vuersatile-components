@@ -76,6 +76,8 @@ export default {
         width: 100%;
 
         .input-field {
+            min-width: auto;
+
             .input-base-calendar__input {
                 padding: 0 $space-2;
                 border: 1px solid $input-border;
@@ -118,6 +120,12 @@ export default {
         .content {
             box-shadow: 2px 1px 20px 4px $greyscale-color-70;
             border-radius: $input-border-radius;
+            display: flex;
+            flex-direction: column;
+
+            @include media(md) {
+                flex-direction: row;
+            }
 
             .calendar {
                 border-radius: $input-border-radius;
