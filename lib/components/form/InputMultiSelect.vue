@@ -15,7 +15,7 @@
             Tag.input-multi-select__selected-tag(
               v-for="option in optionsSelected",
               :key="option.key",
-              :text="option.label",
+              :text="option[optionLabelKey]",
               color="blue",
               :showCloseButton="true",
               @close="stopPropagation($event); unselect(option)",
@@ -53,7 +53,7 @@
             CheckboxBase.input-multi-select__checkbox(
               :checked="selected[option.key]",
               :name="`${name}-${index}`",
-              :label="option.label",
+              :label="option[optionLabelKey]",
               :disabled="option.disabled",
               :ref="saveRef(option.key)",
               @click="stopPropagation($event, false)",
@@ -182,7 +182,7 @@ export default {
         const disabled = option[this.optionDisabledKey]
         const key = this.getKeyFromValue(value)
 
-        selectableOptions.push({ value, label, key, disabled })
+        selectableOptions.push({ [this.optionValueKey]: value, [this.optionLabelKey]: label, key, disabled })
       }
 
       return selectableOptions
@@ -196,7 +196,7 @@ export default {
       const searchText = this.searchFilter.toLowerCase()
 
       return this.selectableOptions.filter((option) => {
-        const optionText = option.label.toLowerCase()
+        const optionText = option[this.optionLabelKey].toLowerCase()
 
         // Or option is selected, or text matches
         return this.selected[option.key] || optionText.includes(searchText)
@@ -205,9 +205,9 @@ export default {
 
     optionsSelected () {
       return this.value.map(value => {
-        const option = this.selectableOptions.find(option => option.value.id === value.id)
+        const option = this.selectableOptions.find(option => option[this.optionValueKey].id === value.id)
 
-        return option || { value, label: value, key: value }
+        return option || { [this.optionValueKey]: value, [this.optionLabelKey]: value, key: value }
       })
     },
 
@@ -359,9 +359,9 @@ export default {
       this.selected[option.key] = isSelected
 
       if (isSelected) {
-        this.value.push(option.value)
+        this.value.push(option[[this.optionValueKey]])
       } else {
-        this.value = this.value.filter(value => value.id !== option.value.id)
+        this.value = this.value.filter(value => value.id !== option[this.optionValueKey].id)
       }
 
       this.change()
@@ -385,7 +385,7 @@ export default {
       this.dirty = true
 
       this.selected[option.key] = false
-      this.value = this.value.filter(value => value.id !== option.value.id)
+      this.value = this.value.filter(value => value.id !== option[this.optionValueKey].id)
 
       this.change()
     },

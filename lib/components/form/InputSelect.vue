@@ -202,9 +202,9 @@ export default {
       const searchText = this.searchFilter.toLowerCase()
 
       return this.selectableOptions.filter((option) => {
-        const optionText = option[this.optionLabelKey]?.toLowerCase()
+        const optionText = option[this.optionLabelKey].toLowerCase()
 
-        return optionText?.includes(searchText)
+        return optionText.includes(searchText)
       })
     },
     optionSelected () {
