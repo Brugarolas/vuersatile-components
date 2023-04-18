@@ -39,7 +39,7 @@ Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) 
 <div class="mb-xs-8" />
 
 
-- `initialValue`: Wether if the checkbox is required or not when it is inside a [`Form`](/components/form/form). Type `Boolean`, default value `false`.
+- `required`: Wether if the checkbox is required or not when it is inside a [`Form`](/components/form/form). Type `Boolean`, default value `false`.
 
 <Card>
   <Form>
