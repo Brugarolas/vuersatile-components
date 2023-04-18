@@ -8,7 +8,7 @@
 
   InputBase.input-select__list-wrapper(
     v-click-outside="close",
-    :value="optionSelected.label",
+    :value="optionSelected[optionLabelKey]",
     :name="`${name}-input`",
     icon="chevron-down",
     iconSize="s",
@@ -49,10 +49,10 @@
         v-show="searchHasResults"
         :key="option.key",
         :class="{'input-select__list-item--selected': option.key === optionSelected.key, 'input-select__list-item--empty': allowEmpty && index === 0 }",
-        @click.stop="select(option.value)",
+        @click.stop="select(option[optionValueKey])",
         :data-item="`${name}-${index}`"
       )
-        span {{ option.label }}
+        span {{ option[optionLabelKey] }}
       li.input-select__list-item.input-select__list-item--no-result(v-show="!searchHasResults")
         span {{ $t('GENERIC.NO_RESULTS') }}
 
@@ -202,9 +202,9 @@ export default {
       const searchText = this.searchFilter.toLowerCase()
 
       return this.selectableOptions.filter((option) => {
-        const optionText = option.label.toLowerCase()
+        const optionText = option[this.optionLabelKey]?.toLowerCase()
 
-        return optionText.includes(searchText)
+        return optionText?.includes(searchText)
       })
     },
     optionSelected () {
@@ -214,13 +214,13 @@ export default {
         return {}
       }
 
-      const selected = this.selectableOptions.find(option => option.value.id === this.value.id)
+      const selected = this.selectableOptions.find(option => option[this.optionValueKey].id === this[this.optionValueKey].id)
 
       if (!selected && !this.value) {
         return {}
       }
 
-      return selected || { value: this.value, label: this.value, key: this.value }
+      return selected || { [this.optionValueKey]: this.value, [this.optionLabelKey]: this.value, key: this.value }
     },
 
     errorMessage () {
@@ -277,7 +277,7 @@ export default {
         const label = option[this.optionLabelKey]
         const key = this.getKeyFromValue(value)
 
-        return { value, label, key }
+        return { [this.optionValueKey]: value, [this.optionLabelKey]: label, key }
       })
 
       return formattedOptions
