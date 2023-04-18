@@ -12,6 +12,7 @@
     :name="`${name}-input`",
     icon="chevron-down",
     iconSize="s",
+    ref="input",
     :placeholder="placeholderMessage"
     :disabled="disabled",
     :allowReadOnly="true",
@@ -23,11 +24,11 @@
     ul.input-select__list(
       v-show="isOpen",
       ref="selectOptions",
+      :style="dropdownStyle",
       :data-select-options="name",
       :class="{ 'input-select__list--outside': mountOptionsOutside }"
     )
       li.input-select__search-wrapper(v-if="allowSearch")
-        //- TODO Replace input base with input search
         InputBase.input-select__search-bar(
           :value="search",
           name="Search",
@@ -468,6 +469,7 @@ export default {
   }
 
   &__list-item {
+    color: $input-text;
     cursor: pointer;
     padding: $space-2;
     transition: background-color .3s linear;
