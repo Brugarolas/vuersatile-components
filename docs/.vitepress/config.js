@@ -133,6 +133,10 @@ export default defineConfig({
 
     plugins: [
       SearchPlugin({
+        preset: 'performance',
+        tokenize: 'full',
+        worker: true,
+
         previewLength: 62,
         buttonLabel: "Search",
         placeholder: "Search docs",
