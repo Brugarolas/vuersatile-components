@@ -79,6 +79,17 @@ export default {
   },
 
   computed: {
+    isValid () {
+      if (this.disabled) {
+        return true
+      }
+
+      if (this.customError) {
+        return false
+      }
+
+      return this.validation ? this.validation.isValid : true
+    },
     realError () {
       if (this.customError) {
         return this.customError
