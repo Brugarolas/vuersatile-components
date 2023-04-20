@@ -93,6 +93,7 @@ import Calendar from 'calendar-data-generate'
 import { MODE_ENUMS } from '@/utils/modes'
 import formatDate from '@/utils/formatDate'
 import CalendarUI from './Calendar.vue'
+import dayjs from 'dayjs'
 
 export default {
   components: { CalendarUI },
@@ -175,6 +176,14 @@ export default {
     showPickerInital: {
       type: Boolean,
       default: false
+    },
+    initialValue: {
+      type: [String, Date],
+      required: false
+    },
+    initialValueEnd: {
+      type: [String, Date],
+      required: false
     }
   },
   data () {
@@ -269,8 +278,7 @@ export default {
       return formatDate(value, this)
     },
     prevMonth (picker) {
-      const currentDate =
-        picker === 'start' ? this.currentDate : this.currentDateEnd
+      const currentDate = picker === 'start' ? this.currentDate : this.currentDateEnd
       currentDate.month = currentDate.month - 1
       if (currentDate.month === -1) {
         currentDate.year = currentDate.year - 1
@@ -406,6 +414,21 @@ export default {
       const isThis = Datepicker.contains(e.target)
       if (!isThis) this.close()
     })
+
+    // Set initial value
+    if (this.initialValue && !this.range) {
+      this.selectedDate = dayjs(this.initialValue).startOf('day').toDate()
+    }
+
+    if (this.range) {
+      if (this.initialValue) {
+        this.selectedDate[0] = dayjs(this.initialValue).startOf('day').toDate()
+      }
+
+      if (this.initialValueEnd) {
+        this.selectedDate[1] = dayjs(this.initialValueEnd).startOf('day').toDate()
+      }
+    }
   }
 }
 </script>

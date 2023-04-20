@@ -31,3 +31,33 @@ Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) 
     </Form>
 </Card>
 ```
+
+<div class="mb-xs-8" />
+
+## Props
+
+- `initialValue`.
+
+<Card>
+    <Form>
+        <div class="row">
+            <div class="col-12 mb-xs-4">
+                <InputDate name="date" label="Select a date" placeholder="Select date" :initialValue="new Date()" />
+            </div>
+        </div>
+    </Form>
+</Card>
+
+```html
+<Card>
+    <Form>
+        <div class="row">
+            <div class="col-12 mb-xs-4">
+                <InputDate name="date" label="Select a date" placeholder="Select date" :initialValue="new Date()" />
+            </div>
+        </div>
+    </Form>
+</Card>
+```
+
+<div class="mb-xs-8" />

@@ -8,6 +8,8 @@
         :lang="lang",
         :placeholder="placeholder",
         :range="range",
+        :initialValue="initialValue",
+        :initialValueEnd="initialValueEnd",
         circle,
         @update:modelValue="input"
     )
@@ -45,6 +47,14 @@ export default {
         range: {
             type: Boolean,
             default: false
+        },
+        initialValue: {
+            type: [String, Date],
+            required: false
+        },
+        initialValueEnd: {
+            type: [String, Date],
+            required: false
         }
     },
 

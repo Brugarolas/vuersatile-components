@@ -7,6 +7,8 @@
         :placeholder="placeholder",
         :error="shouldShowErrors",
         @input="input",
+        :initialValue="initialValue",
+        :initialValueEnd="initialValueEnd",
         range
     )
 
@@ -38,6 +40,14 @@ export default {
         placeholder: {
             type: String,
             default: null
+        },
+        initialValue: {
+            type: [String, Date],
+            required: false
+        },
+        initialValueEnd: {
+            type: [String, Date],
+            required: false
         }
     },
 

@@ -6,6 +6,7 @@
         :lang="lang",
         :placeholder="placeholder",
         :error="shouldShowErrors",
+        :initialValue="initialValue",
         @input="input"
     )
 
@@ -37,6 +38,10 @@ export default {
         placeholder: {
             type: String,
             default: null
+        },
+        initialValue: {
+            type: [String, Date],
+            required: false
         }
     },
 
