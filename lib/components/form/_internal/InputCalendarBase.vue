@@ -130,6 +130,18 @@ export default {
             .calendar {
                 border-radius: $input-border-radius;
                 overflow: hidden;
+                width: 100%;
+                max-height: 250px;
+
+                @include media(md) {
+                    width: auto;
+                    min-width: 286px;
+                }
+
+                .viewmode {
+                    display: flex;
+                    justify-content: center;
+                }
             }
         }
 
