@@ -9,7 +9,6 @@
 
 <script>
 import Icon from '@/components/info/Icon.vue'
-import isNil from 'lodash/isNil'
 
 const COMPONENT_CLASS = 'tag'
 
@@ -74,7 +73,7 @@ export default {
     },
     hasNumber () {
       // Check for falsy values to allow them to render (eg. 0)
-      return !isNil(this.number)
+      return this.number !== undefined && this.number !== null
     }
   }
 }

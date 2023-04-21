@@ -177,6 +177,7 @@ export default {
       // Prevent form's default behavior
       if (event) {
         event.preventDefault()
+        event.stopPropagation()
       }
 
       // Tell all fields to start show errors
@@ -195,7 +196,7 @@ export default {
       if (this.resetOnSubmit) {
         this.reset()
       }
-      this.$emit('submit', form)
+      this.$emit('submitForm', form)
     },
     reset () {
       this.dirty = false
