@@ -40,7 +40,7 @@ export default {
     input (event) {
       this.dirty = true
       this.value = event.target.checked
-      this.$emit('input', event.target.checked)
+      this.$emit('changeField', event.target.checked)
     }
   }
 }

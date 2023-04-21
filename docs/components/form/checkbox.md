@@ -56,3 +56,17 @@ Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) 
 ```
 
 <div class="mb-xs-8" />
+
+## Emits
+
+- `@input`. Native event emit.
+
+<div class="mb-xs-8" />
+
+- `@change`. Native change emit.
+
+<div class="mb-xs-8" />
+
+- `@changeField`. Custom change emit.
+
+<div class="mb-xs-8" />
