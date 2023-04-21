@@ -103,14 +103,14 @@ export default {
     input (event) {
       this.value = this.formatInput(event.target.value)
 
-      this.$emit('input', this.value)
+      this.$emit('inputField', this.value)
 
       this.validate()
     },
     change () {
       this.dirty = true
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     },
     enterPressed (event) {
       this.keyPressed = event.keyCode

@@ -199,3 +199,21 @@ Implements mixins [`ValidationsInputMixin`](/components/form/validations-input-m
 ```
 
 <div class="mb-xs-8" />
+
+## Emits
+
+- `@input`. Native event emit.
+
+<div class="mb-xs-8" />
+
+- `@inputField`. Custom event emit.
+
+<div class="mb-xs-8" />
+
+- `@change`. Native change emit.
+
+<div class="mb-xs-8" />
+
+- `@changeField`. Custom change emit.
+
+<div class="mb-xs-8" />
