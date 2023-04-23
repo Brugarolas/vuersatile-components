@@ -1,10 +1,13 @@
 {
   "name": "vuersatile-components",
   "descrption": "A Vue 3 component library with a CSS framework integrated",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:vite && npm run build:scss && npm run minify:css",
+    "build:vite": "vite build",
+    "build:scss": "bundle-scss -m \"./lib/scss/custom/base-theme/support/index.scss\" -d \"./dist/style.scss\"",
+    "minify:css": "csso ./dist/style.css --output ./dist/style.css",
     "preview": "vite preview",
     "test:unit": "vitest",
     "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
@@ -30,6 +33,8 @@
     "@fortawesome/fontawesome-pro": "^6.4.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/test-utils": "^2.3.2",
+    "bundle-scss": "^1.5.1",
+    "csso-cli": "^4.0.2",
     "cypress": "^12.10.0",
     "eslint": "^8.38.0",
     "eslint-plugin-cypress": "^2.13.2",
@@ -60,6 +65,7 @@
   "files": [
     "dist/vuersatile-components.js",
     "dist/style.css",
+    "dist/style.scss",
     "dist/fonts/fa-solid-900.woff2",
     "dist/fonts/fa-solid-900.ttf",
     "README.md",

@@ -106,6 +106,7 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `
+            @use "sass:math";
             @import "@/scss/custom/base-theme/support/index.scss";
             @import "@/../docs/.vitepress/styles/_icons.scss";
             @import "@/../docs/.vitepress/styles/index.scss";
