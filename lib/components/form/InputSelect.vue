@@ -137,7 +137,8 @@ export default {
   computed: {
     componentClass () {
       return {
-        'input-select--open': this.isOpen
+        'input-select--open': this.isOpen,
+        'input-select--error': this.shouldShowErrors
       }
     },
     dataStateOptions () {
@@ -383,14 +384,27 @@ export default {
   position: relative;
 
   .input-select__list-wrapper {
+    .input-base__right-icon {
+      @include button-reset-browser-tap-styles;
+      @include button-reset-styles;
+      color: $greyscale-color-30;
+      transition: color .3s ease, transform .3s ease;
+      will-change: transform;
+    }
+  }
+
+  &--error {
+    .input-select__list-wrapper {
+      .input-base__wrapper {
+        color: $input-text-error;
+        border-color: $input-border-error;
+      }
+
       .input-base__right-icon {
-        @include button-reset-browser-tap-styles;
-        @include button-reset-styles;
-        color: $greyscale-color-30;
-        transition: color .3s ease, transform .3s ease;
-        will-change: transform;
+        color: $input-text-error;
       }
     }
+  }
 
   &--open {
     .input-select__list-wrapper {
@@ -419,7 +433,6 @@ export default {
     margin-bottom: $space-2;
   }
 
-  // TODO delete this when refactor label (please, don´t erase this comment)
   &__label-text {
     @include text-overflow-ellipsis;
     color: $input-text;
@@ -427,7 +440,6 @@ export default {
     font-weight: $fw-semibold;
   }
 
-  // TODO delete this when refactor label (please, don´t erase this comment)
   &__label-clear-button {
     @include button-reset-browser-tap-styles;
     @include button-reset-styles;
@@ -462,7 +474,6 @@ export default {
     will-change: transform, opacity;
     z-index: 3;
 
-    // TODO update this when refactor modals (please, don´t erase this comment)
     &--outside {
       z-index: 10000;
     }
