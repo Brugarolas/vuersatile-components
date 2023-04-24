@@ -269,3 +269,9 @@ Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) 
 ```
 
 <div class="mb-xs-8" />
+
+## Emits
+
+- `changeField`. Custom change event.
+
+<div class="mb-xs-8" />
