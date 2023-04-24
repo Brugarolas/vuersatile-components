@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from "vue"
+
 import {
   Card,
   Tooltip,
@@ -17,11 +19,14 @@ import {
   InputMultiSelect,
   InputDate,
   InputDateRange,
-  InputRange
+  InputRange,
+  StepManager,
+  Button
 } from '../../dist/vuersatile-components.js';
 
 const passwordValidations = ['not-empty', { name: 'min-length', params: [8] }]
 const numberValidations = ['not-empty', { name: 'min-value', params: [18] }]
+const moneyValidations = ['not-empty', { name: 'min-value', params: [6000] }]
 
 const segmentedControlDateOptions = [
   { value: { id: 1, text: 'DAILY' }, text: 'Daily' },
@@ -50,6 +55,19 @@ const multiselectOptions = [
   { value: { id: 6, text: 'AURELIA' }, text: 'Aurelia' },
   { value: { id: 7, text: 'LIT' }, text: 'Lit/Polymer' }
 ]
+
+const stepManagerData = [
+  { title: 'Datos de perfil', description: 'Configuración de datos' },
+  { title: 'Datos de interés', description: 'Configuración de atribución e interés' },
+  { title: 'Datos de usuario', description: 'Configuración de usuario' }
+]
+let step = ref(0)
+const stepAhead = () => {
+  step.value += 1
+}
+const stepBack = () => {
+  step.value -= 1
+}
 
 const log = (formData) => {
   console.log(formData);
@@ -173,4 +191,23 @@ main.pr-xs-6.pl-xs-6
 
         .col-6.mb-xs-4
           InputDateRange(name="daterange", label="Select a date range", placeholder="Select date range", @selectDate="log", @reset="log", @input="log")
+
+  Card.mt-xs-6(title="Step Manager")
+    StepManager.mt-xs-4(:steps="stepManagerData", :currentStep="step")
+      template(v-slot:step1)
+        Form(@submit="stepAhead")
+          InputText.mb-xs-2(name="birthdate", label="Fecha de nacimiento", placeholder="DD/MM/YYYY", :validations="['not-empty', 'date']", inputType="tel", customType="datetext")
+      template(v-slot:step2)
+        Form(@submit="stepAhead")
+          InputNumber.mb-xs-2(name="money", label="Nómina anual", placeholder="Introduce tu nómina en € brutos anuales", :validations="moneyValidations")
+
+          template(v-slot:buttons)
+            Button(text="Atrás", type="tertiary", @click="stepBack")
+      template(v-slot:step3)
+        Form(@submit="log")
+          InputText.mb-xs-2(name="name", label="Nombre", :validations="['not-empty']")
+          InputText.mb-xs-2(name="lastName", label="Apellidos", :validations="['not-empty']")
+
+          template(v-slot:buttons)
+            Button(text="Atrás", type="tertiary", @click="stepBack")
 </template>
