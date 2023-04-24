@@ -127,14 +127,14 @@ export default {
 
       this.convertInputToNumber(event.target.value)
 
-      this.$emit('input', event.target.value)
+      this.$emit('inputField', event.target.value)
 
       this.validate()
     },
     change () {
       this.dirty = true
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     },
 
     convertInputToNumber (newValue) {

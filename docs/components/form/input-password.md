@@ -41,3 +41,21 @@ Has the same API than [`InputText`](/components/form/input-text).
     </Form>
 </Card>
 ```
+
+## Emits
+
+- `@input`. Native event emit.
+
+<div class="mb-xs-8" />
+
+- `@inputField`. Custom event emit.
+
+<div class="mb-xs-8" />
+
+- `@change`. Native change emit.
+
+<div class="mb-xs-8" />
+
+- `@changeField`. Custom change emit.
+
+<div class="mb-xs-8" />

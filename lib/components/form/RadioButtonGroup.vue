@@ -60,12 +60,12 @@ export default {
     change (event) {
       this.dirty = true
       this.value = event.target.value
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     },
     input (event) {
       this.dirty = true
       this.value = event.target.value
-      this.$emit('input', this.value)
+      this.$emit('inputField', this.value)
     }
   }
 }
