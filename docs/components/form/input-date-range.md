@@ -64,6 +64,6 @@ Implements mixins [`RequiredInputMixin`](/components/form/required-input-mixin) 
 
 ## Emits
 
-- `input`. Custom input event.
+- `changeField`. Custom change event.
 
 <div class="mb-xs-8" />

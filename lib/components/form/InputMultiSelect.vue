@@ -301,7 +301,7 @@ export default {
     change () {
       this.dirty = true
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     },
     clear () {
       this.dirty = true
@@ -317,14 +317,14 @@ export default {
       this.value = []
       this.selected = {}
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     },
     all () {
       this.dirty = true
 
       this._selectOptions(this.selectableOptions)
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     },
 
     toggle () {
@@ -376,7 +376,7 @@ export default {
 
       this._selectOptions(this.filteredOptions)
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
 
       this.close()
     },
@@ -396,6 +396,8 @@ export default {
 
       this.value = []
       this.selected = {}
+
+      this.$emit('changeField', this.value)
     }
   }
 }

@@ -182,3 +182,9 @@ const multiselectOptions = [
 ```
 
 <div class="mb-xs-8" />
+
+## Emits
+
+- `changeField`. Custom change event.
+
+<div class="mb-xs-8" />

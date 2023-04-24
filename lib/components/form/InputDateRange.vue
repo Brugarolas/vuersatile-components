@@ -55,7 +55,7 @@ export default {
         input (newValue) {
             this.dirty = true
             this.value = newValue
-            this.$emit('input', newValue)
+            this.$emit('changeField', newValue)
         }
     }
 }
