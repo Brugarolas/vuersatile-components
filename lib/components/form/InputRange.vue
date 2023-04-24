@@ -179,10 +179,10 @@ export default {
       this.valueModified = true
       this.showClearButton = true
       this.value = value
+      this.$emit('changeField', value)
     },
     onDragEnd () {
       this.showClearButton = true
-      this.$emit('change')
     },
     openDropdown () {
       if (!this.dropdownOpen) {
