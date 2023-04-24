@@ -67,3 +67,9 @@ const segmentedControlDateOptions = [
     </Form>
 </Card>
 ```
+
+## Emits
+
+- `changeField`. Custom change event.
+
+<div class="mb-xs-8" />

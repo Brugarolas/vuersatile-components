@@ -141,14 +141,14 @@ export default {
       this.dirty = true
       this.value = value
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     },
 
     clear () {
       this.dirty = true
       this.value = null
 
-      this.$emit('change', null)
+      this.$emit('changeField', null)
     }
   }
 }

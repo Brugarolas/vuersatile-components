@@ -43,7 +43,7 @@ export default {
     onChange () {
       this.dirty = true
 
-      this.$emit('change', this.value)
+      this.$emit('changeField', this.value)
     }
   }
 }
