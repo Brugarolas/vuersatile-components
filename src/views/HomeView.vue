@@ -76,7 +76,11 @@ main.pr-xs-6.pl-xs-6
             label="E-mail",
             placeholder="Enter your e-mail...",
             icon="at",
-            :validations="['not-empty', 'email']"
+            :validations="['not-empty', 'email']",
+            @input="log",
+            @inputField="log",
+            @change="log",
+            @changeField="log"
           )
       
         .col-6.mb-xs-4
@@ -84,24 +88,37 @@ main.pr-xs-6.pl-xs-6
             name="password",
             label="Password",
             placeholder="Enter a secure password...",
-            :validations="passwordValidations"
+            :validations="passwordValidations",
+            @input="log",
+            @inputField="log",
+            @change="log",
+            @changeField="log"
           )
       
       .row
         .col-6.mb-xs-4
-          ToggleSwitch(name="newsletter", label="Send me weekly")
+          ToggleSwitch(name="newsletter", label="Send me weekly", @changeField="log")
         
         .col-6.mb-xs-4.mt-xs-4
           Tooltip(text="Required checkbox", position="top")
-            Checkbox(name="conditions", label="I accept all the terms and conditions", :required="true")
+            Checkbox(name="conditions", label="I accept all the terms and conditions", :required="true", @input="log", @change="log", @changeField="log")
         
       .row
         .col-12.mb-xs-4
-          SegmentedControl(name="periodicity", label="Payment periodicity", :options="segmentedControlDateOptions")
+          SegmentedControl(name="periodicity", label="Payment periodicity", :options="segmentedControlDateOptions", @changeField="log")
 
       .row
         .col-12.mb-xs-4
-          InputTextarea(name="comments", label="CV summary", placeholder="Write here the summary of your employment history", :validations="['not-empty']")
+          InputTextarea(
+            name="comments",
+            label="CV summary",
+            placeholder="Write here the summary of your employment history",
+            :validations="['not-empty']",
+            @input="log",
+            @inputField="log",
+            @change="log",
+            @changeField="log"
+          )
       
       .row
         .col-6.mb-xs-4
@@ -113,7 +130,8 @@ main.pr-xs-6.pl-xs-6
             :allowClear="true",
             :allowSearch="true",
             :mountOptionsOutside="true",
-            :options="selectOptions"
+            :options="selectOptions",
+            @changeField="log"
           )
 
         .col-6.mb-xs-4
@@ -125,15 +143,16 @@ main.pr-xs-6.pl-xs-6
             :allowClear="true",
             :allowSearch="true",
             :options="multiselectOptions",
-            :initialValue="[multiselectOptions[0].value]"
+            :initialValue="[multiselectOptions[0].value]",
+            @changeField="log"
           )
 
       .row
         .col-4.mb-xs-4
-          RadioButtonGroup(name="contact", label="Select preferred way of contact", :inputValues="radioOptions")
+          RadioButtonGroup(name="contact", label="Select preferred way of contact", :inputValues="radioOptions", @input="log", @inputField="log", @change="log", @changeField="log")
 
         .col-4.mb-xs-4
-          InputRange(name="range", label="Select range")
+          InputRange(name="range", label="Select range", @changeField="log")
 
         .col-4.mb-xs-4
             InputNumber(
@@ -141,13 +160,17 @@ main.pr-xs-6.pl-xs-6
               label="Age",
               placeholder="You must be over 18...",
               icon="calendar-days",
-              :validations="numberValidations"
+              :validations="numberValidations",
+              @input="log",
+              @inputField="log",
+              @change="log",
+              @changeField="log"
             )
 
       .row
         .col-6.mb-xs-4
-          InputDate(name="date", label="Select a date", placeholder="Select date")
+          InputDate(name="date", label="Select a date", placeholder="Select date", @selectDate="log", @reset="log", @input="log")
 
         .col-6.mb-xs-4
-          InputDateRange(name="daterange", label="Select a date range", placeholder="Select date range")
+          InputDateRange(name="daterange", label="Select a date range", placeholder="Select date range", @selectDate="log", @reset="log", @input="log")
 </template>
