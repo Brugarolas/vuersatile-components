@@ -55,7 +55,7 @@ export default {
     &--current,
     &--visited {
       .step-manager__number {
-        background-color: $greyscale-color-70;
+        background-color: $step-manager-active-bg-color;
         color: $text-negative-color;
       }
 
