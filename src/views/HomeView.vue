@@ -21,6 +21,7 @@ import {
   InputDateRange,
   InputRange,
   StepManager,
+  TabManager,
   Button
 } from '../../dist/vuersatile-components.js';
 
@@ -63,11 +64,20 @@ const stepManagerData = [
 ]
 let step = ref(0)
 const stepAhead = () => {
+  console.log('before', step.value)
   step.value += 1
+  console.log('after', step.value)
 }
 const stepBack = () => {
+  console.log('before', step.value)
   step.value -= 1
+  console.log('after', step.value)
 }
+
+const tabs = [
+  { name: 'personal', description: 'Personal information' },
+  { name: 'money', description: 'Yearly salary' }
+]
 
 const log = (formData) => {
   console.log(formData);
@@ -77,7 +87,7 @@ const log = (formData) => {
 <template lang="pug">
 main.pr-xs-6.pl-xs-6
   Card.mt-xs-6(title="Work in progress!")
-    div Documentation will be here...
+    div Documentation will (probably NOT) be here...
 
     .mr-xs-4.ml-xs-4
       LockedIcon(text="You can't do that here!")
@@ -196,18 +206,26 @@ main.pr-xs-6.pl-xs-6
     StepManager.mt-xs-4(:steps="stepManagerData", :currentStep="step")
       template(v-slot:step1)
         Form(@submit="stepAhead")
-          InputText.mb-xs-2(name="birthdate", label="Enter yout birthdate", placeholder="MM/DD/YYYY", :validations="['not-empty', 'date']", inputType="tel", customType="datetext")
+          InputText.mb-xs-4(name="birthdate", label="Enter your birthdate", placeholder="MM/DD/YYYY", :validations="['not-empty', 'date']", inputType="tel", customType="datetext")
       template(v-slot:step2)
         Form(@submit="stepAhead")
-          InputNumber.mb-xs-2(name="money", label="Yearly salary", placeholder="Enter your salary in € gross per year", :validations="moneyValidations")
+          InputNumber.mb-xs-4(name="money", label="Yearly salary", placeholder="Enter your salary in € gross per year", :validations="moneyValidations")
 
           template(v-slot:buttons)
             Button(text="Back", type="tertiary", @click="stepBack")
       template(v-slot:step3)
         Form(@submit="log")
-          InputText.mb-xs-2(name="name", label="Name", :validations="['not-empty']")
-          InputText.mb-xs-2(name="lastName", label="Last name", :validations="['not-empty']")
+          InputText.mb-xs-4(name="name", label="Name", :validations="['not-empty']")
+          InputText.mb-xs-4(name="lastName", label="Last name", :validations="['not-empty']")
 
           template(v-slot:buttons)
             Button(text="Back", type="tertiary", @click="stepBack")
+  
+  Card.mt-xs-6.mb-xs-6(title="Tab Manager")
+    TabManager(:tabs="tabs")
+      template(v-slot:personal)
+        InputText.mb-xs-2(name="name", label="Name", :validations="['not-empty']")
+        InputText.mb-xs-2(name="lastName", label="Last name", :validations="['not-empty']")
+      template(v-slot:money)
+        InputNumber.mb-xs-2(name="money", label="Yearly salary", placeholder="Enter your salary in € gross per year", :validations="moneyValidations")
 </template>
