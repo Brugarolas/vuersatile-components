@@ -54,15 +54,20 @@ export default {
 
     &--current,
     &--visited {
-      .step-manager__number {
-        background-color: $step-manager-active-bg-color;
-        color: $text-negative-color;
-      }
-
       .step-manager__title,
       .step-manager__description {
         color: $greyscale-color-90;
       }
+    }
+
+    &--current .step-manager__number {
+      background-color: $step-manager-active-bg-color;
+      color: $text-negative-color;
+    }
+
+    &--visited .step-manager__number {
+      background-color: $greyscale-color-70;
+      color: $text-negative-color;
     }
 
     &--visited + .step-manager__icon {
