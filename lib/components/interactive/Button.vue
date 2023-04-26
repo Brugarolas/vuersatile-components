@@ -1,5 +1,5 @@
 <template lang="pug">
-button.button(:class="[typeClass, sizeClass, onlyIconClass, loadingClass]", :disabled="isDisabled", :type="button", @click="click")
+button.button(:class="[typeClass, sizeClass, onlyIconClass, loadingClass]", :disabled="isDisabled", :type="button")
     Icon.button__icon(v-if="buttonIcon", :icon="buttonIcon", :size="iconSize", :variant="variant")
     span.button__text(v-if="text") {{ text }}
 </template>
@@ -80,11 +80,6 @@ export default {
     },
     isDisabled () {
       return this.loading || this.disabled
-    }
-  },
-  methods: {
-    click (event) {
-      this.$emit('click', event)
     }
   }
 }
