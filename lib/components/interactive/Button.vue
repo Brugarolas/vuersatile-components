@@ -1,6 +1,6 @@
 <template lang="pug">
 button.button(:class="[typeClass, sizeClass, onlyIconClass, loadingClass]", :disabled="isDisabled", :type="button")
-  Icon.button__icon(v-if="buttonIcon", :icon="buttonIcon", :iconVariant="iconVariant", :size="iconSize", :variant="variant")
+  Icon.button__icon(v-if="buttonIcon", :icon="buttonIcon", :variant="iconVariant", :size="iconSize")
   span.button__text(v-if="text") {{ text }}
 </template>
 
@@ -50,12 +50,6 @@ export default {
       type: String,
       default: 'button',
       validator: (value) => ['button', 'submit', 'reset'].includes(value)
-    },
-    variant: {
-      type: String,
-      validator: (value) => !value || ['fa-solid', 'fa-regular', 'fa-light'].includes(value),
-      required: false,
-      default: 'fa-solid'
     }
   },
   computed: {

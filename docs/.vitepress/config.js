@@ -61,6 +61,15 @@ export default defineConfig({
               { text: 'LockedIcon', link: '/components/info/locked-icon' },
               { text: 'TooltipInfo', link: '/components/info/tooltip-info' },
             ]
+          },
+          {
+            text: 'Interactive',
+            items: [
+              { text: 'Button', link: '/components/interactive/button' },
+              { text: 'StepManager', link: '/components/interactive/step-manager' },
+              { text: 'TabManager', link: '/components/interactive/tab-manager' },
+              { text: 'Tag', link: '/components/interactive/tag' }
+            ]
           }
         ]
       },

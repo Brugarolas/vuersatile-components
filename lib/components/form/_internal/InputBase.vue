@@ -15,7 +15,7 @@
         :id="label && fieldId",
         v-on="listeners"
       )
-      Icon.input-base__right-icon(v-if="icon", :icon="icon", :iconVariant="iconVariant", :size="iconSize", @click="clickIconHandler")
+      Icon.input-base__right-icon(v-if="icon", :icon="icon", :variant="iconVariant", :size="iconSize", @click="clickIconHandler")
 
       Button.input-base__right-button(v-if="rightButtonProps", :disabled="rightButtonProps.disabled" :type="rightButtonProps.type", :size="rightButtonProps.size", :icon="rightButtonProps.icon", :variant="rightButtonProps.variant", :colorType="rightButtonProps.colorType" @click="_ => rightButtonProps.clickHandler()")
 
