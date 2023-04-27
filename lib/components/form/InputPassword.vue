@@ -5,6 +5,7 @@ InputBase.input-password(
   :name="name",
   :label="label",
   :icon="iconShowPassword",
+  :iconVariant="iconVariant",
   iconSize="s",
   :error="shouldShowErrors ? errorMessage : null",
   :placeholder="placeholder",

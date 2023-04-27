@@ -1,7 +1,7 @@
 <template lang="pug">
 button.button(:class="[typeClass, sizeClass, onlyIconClass, loadingClass]", :disabled="isDisabled", :type="button")
-    Icon.button__icon(v-if="buttonIcon", :icon="buttonIcon", :size="iconSize", :variant="variant")
-    span.button__text(v-if="text") {{ text }}
+  Icon.button__icon(v-if="buttonIcon", :icon="buttonIcon", :iconVariant="iconVariant", :size="iconSize", :variant="variant")
+  span.button__text(v-if="text") {{ text }}
 </template>
 
 <script>
@@ -22,6 +22,10 @@ export default {
     icon: {
       type: String,
       default: null
+    },
+    iconVariant: {
+      type: String,
+      default: 'fa-solid'
     },
     type: {
       type: String,
