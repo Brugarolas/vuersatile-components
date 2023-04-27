@@ -43,7 +43,8 @@ export default {
     },
     iconVariant: {
       type: String,
-      default: 'fa-solid'
+      validator: (value) => !value || ['solid', 'regular', 'light', 'thin', 'duotone', 'brands'].includes(value),
+      default: 'solid'
     },
     placeholder: {
       type: String,
