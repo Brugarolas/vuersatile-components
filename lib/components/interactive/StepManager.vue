@@ -7,7 +7,7 @@
         .step-manager__info
           p.step-manager__title {{ step.title }}
           p.step-manager__description {{ step.description }}
-      Icon.step-manager__icon(v-if="index + 1 < steps.length", icon="ght")
+      Icon.step-manager__icon(v-if="index + 1 < steps.length", icon="right-long")
 
   .step-manager__content(:data-step-selected="currentStep")
     TransitionGroupFade.step-manager__animation

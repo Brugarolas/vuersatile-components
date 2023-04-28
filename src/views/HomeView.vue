@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue"
+import { ref } from 'vue'
 
 import {
   Card,
@@ -58,20 +58,16 @@ const multiselectOptions = [
 ]
 
 const stepManagerData = [
-  { title: 'Datos de perfil', description: 'Configuración de datos' },
-  { title: 'Datos de interés', description: 'Configuración de atribución e interés' },
-  { title: 'Datos de usuario', description: 'Configuración de usuario' }
+  { title: 'Profile data', description: 'Data settings' },
+  { title: 'Interest data', description: 'Attribution and interest settings' },
+  { title: 'User data', description: 'User settings' }
 ]
-let step = ref(0)
+const step = ref(0)
 const stepAhead = () => {
-  console.log('before', step.value)
   step.value += 1
-  console.log('after', step.value)
 }
 const stepBack = () => {
-  console.log('before', step.value)
   step.value -= 1
-  console.log('after', step.value)
 }
 
 const tabs = [
