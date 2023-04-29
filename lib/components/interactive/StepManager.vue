@@ -12,7 +12,7 @@
   .step-manager__content(:data-step-selected="currentStep")
     TransitionGroupFade.step-manager__animation
       template(v-for="(step, index) in steps", :key="index")
-        .step-manager__wrapper(v-if="index === currentStep")
+        .step-manager__wrapper(v-show="index === currentStep")
           slot(:name="`step${index + 1}`")
 </template>
 

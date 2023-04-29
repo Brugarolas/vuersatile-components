@@ -11,8 +11,8 @@
 
   .tab-manager__wrapper(:data-tab-selected="selectedTabDataName")
     TransitionGroupSlide(:direction="animationDirection")
-      template(v-for="tab in tabs")
-        .tab-manager__content(v-if="tab.name === selectedTabName", :key="tab.name")
+      template(v-for="tab in tabs", :key="tab.name")
+        .tab-manager__content(v-show="tab.name === selectedTabName", :data-tab-name="tab.name")
           slot(:name="tab.name")
 </template>
 
@@ -77,7 +77,7 @@ export default {
   overflow: hidden;
 
   &__nav {
-    box-shadow: $box-shadow-1;
+    box-shadow: $box-shadow-1-bottom;
     display: flex;
     flex-wrap: wrap;
   }
