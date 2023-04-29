@@ -25,7 +25,7 @@ Component `Button`. Check the console for more info.
 
 ## Props
 
-- `icon` icon & `iconVariant` icon variant, in case you have included more `Font Awesome` variants. `Vuersaile Components` only comes with `solid` bundled. (Default `solid`), (`solid`, `regular`, `light`, `thin`, `duotone`, `brands`).
+- `icon` icon & `iconVariant` icon variant, in case you have included more `Font Awesome` variants. `Vuersatile Components` only comes with `solid` bundled. (Default `solid`), (`solid`, `regular`, `light`, `thin`, `duotone`, `brands`).
 
 <Card>
   <Button text="Button" icon="rocket-launch" iconVariant="regular" @click="log" />

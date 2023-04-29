@@ -1,6 +1,6 @@
 <template lang="pug">
 .tag(:class="[colorClass, sizeClass]", @click="$emit('click', $event)")
-    Icon.tag__icon(v-if="TagIcon", :icon="TagIcon" :variant="iconVariant")
+    Icon.tag__icon(v-if="icon", :icon="icon", :variant="iconVariant")
     span.tag__text {{ text }}
     span.tag__number(v-if="hasNumber") {{ number }}
     button.tag__button(type="button", v-if="showCloseButton", @click.prevent="$emit('close', $event)")
@@ -18,35 +18,6 @@ export default {
   },
 
   props: {
-    color: {
-      type: String,
-      validator: (value) => !value || [
-        'amber',
-        'orange',
-        'red',
-        'pink',
-        'purple',
-        'blue',
-        'turquoise',
-        'green',
-        'lime',
-        'greyscale'
-      ].includes(value),
-      default: 'greyscale'
-    },
-    size: {
-      type: String,
-      default: 's',
-      validator: (value) => ['s', 'm'].includes(value)
-    },
-    icon: {
-      type: String,
-      default: null
-    },
-    iconVariant: {
-      type: String,
-      default: 'vuersatile'
-    },
     text: {
       type: String,
       required: true
@@ -54,6 +25,25 @@ export default {
     number: {
       type: Number,
       default: null
+    },
+    icon: {
+      type: String,
+      default: null
+    },
+    iconVariant: {
+      type: String,
+      validator: (value) => !value || ['solid', 'regular', 'light', 'thin', 'duotone', 'brands'].includes(value),
+      default: 'solid'
+    },
+    color: {
+      type: String,
+      validator: (value) => !value || ['amber', 'orange', 'red', 'pink', 'purple', 'blue', 'turquoise', 'green', 'lime', 'greyscale'].includes(value),
+      default: 'greyscale'
+    },
+    size: {
+      type: String,
+      default: 's',
+      validator: (value) => ['s', 'm'].includes(value)
     },
     showCloseButton: {
       type: Boolean,
@@ -67,9 +57,6 @@ export default {
     },
     sizeClass () {
       return this.size ? `${COMPONENT_CLASS}--${this.size}` : ''
-    },
-    TagIcon () {
-      return this.icon
     },
     hasNumber () {
       // Check for falsy values to allow them to render (eg. 0)
