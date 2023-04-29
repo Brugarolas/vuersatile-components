@@ -1,7 +1,7 @@
 {
   "name": "vuersatile-components",
   "descrption": "A Vue 3 component library with a CSS framework integrated",
-  "version": "0.1.26",
+  "version": "0.2.0",
   "scripts": {
     "dev": "vite",
     "build": "npm run build:vite && npm run build:scss && npm run minify:css",
