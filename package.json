@@ -29,7 +29,7 @@
     "vue-i18n": "^9.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.4",
+    "@babel/core": "^7.21.5",
     "@fortawesome/fontawesome-pro": "^6.4.0",
     "@vitejs/plugin-vue": "^4.2.1",
     "@vue/test-utils": "^2.3.2",
@@ -37,7 +37,7 @@
     "csso-cli": "^4.0.2",
     "cypress": "^12.11.0",
     "eslint": "^8.39.0",
-    "eslint-plugin-cypress": "^2.13.2",
+    "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-vue": "^9.11.0",
     "flexsearch": "^0.7.31",
     "http-server": "^14.1.1",
