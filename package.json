@@ -42,7 +42,7 @@
     "flexsearch": "^0.7.31",
     "http-server": "^14.1.1",
     "jsdom": "^22.0.0",
-    "npm-check-updates": "^16.10.9",
+    "npm-check-updates": "^16.10.10",
     "pinia": "^2.0.35",
     "sass": "^1.62.1",
     "start-server-and-test": "^2.0.0",
